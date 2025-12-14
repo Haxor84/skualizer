@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Skualizer Suite</title>
+    <meta name="description" content="Informativa sulla privacy di Skualizer Suite - Come proteggiamo i tuoi dati e rispettiamo la tua privacy">
+    <meta name="robots" content="index, follow">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/modules/margynomic/css/margynomic.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <style>
+        /* Stili specifici per la privacy page */
+        .privacy-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .privacy-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .privacy-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .privacy-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .privacy-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .main-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            background: white;
+        }
+        
+        .privacy-section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+        
+        .section-content {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #34495e;
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-content p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .section-content ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+        
+        .section-content li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .highlight-box {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight-box h4 {
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .contact-info a {
+            color: #ff6b35;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .last-updated {
+            background: #ecf0f1;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+        }
+        
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-links {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-links a {
+            color: #ff6b35;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 500;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-disclaimer {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header con logo e menu */
+        .header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #667eea;
+        }
+        
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 4px;
+        }
+        
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #2c3e50;
+            transition: 0.3s;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .privacy-title {
+                font-size: 2.2rem;
+            }
+            
+            .privacy-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .main-content {
+                padding: 40px 15px;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .hamburger {
+                display: flex;
+            }
+            
+            .footer-links a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+        
+        /* Offset per header fisso */
+        body {
+            padding-top: 80px;
+        }
+        
+        /* Animazioni */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">SkuAlizer</a>
+            <nav class="nav-menu">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/#come-funziona" class="nav-link">Come funziona</a>
+                <a href="/#prezzi" class="nav-link">Prezzi</a>
+                <a href="/modules/margynomic/login/login.php" class="nav-link">Accedi</a>
+            </nav>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Privacy Header -->
+    <section class="privacy-header">
+        <div class="privacy-content fade-in-up">
+            <h1 class="privacy-title">Privacy Policy</h1>
+            <p class="privacy-subtitle">La tua privacy è importante per noi. Scopri come proteggiamo i tuoi dati.</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="last-updated">
+            <strong>Ultimo aggiornamento:</strong> 21 Giugno 2024
+        </div>
+
+        <!-- Introduzione -->
+        <section class="privacy-section fade-in-up">
+            <h2 class="section-title">1. Introduzione</h2>
+            <div class="section-content">
+                <p>Benvenuto nella Privacy Policy di <strong>Skualizer Suite</strong>. Questa informativa descrive come raccogliamo, utilizziamo, proteggiamo e condividiamo le tue informazioni personali quando utilizzi i nostri servizi.</p>
+                <p>Skualizer Suite è una piattaforma professionale dedicata ai venditori Amazon che offre strumenti avanzati per l'analisi dei margini di profitto attraverso l'integrazione con le API ufficiali di Amazon (SP-API).</p>
+                <p>Utilizzando i nostri servizi, accetti le pratiche descritte in questa Privacy Policy. Ti invitiamo a leggere attentamente questo documento.</p>
+            </div>
+        </section>
+
+        <!-- Chi Siamo -->
+        <section class="privacy-section fade-in-up">
+            <h2 class="section-title">2. Chi Siamo</h2>
+            <div class="section-content">
+                <p><strong>Skualizer</strong> è una suite di strumenti professionali progettata specificamente per i venditori Amazon. La nostra missione è fornire insights accurati e actionable sui margini di profitto reali, aiutando i seller a ottimizzare le loro strategie commerciali.</p>
+                
+                <div class="highlight-box">
+                    <h4>Informazioni Legali</h4>
+                    <p><strong>Titolare del trattamento:</strong> Skualizer (Ditta Individuale)<br>
+                    <strong>Sede:</strong> Italia<br>
+                    <strong>Email:</strong> info@skualizer.com<br>
+                    <strong>Sito web:</strong> https://www.skualizer.com</p>
+                </div>
+                
+                <p>Skualizer è una piattaforma indipendente, non affiliata ad Amazon. Operiamo nel pieno rispetto delle normative europee sulla protezione dei dati (GDPR) e delle linee guida di Amazon per l'utilizzo delle SP-API.</p>
+            </div>
+        </section>
+
+        <!-- Dati Raccolti -->
+        <section class="privacy-section fade-in-up">
+            <h2 class="section-title">3. Quali Dati Raccogliamo</h2>
+            <div class="section-content">
+                <p>Per fornire i nostri servizi, raccogliamo diverse tipologie di dati, sempre nel rispetto della tua privacy e solo per le finalità dichiarate:</p>
+                
+                <h4>3.1 Dati di Registrazione</h4>
+                <ul>
+                    <li><strong>Email:</strong> Utilizzata per l'accesso al servizio e le comunicazioni</li>
+                    <li><strong>Password:</strong> Crittografata e utilizzata per l'autenticazione</li>
+                    <li><strong>Nome/Ragione sociale:</strong> Per personalizzare l'esperienza utente</li>
+                    <li><strong>Informazioni di fatturazione:</strong> Necessarie per la gestione dell'abbonamento</li>
+                </ul>
+                
+                <h4>3.2 Dati Amazon SP-API</h4>
+                <ul>
+                    <li><strong>Token di autorizzazione:</strong> Forniti da Amazon per l'accesso alle tue informazioni</li>
+                    <li><strong>Report finanziari:</strong> Settlement reports, fee reports, e dati di vendita</li>
+                    <li><strong>Informazioni sui prodotti:</strong> SKU, ASIN, titoli prodotti, quantità</li>
+                    <li><strong>Dati di spedizione:</strong> Informazioni sui shipment FBA</li>
+                    <li><strong>Marketplace data:</strong> Informazioni sui marketplace di vendita</li>
+                </ul>
+                
+                <h4>3.3 Dati Tecnici</h4>
+                <ul>
+                    <li><strong>Log di accesso:</strong> IP, browser, timestamp delle sessioni</li>
+                    <li><strong>Dati di utilizzo:</strong> Pagine visitate, funzionalità utilizzate</li>
+                    <li><strong>Cookie tecnici:</strong> Per il funzionamento della piattaforma</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Finalità del Trattamento -->
+        <section class="privacy-section fade-in-up">
+            <h2 class="section-title">4. Perché Raccogliamo i Tuoi Dati</h2>
+            <div class="section-content">
+                <p>Utilizziamo i tuoi dati esclusivamente per le seguenti finalità legittime:</p>
+                
+                <h4>4.1 Erogazione del Servizio</h4>
+                <ul>
+                    <li>Calcolo accurato dei margini di profitto sui tuoi prodotti Amazon</li>
+                    <li>Generazione di report dettagliati su performance e redditività</li>
+                    <li>Analisi dei trend di vendita e identificazione di opportunità</li>
+                    <li>Monitoraggio delle fee Amazon e del loro impatto sui margini</li>
+                </ul>
+                
+                <h4>4.2 Supporto e Amministrazione</h4>
+                <ul>
+                    <li>Gestione dell'account utente e dell'abbonamento</li>
+                    <li>Supporto tecnico e risoluzione di problemi</li>
+                    <li>Comunicazioni relative al servizio e aggiornamenti importanti</li>
+                    <li>Fatturazione e gestione dei pagamenti</li>
+                </ul>
+                
+                <h4>4.3 Miglioramento del Servizio</h4>
+                <ul>
+                    <li>Analisi aggregate (anonimizzate) per migliorare le funzionalità</li>
+                    <li>Sviluppo di nuove feature basate sui pattern di utilizzo</li>
+                    <li>Ottimizzazione delle performance della piattaforma</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <h4>Base Giuridica del Trattamento</h4>
+                    <p>Il trattamento dei tuoi dati si basa su:</p>
+                    <ul>
+                        <li><strong>Esecuzione del contratto:</strong> Per fornire i servizi richiesti</li>
+                        <li><strong>Consenso:</strong> Per l'accesso ai dati Amazon tramite SP-API</li>
+                        <li><strong>Interesse legittimo:</strong> Per il miglioramento del servizio e il supporto</li>
+                        <li><strong>Obbligo legale:</strong> Per la fatturazione e gli adempimenti fiscali</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protezione Dati -->
+        <section class="privacy-section fade-in-up">
+            <h2 class="section-title">5. Come Proteggiamo i Tuoi Dati</h2>
+            <div class="section-content">
+                <p>La sicurezza dei tuoi dati è la nostra priorità assoluta. Implementiamo misure di sicurezza all'avanguardia:</p>
+                
+                <h4>5.1 Sicurezza Tecnica</h4>
+                <ul>
+                    <li><strong>Crittografia:</strong> Tutti i dati sono crittografati in transito (TLS 1.3) e a riposo (AES-256)</li>
+                    <li><strong>Accesso limitato:</strong> Solo il personale autorizzato può accedere ai dati, con autenticazione a due fattori</li>
+                    <li><strong>Segregazione:</strong> I dati di ogni utente sono isolati e non accessibili ad altri utenti</li>
+                    <li><strong>Backup sicuri:</strong> Backup automatici crittografati con retention policy definite</li>
+                </ul>
+                
+                <h4>5.2 Sicurezza Organizzativa</h4>
+                <ul>
+                    <li><strong>Formazione del personale:</strong> Training regolare su privacy e sicurezza</li>
+                    <li><strong>Audit periodici:</strong> Controlli regolari dei sistemi e delle procedure</li>
+                    <li><strong>Incident response:</strong> Procedure definite per la gestione di eventuali incidenti</li>
+                    <li><strong>Principio del minimo privilegio:</strong> Accesso ai dati solo quando strettamente necessario</li>
+                </ul>
+                
+                <h4>5.3 Infrastruttura</h4>
+                <ul>
+                    <li><strong>Server sicuri:</strong> Hosting su infrastrutture certificate e monitorate 24/7</li>
+                    <li><strong>Firewall avanzati:</strong> Protezione perimetrale e monitoraggio del traffico</li>
+                    <li><strong>Aggiornamenti regolari:</strong> Patch di sicurezza applicate tempestivamente</li>
+                    <li><strong>Monitoraggio continuo:</strong> Sistemi di rilevamento delle intrusioni attivi</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Diritti dell'Utente -->
+        <section class="privacy-section fade-in-up">
+            <h2 class="section-title">6. I Tuoi Diritti</h2>
+            <div class="section-content">
+                <p>In conformità al GDPR, hai diritto a:</p>
+                
+                <h4>6.1 Diritti di Accesso e Controllo</h4>
+                <ul>
+                    <li><strong>Accesso:</strong> Richiedere una copia di tutti i dati che abbiamo su di te</li>
+                    <li><strong>Rettifica:</strong> Correggere dati inesatti o incompleti</li>
+                    <li><strong>Cancellazione:</strong> Richiedere la cancellazione dei tuoi dati ("diritto all'oblio")</li>
+                    <li><strong>Limitazione:</strong> Limitare il trattamento in determinate circostanze</li>
+                    <li><strong>Portabilità:</strong> Ricevere i tuoi dati in formato strutturato e leggibile</li>
+                </ul>
+                
+                <h4>6.2 Gestione Autorizzazioni Amazon</h4>
+                <ul>
+                    <li><strong>Revoca autorizzazione SP-API:</strong> Puoi revocare l'accesso in qualsiasi momento dal tuo account Amazon Seller Central</li>
+                    <li><strong>Disconnessione immediata:</strong> Possibilità di disconnettere l'account Amazon dalle impostazioni della piattaforma</li>
+                    <li><strong>Controllo granulare:</strong> Gestione delle autorizzazioni per specifiche funzionalità</li>
+                </ul>
+                
+                <h4>6.3 Come Esercitare i Tuoi Diritti</h4>
+                <p>Per esercitare qualsiasi diritto, puoi:</p>
+                <ul>
+                    <li>Inviare una richiesta a <strong>info@skualizer.com</strong></li>
+                    <li>Utilizzare le funzioni di gestione account nella piattaforma</li>
+                    <li>Contattare il nostro supporto tramite chat o ticket</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <h4>Tempi di Risposta</h4>
+                    <p>Ci impegniamo a rispondere alle tue richieste entro <strong>30 giorni</strong> dalla ricezione. Per richieste complesse, potremmo richiedere fino a 60 giorni, informandoti tempestivamente.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Condivisione Dati -->
+        <section class="privacy-section fade-in-up">
+            <h2 class="section-title">7. Condivisione dei Dati</h2>
+            <div class="section-content">
+                <p>Non vendiamo, affittiamo o condividiamo i tuoi dati personali con terze parti per scopi commerciali. Condividiamo i dati solo nei seguenti casi limitati:</p>
+                
+                <h4>7.1 Fornitori di Servizi Essenziali</h4>
+                <ul>
+                    <li><strong>Hosting e infrastruttura:</strong> Provider cloud certificati per l'hosting sicuro</li>
+                    <li><strong>Processori di pagamento:</strong> Per gestire i pagamenti dell'abbonamento</li>
+                    <li><strong>Servizi di email:</strong> Per l'invio di comunicazioni di servizio</li>
+                    <li><strong>Supporto tecnico:</strong> Tool per fornire assistenza clienti</li>
+                </ul>
+                
+                <h4>7.2 Obblighi Legali</h4>
+                <ul>
+                    <li>Quando richiesto da autorità competenti con mandato valido</li>
+                    <li>Per proteggere i diritti, la proprietà o la sicurezza di Skualizer</li>
+                    <li>Per adempiere a obblighi fiscali e contabili</li>
+                </ul>
+                
+                <p><strong>Importante:</strong> Tutti i fornitori di servizi sono vincolati da accordi di riservatezza e devono rispettare gli stessi standard di protezione dei dati che applichiamo internamente.</p>
+            </div>
+        </section>
+
+        <!-- Conservazione Dati -->
+        <section class="privacy-section fade-in-up">
+            <h2 class="section-title">8. Conservazione dei Dati</h2>
+            <div class="section-content">
+                <p>Conserviamo i tuoi dati solo per il tempo necessario alle finalità dichiarate:</p>
+                
+                <h4>8.1 Dati dell'Account</h4>
+                <ul>
+                    <li><strong>Account attivo:</strong> Per tutta la durata dell'abbonamento</li>
+                    <li><strong>Dopo cancellazione:</strong> 30 giorni per eventuali riattivazioni</li>
+                    <li><strong>Dati di fatturazione:</strong> 10 anni per obblighi fiscali</li>
+                </ul>
+                
+                <h4>8.2 Dati Amazon</h4>
+                <ul>
+                    <li><strong>Report e analisi:</strong> Conservati finché l'account è attivo</li>
+                    <li><strong>Dopo disconnessione Amazon:</strong> Cancellazione immediata</li>
+                    <li><strong>Backup di sicurezza:</strong> Massimo 90 giorni</li>
+                </ul>
+                
+                <h4>8.3 Log Tecnici</h4>
+                <ul>
+                    <li><strong>Log di accesso:</strong> 12 mesi per sicurezza</li>
+                    <li><strong>Log di sistema:</strong> 6 mesi per troubleshooting</li>
+                    <li><strong>Dati aggregati anonimi:</strong> Possono essere conservati indefinitamente</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Cookie e Tracking -->
+        <section class="privacy-section fade-in-up">
+            <h2 class="section-title">9. Cookie e Tecnologie di Tracking</h2>
+            <div class="section-content">
+                <p>Utilizziamo cookie e tecnologie simili per migliorare la tua esperienza:</p>
+                
+                <h4>9.1 Cookie Essenziali</h4>
+                <ul>
+                    <li><strong>Autenticazione:</strong> Per mantenere la sessione di login</li>
+                    <li><strong>Sicurezza:</strong> Per proteggere da attacchi CSRF</li>
+                    <li><strong>Preferenze:</strong> Per ricordare le tue impostazioni</li>
+                </ul>
+                
+                <h4>9.2 Cookie Analitici</h4>
+                <ul>
+                    <li><strong>Utilizzo anonimo:</strong> Per capire come viene utilizzata la piattaforma</li>
+                    <li><strong>Performance:</strong> Per identificare e risolvere problemi tecnici</li>
+                    <li><strong>Miglioramenti:</strong> Per sviluppare nuove funzionalità</li>
+                </ul>
+                
+                <p>Puoi gestire le preferenze sui cookie dalle impostazioni del tuo browser. Nota che disabilitare i cookie essenziali potrebbe limitare alcune funzionalità della piattaforma.</p>
+            </div>
+        </section>
+
+        <!-- Trasferimenti Internazionali -->
+        <section class="privacy-section fade-in-up">
+            <h2 class="section-title">10. Trasferimenti Internazionali</h2>
+            <div class="section-content">
+                <p>I tuoi dati sono principalmente elaborati all'interno dell'Unione Europea. In caso di trasferimenti verso paesi terzi, garantiamo:</p>
+                
+                <ul>
+                    <li><strong>Decisioni di adeguatezza:</strong> Trasferimenti solo verso paesi riconosciuti dalla Commissione Europea</li>
+                    <li><strong>Clausole contrattuali standard:</strong> Accordi che garantiscono protezione equivalente al GDPR</li>
+                    <li><strong>Certificazioni:</strong> Fornitori con certificazioni Privacy Shield o equivalenti</li>
+                    <li><strong>Minimizzazione:</strong> Trasferimento solo dei dati strettamente necessari</li>
+                </ul>
+                
+                <p>Amazon SP-API può comportare trasferimenti verso i server Amazon negli Stati Uniti, sempre nel rispetto delle garanzie di sicurezza fornite da Amazon Web Services.</p>
+            </div>
+        </section>
+
+        <!-- Modifiche alla Privacy Policy -->
+        <section class="privacy-section fade-in-up">
+            <h2 class="section-title">11. Modifiche a Questa Privacy Policy</h2>
+            <div class="section-content">
+                <p>Potremmo aggiornare questa Privacy Policy per riflettere:</p>
+                
+                <ul>
+                    <li>Cambiamenti nelle nostre pratiche di trattamento dati</li>
+                    <li>Nuove funzionalità o servizi</li>
+                    <li>Modifiche normative o legali</li>
+                    <li>Miglioramenti nella sicurezza e protezione</li>
+                </ul>
+                
+                <p>In caso di modifiche sostanziali, ti informeremo tramite:</p>
+                <ul>
+                    <li>Email di notifica</li>
+                    <li>Banner informativo sulla piattaforma</li>
+                    <li>Aggiornamento della data "Ultimo aggiornamento" in cima a questa pagina</li>
+                </ul>
+                
+                <p>Ti invitiamo a rivedere periodicamente questa Privacy Policy per rimanere informato su come proteggiamo i tuoi dati.</p>
+            </div>
+        </section>
+
+        <!-- Contatti -->
+        <div class="contact-info fade-in-up">
+            <h3>Hai Domande sulla Privacy?</h3>
+            <p>Per qualsiasi domanda riguardante questa Privacy Policy o il trattamento dei tuoi dati, non esitare a contattarci:</p>
+            <p><strong>Email:</strong> <a href="mailto:info@skualizer.com">info@skualizer.com</a></p>
+            <p><strong>Oggetto:</strong> "Privacy Policy - [La tua richiesta]"</p>
+            <p>Il nostro team risponderà entro 48 ore lavorative.</p>
+        </div>
+
+        <!-- Disclaimer -->
+        <section class="privacy-section fade-in-up">
+            <h2 class="section-title">12. Disclaimer</h2>
+            <div class="section-content">
+                <p><strong>Skualizer è una piattaforma indipendente, non affiliata ad Amazon.</strong> Amazon, Amazon SP-API, Seller Central e tutti i relativi marchi sono proprietà di Amazon.com, Inc. o delle sue affiliate.</p>
+                
+                <p>L'utilizzo delle Amazon SP-API è soggetto ai termini e condizioni di Amazon. Skualizer agisce come processore autorizzato dei dati Amazon in conformità agli accordi SP-API.</p>
+                
+                <p>Questa Privacy Policy si applica esclusivamente ai servizi di Skualizer e non copre le pratiche di privacy di Amazon o di altre piattaforme di terze parti.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/#come-funziona">Come funziona</a>
+                <a href="/#prezzi">Prezzi</a>
+                <a href="/modules/margynomic/login/register.php">Registrati</a>
+                <a href="/modules/margynomic/login/login.php">Accedi</a>
+            </div>
+            <div class="footer-disclaimer">
+                <p>Hai domande? Contattaci: <a href="mailto:info@skualizer.com">info@skualizer.com</a></p>
+                <p style="margin-top: 1rem;"><strong>Disclaimer:</strong> Skualizer è una piattaforma indipendente, non affiliata ad Amazon. Amazon e il logo Amazon sono marchi registrati di Amazon.com, Inc. o delle sue affiliate.</p>
+                <p style="margin-top: 1rem; opacity: 0.7;">© 2024 Skualizer. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript per interazioni -->
+    <script>
+        // Smooth scrolling per i link di navigazione
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Hamburger menu toggle (per mobile)
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', () => {
+                navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+            });
+        }
+
+        // Animazioni on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Osserva tutti gli elementi con animazione
+        document.querySelectorAll('.privacy-section, .contact-info').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Evidenziazione sezioni durante lo scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.privacy-section');
+            const scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                
+                if (scrollPos >= top && scrollPos < top + height) {
+                    // Sezione attualmente visibile
+                    section.style.borderLeft = '4px solid #667eea';
+                    section.style.paddingLeft = '20px';
+                    section.style.transition = 'all 0.3s ease';
+                } else {
+                    section.style.borderLeft = 'none';
+                    section.style.paddingLeft = '0';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

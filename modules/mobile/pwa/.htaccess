@@ -1,0 +1,14 @@
+# PWA Assets - Long cache
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType application/manifest+json "access plus 1 week"
+</IfModule>
+
+# CORS per manifest
+<IfModule mod_headers.c>
+    <FilesMatch "\.(json)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
+</IfModule>
+

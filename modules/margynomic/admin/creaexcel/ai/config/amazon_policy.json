@@ -1,0 +1,250 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-12-06",
+  "description": "Policy rules Amazon per validazione listing - MVP iniziale",
+  
+  "global": {
+    "forbidden_words": [
+      "best", "top", "#1", "numero 1", "migliore", "n°1", "n.1",
+      "guaranteed 100%", "garanzia 100%", "garanzia totale", "garanzia completa", "garanzia assoluta", "garantito 100%",
+      "free shipping", "spedizione gratis", "spedizione gratuita",
+      "top rated", "best seller", "più venduto",
+      "amazon's choice", "scelta amazon",
+      "fake", "falso", "contraffatto",
+      "cure", "cura", "guarigione", "terapia", "medico"
+    ],
+    
+    "allowed_html_tags": [
+      "strong", "b", "br", "ul", "li", "p", "em", "i"
+    ],
+    
+    "max_keyword_repetition": 2,
+    "min_keyword_length": 4
+  },
+  
+  "fields": {
+    "title": {
+      "label": "Titolo Prodotto",
+      "required": true,
+      "max_length": 200,
+      "min_length": 150,
+      "count_method": "plain_text",
+      "recommended_structure": "[Brand] - [Product] (Formato) | [Benefit 1] | [Benefit 2]",
+      "rules": [
+        "Lunghezza: 150-200 caratteri (OBBLIGATORIO)",
+        "Inizia SEMPRE con brand name",
+        "Includi formato da item_sku (es: 100gr, 30ml)",
+        "Usa separatori | o - per struttura",
+        "NO caratteri speciali ©®™",
+        "NO certificazioni non autorizzate",
+        "Keywords SEO distribuite naturalmente"
+      ],
+      "recommendations": [
+        "Brand all'inizio",
+        "Formato tra parentesi",
+        "Benefit nei primi 80 caratteri",
+        "Marketing emozionale"
+      ]
+    },
+    
+    "description": {
+      "label": "Descrizione Prodotto",
+      "required": true,
+      "max_length": 1200,
+      "max_total_length": 2000,
+      "min_length": 800,
+      "count_method": "without_html",
+      "html_allowed": true,
+      "rules": [
+        "Lunghezza: 800-1200 caratteri ESCLUSI tag HTML (OBBLIGATORIO)",
+        "Usa HTML per formattazione: <b>, <br>, <ul>, <li>",
+        "NO testo troncato, NO concetti in sospeso",
+        "Struttura: Intro → Benefici → Caratteristiche → Modalità d'uso → CTA",
+        "Tono: Marketing emozionale con bias persuasivi",
+        "NO certificazioni/claim non autorizzati"
+      ],
+      "recommendations": [
+        "Hook emozionale iniziale",
+        "Evidenzia benefit in <b>",
+        "Linguaggio sensoriale",
+        "CTA finale persuasiva"
+      ]
+    },
+    
+    "bullet_point": {
+      "label": "Bullet Point",
+      "required": true,
+      "count": 5,
+      "max_length": 250,
+      "min_length": 180,
+      "count_method": "plain_text",
+      "recommended_structure": "✓ [KEYWORD MAIUSCOLA]: [Descrizione benefit completa]",
+      "rules": [
+        "Lunghezza: 180-250 caratteri (OBBLIGATORIO)",
+        "Inizia con ✓ o ✔",
+        "Keyword principale in MAIUSCOLO all'inizio",
+        "NO testo troncato, NO concetti in sospeso",
+        "Focalizza su UN benefit specifico",
+        "Tono: Persuasivo ed emozionale"
+      ],
+      "recommendations": [
+        "Una keyword in CAPS",
+        "Focus su UN benefit",
+        "Linguaggio evocativo",
+        "Verbi d'azione"
+      ]
+    },
+    
+    "generic_keywords": {
+      "label": "Parole Chiave Nascoste",
+      "required": true,
+      "min_length": 150,
+      "max_length": 180,
+      "count_method": "plain_text",
+      "rules": [
+        "Lunghezza: 150-180 caratteri (OBBLIGATORIO)",
+        "NO virgole - keywords separate da spazio",
+        "SOLO keywords MAI usate in title/description/bullets",
+        "Ordine strategico per formare long-tail queries",
+        "Keywords correlate ma non duplicate",
+        "Esempio: 'crema verde etna spalmabile colazione proteica vita sana'"
+      ],
+      "recommendations": [
+        "Sinonimi di keywords principali",
+        "Termini correlati e varianti",
+        "Long-tail search queries",
+        "Ordine strategico: generale → specifico"
+      ]
+    },
+    
+    "ean": {
+      "required": true,
+      "format": "numeric",
+      "length": 13,
+      "validation": "checksum_ean13"
+    },
+    
+    "asin": {
+      "required": false,
+      "format": "alphanumeric",
+      "length": 10,
+      "pattern": "^B0[A-Z0-9]{8}$"
+    },
+    
+    "sku": {
+      "required": true,
+      "max_length": 40,
+      "pattern": "^[A-Z0-9-_]+$",
+      "recommendations": [
+        "Usa solo alfanumerici, trattino, underscore",
+        "No spazi",
+        "Formato consigliato: PREFIX-CATEGORY-ID"
+      ]
+    },
+    
+    "brand": {
+      "required": true,
+      "max_length": 50,
+      "min_length": 2
+    },
+    
+    "manufacturer": {
+      "required": false,
+      "max_length": 100
+    },
+    
+    "price": {
+      "required": true,
+      "format": "decimal",
+      "min_value": 0.01,
+      "max_decimals": 2,
+      "pattern": "^\\d+\\.\\d{2}$"
+    },
+    
+    "quantity": {
+      "required": true,
+      "format": "integer",
+      "min_value": 1
+    },
+    
+    "weight": {
+      "required": false,
+      "format": "decimal",
+      "min_value": 0.01,
+      "units": ["g", "kg", "lb", "oz"]
+    },
+    
+    "country_origin": {
+      "required": true,
+      "allowed_values": [
+        "Italia", "Stati Uniti", "Turchia", "Spagna", "Francia", "Germania",
+        "Grecia", "Egitto", "Marocco", "Portogallo", "Paesi Bassi", "Regno Unito",
+        "Cina", "Giappone", "India", "Brasile", "Argentina", "Australia"
+      ],
+      "recommendations": [
+        "Verifica coerenza con contenuti (geographic consistency)"
+      ]
+    }
+  },
+  
+  "category_specific": {
+    "Grocery": {
+      "required_fields": [
+        "title", "description", "bullet_point", "ean", "sku", "brand",
+        "price", "country_origin", "ingredient_origin", "expiration_dated"
+      ],
+      "additional_rules": {
+        "allergen_information": {
+          "required": false,
+          "recommendations": ["Specifica allergeni anche se assenti"]
+        },
+        "nutrition_facts": {
+          "required": false,
+          "recommendations": ["Fornisci tabella nutrizionale se disponibile"]
+        }
+      }
+    },
+    
+    "Electronics": {
+      "required_fields": [
+        "title", "description", "bullet_point", "ean", "sku", "brand",
+        "price", "manufacturer", "warranty"
+      ]
+    },
+    
+    "Fashion": {
+      "required_fields": [
+        "title", "description", "bullet_point", "ean", "sku", "brand",
+        "price", "size", "color", "material"
+      ]
+    }
+  },
+  
+  "validation_severity": {
+    "missing_required_field": "error",
+    "field_too_long": "error",
+    "field_too_short": "warning",
+    "forbidden_word_found": "error",
+    "invalid_html_tag": "warning",
+    "keyword_over_repetition": "warning",
+    "format_mismatch": "error",
+    "geographic_inconsistency": "warning"
+  },
+  
+  "auto_fix_rules": {
+    "truncate_long_text": true,
+    "remove_forbidden_words": true,
+    "strip_invalid_html": true,
+    "fix_price_format": true,
+    "normalize_whitespace": true,
+    "remove_extra_punctuation": false
+  },
+  
+  "notes": [
+    "Questo file può essere editato manualmente per aggiungere regole custom",
+    "Le regole in ai_policy_rules table hanno precedenza su questo file",
+    "Usa validation_severity per controllare blocking vs warnings",
+    "Category_specific sovrascrive regole global per quella categoria"
+  ]
+}
+

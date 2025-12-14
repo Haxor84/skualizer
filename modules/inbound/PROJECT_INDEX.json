@@ -1,0 +1,869 @@
+{
+    "module": "inbound",
+    "generated_at": "2025-12-11 18:18:30",
+    "base_path": "inbound/",
+    "files": [
+        {
+            "file": "inbound/import_from_packing_list.php",
+            "size": 32603,
+            "modified": "2025-10-18 20:57:08",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "parseAmazonTxtFormat",
+                    "line": 96,
+                    "parameters": [
+                        "$handle"
+                    ],
+                    "description": "Parser intelligente per formato Amazon TXT nativo Gestisce file con struttura multi-blocco: - Header spedizione (chiave\\tvalue) - Items header + rows - Riga vuota - Ripete per ogni spedizione"
+                }
+            ]
+        },
+        {
+            "file": "inbound/inbound_views.php",
+            "size": 41423,
+            "modified": "2025-11-15 10:45:05",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "exportCsv",
+                    "line": 82,
+                    "parameters": [
+                        "$filename",
+                        "$headers",
+                        "$rows"
+                    ],
+                    "description": "Inbound Views - Router Multi-Vista File: modules/inbound/inbound_views.php Viste disponibili: - ?view=shipments: Lista spedizioni con filtri e paginazione - ?view=details&id=X: Dettagli spedizione singola (header + items + boxes) - ?view=stats: Statistiche aggregate e KPI - ?view=logs: Log sincronizzazione con filtri Features: - CSV export per tutte le viste (&export=csv) - Mobile responsive (card layout <768px) - Server-side pagination - Filtri persistenti in session"
+                }
+            ]
+        },
+        {
+            "file": "inbound/import_missing_shipments.php",
+            "size": 13764,
+            "modified": "2025-10-17 23:11:44",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "inbound/removal_orders.php",
+            "size": 22752,
+            "modified": "2025-10-25 00:55:02",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "inbound/backfill_fingerprints_web.php",
+            "size": 21104,
+            "modified": "2025-10-17 17:12:41",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "headerFingerprint",
+                    "line": 35,
+                    "parameters": [
+                        "$shipmentData"
+                    ],
+                    "description": "Backfill Fingerprints - Interfaccia Web Popola fingerprint da DB esistente via browser"
+                },
+                {
+                    "name": "normalizeItemsForHash",
+                    "line": 47,
+                    "parameters": [
+                        "$items"
+                    ],
+                    "description": "Backfill Fingerprints - Interfaccia Web Popola fingerprint da DB esistente via browser"
+                },
+                {
+                    "name": "itemsFingerprint",
+                    "line": 72,
+                    "parameters": [
+                        "$items"
+                    ],
+                    "description": "Backfill Fingerprints - Interfaccia Web Popola fingerprint da DB esistente via browser"
+                }
+            ]
+        },
+        {
+            "file": "inbound/trid/index.php",
+            "size": 55,
+            "modified": "2025-11-07 18:27:27",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "inbound/trid/trid_api.php",
+            "size": 44198,
+            "modified": "2025-11-02 13:43:45",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "getDashboardGlobalData",
+                    "line": 29,
+                    "parameters": [
+                        "$db",
+                        "$userId"
+                    ],
+                    "description": "Dashboard globale con KPI, spedizioni e rimborsi"
+                },
+                {
+                    "name": "downloadLedgerReport",
+                    "line": 388,
+                    "parameters": [
+                        "$db",
+                        "$userId",
+                        "$startDate",
+                        "$endDate"
+                    ],
+                    "description": "Download report Ledger da Amazon (riutilizza logica esistente)"
+                },
+                {
+                    "name": "parseLedgerTSV",
+                    "line": 458,
+                    "parameters": [
+                        "$db",
+                        "$tsvContent",
+                        "$userId"
+                    ],
+                    "description": "Parse TSV e insert/update DB"
+                },
+                {
+                    "name": "autoAssignReceipts",
+                    "line": 582,
+                    "parameters": [
+                        "$db",
+                        "$userId"
+                    ],
+                    "description": "Collega eventi Receipts a spedizioni tramite reference_id"
+                },
+                {
+                    "name": "autoAssignProducts",
+                    "line": 603,
+                    "parameters": [
+                        "$db",
+                        "$userId"
+                    ],
+                    "description": "Assegna product_id da inventory tramite MSKU Multi-step: inventory.sku -> inventory_fbm.seller_sku -> inbound_shipment_items.seller_sku -> mapping_states.sku"
+                },
+                {
+                    "name": "getShipmentsWithTridStats",
+                    "line": 684,
+                    "parameters": [
+                        "$db",
+                        "$userId"
+                    ],
+                    "description": "Lista spedizioni con stats TRID"
+                },
+                {
+                    "name": "getShipmentByProduct",
+                    "line": 716,
+                    "parameters": [
+                        "$db",
+                        "$shipmentId"
+                    ],
+                    "description": "Timeline completa di una spedizione (raggruppata per prodotto)"
+                },
+                {
+                    "name": "getAggregatedTridStats",
+                    "line": 798,
+                    "parameters": [
+                        "$db",
+                        "$shipmentId"
+                    ],
+                    "description": "Statistiche aggregate per visualizzazione card-based Raggruppa eventi per tipo e calcola KPI principali"
+                },
+                {
+                    "name": "loadCredentials",
+                    "line": 976,
+                    "parameters": [
+                        "$db",
+                        "$userId"
+                    ],
+                    "description": "Statistiche aggregate per visualizzazione card-based Raggruppa eventi per tipo e calcola KPI principali"
+                },
+                {
+                    "name": "getAccessToken",
+                    "line": 1011,
+                    "parameters": [
+                        "$creds"
+                    ],
+                    "description": "Statistiche aggregate per visualizzazione card-based Raggruppa eventi per tipo e calcola KPI principali"
+                },
+                {
+                    "name": "createAwsSignature",
+                    "line": 1036,
+                    "parameters": [
+                        "$method",
+                        "$path",
+                        "$queryString",
+                        "$body",
+                        "$accessToken",
+                        "$creds"
+                    ],
+                    "description": "Statistiche aggregate per visualizzazione card-based Raggruppa eventi per tipo e calcola KPI principali"
+                },
+                {
+                    "name": "callSpApi",
+                    "line": 1072,
+                    "parameters": [
+                        "$method",
+                        "$path",
+                        "$params",
+                        "$body",
+                        "$accessToken",
+                        "$creds"
+                    ],
+                    "description": "Statistiche aggregate per visualizzazione card-based Raggruppa eventi per tipo e calcola KPI principali"
+                }
+            ]
+        },
+        {
+            "file": "inbound/trid/trid.php",
+            "size": 43642,
+            "modified": "2025-11-11 22:32:35",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "renderKpiCards",
+                    "line": 284,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "renderShipmentsList",
+                    "line": 355,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "closeShipmentModal",
+                    "line": 462,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "renderReimbursementsList",
+                    "line": 474,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "toggleMonth",
+                    "line": 536,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "formatMonth",
+                    "line": 550,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "getReasonLabel",
+                    "line": 557,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "renderProductsTimeline",
+                    "line": 590,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "renderTimeline",
+                    "line": 626,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "toggleProduct",
+                    "line": 658,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "copyTrid",
+                    "line": 672,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "loadAggregatedData",
+                    "line": 713,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "renderAggregatedView",
+                    "line": 734,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "renderWarehouseDistribution",
+                    "line": 790,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "renderCriticalEvents",
+                    "line": 810,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "renderMonthlyTimeline",
+                    "line": 841,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "toggleMonth",
+                    "line": 882,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "formatMonth",
+                    "line": 895,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "openDownloadModal",
+                    "line": 923,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "closeDownloadModal",
+                    "line": 927,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "escapeHtml",
+                    "line": 1004,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "formatNumber",
+                    "line": 1010,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "formatDate",
+                    "line": 1014,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "formatDateTime",
+                    "line": 1020,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                },
+                {
+                    "name": "getEventIcon",
+                    "line": 1026,
+                    "parameters": [],
+                    "description": "TRID - Tracking Inventario Amazon UI per visualizzazione spedizioni e timeline prodotti"
+                }
+            ]
+        },
+        {
+            "file": "inbound/trid/trid_scanner_api.php",
+            "size": 14648,
+            "modified": "2025-11-10 22:31:05",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "getDashboardGlobalData",
+                    "line": 46,
+                    "parameters": [
+                        "$db",
+                        "$userId"
+                    ],
+                    "description": "Dashboard globale con KPI, spedizioni e rimborsi (Copia della funzione da trid_api.php per utenti normali)"
+                }
+            ]
+        },
+        {
+            "file": "inbound/trid/TridScanner.php",
+            "size": 21842,
+            "modified": "2025-11-08 09:11:47",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "loadDashboard",
+                    "line": 202,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                },
+                {
+                    "name": "renderDashboard",
+                    "line": 219,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                },
+                {
+                    "name": "renderKpiCards",
+                    "line": 226,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                },
+                {
+                    "name": "renderShipmentsList",
+                    "line": 266,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                },
+                {
+                    "name": "closeShipmentModal",
+                    "line": 373,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                },
+                {
+                    "name": "renderReimbursementsList",
+                    "line": 385,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                },
+                {
+                    "name": "renderReimbursementItem",
+                    "line": 420,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                },
+                {
+                    "name": "toggleReimbursements",
+                    "line": 453,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                },
+                {
+                    "name": "copyTrid",
+                    "line": 466,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                },
+                {
+                    "name": "escapeHtml",
+                    "line": 476,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                },
+                {
+                    "name": "formatNumber",
+                    "line": 483,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                },
+                {
+                    "name": "formatDate",
+                    "line": 487,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                },
+                {
+                    "name": "formatMonth",
+                    "line": 493,
+                    "parameters": [],
+                    "description": "TridScanner - Tracking Inventario Amazon (Customer Version) File: modules/margynomic/TridScanner.php Dashboard TRID per utenti finali con tema rosa Margynomic Funzionalit\u00e0: visualizzazione spedizioni, KPI, rimborsi (NO download admin)"
+                }
+            ]
+        },
+        {
+            "file": "inbound/trid/trid_cron.php",
+            "size": 23675,
+            "modified": "2025-11-10 21:54:40",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "cronLog",
+                    "line": 50,
+                    "parameters": [
+                        "$message",
+                        "$level"
+                    ],
+                    "description": "TRID Ledger Cron Job - Multi-User Sequential Download File: modules/inbound/trid/trid_cron.php Features: - Processa TUTTI gli utenti attivi con token Amazon - Download report GET_LEDGER_DETAIL_VIEW_DATA (ultimi 30 giorni) - Parse TSV e salvataggio in shipments_trid table - Auto-assignment a spedizioni e prodotti - Lock per utente (previene concorrenza) - Errori per utente non bloccano gli altri - Summary finale aggregato - Log su file per monitoring esterno Configurazione Cron (esempio): Daily at 03:00: 0 3 * * * php /path/to/trid_cron.php >> /var/log/trid_cron.log 2>&1"
+                },
+                {
+                    "name": "downloadTridLedgerForUser",
+                    "line": 222,
+                    "parameters": [
+                        "$db",
+                        "$userId",
+                        "$startDate",
+                        "$endDate"
+                    ],
+                    "description": "Download and parse TRID Ledger for a single user"
+                },
+                {
+                    "name": "parseLedgerTSV",
+                    "line": 291,
+                    "parameters": [
+                        "$db",
+                        "$userId",
+                        "$tsvContent"
+                    ],
+                    "description": "Parse TSV and save to database"
+                },
+                {
+                    "name": "autoAssignReceipts",
+                    "line": 383,
+                    "parameters": [
+                        "$db",
+                        "$userId"
+                    ],
+                    "description": "Auto-assign receipts to shipments"
+                },
+                {
+                    "name": "autoAssignProducts",
+                    "line": 403,
+                    "parameters": [
+                        "$db",
+                        "$userId"
+                    ],
+                    "description": "Auto-assign products (multi-step)"
+                },
+                {
+                    "name": "loadCredentialsForUser",
+                    "line": 481,
+                    "parameters": [
+                        "$db",
+                        "$userId"
+                    ],
+                    "description": "Load credentials for user"
+                },
+                {
+                    "name": "getAccessToken",
+                    "line": 519,
+                    "parameters": [
+                        "$creds"
+                    ],
+                    "description": "Get OAuth access token"
+                },
+                {
+                    "name": "requestLedgerReport",
+                    "line": 547,
+                    "parameters": [
+                        "$accessToken",
+                        "$creds",
+                        "$startDate",
+                        "$endDate"
+                    ],
+                    "description": "Request ledger report"
+                },
+                {
+                    "name": "checkReportStatus",
+                    "line": 565,
+                    "parameters": [
+                        "$reportId",
+                        "$accessToken",
+                        "$creds"
+                    ],
+                    "description": "Check report status"
+                },
+                {
+                    "name": "downloadReportDocument",
+                    "line": 576,
+                    "parameters": [
+                        "$documentId",
+                        "$accessToken",
+                        "$creds"
+                    ],
+                    "description": "Download report document"
+                },
+                {
+                    "name": "callSpApi",
+                    "line": 606,
+                    "parameters": [
+                        "$method",
+                        "$path",
+                        "$params",
+                        "$body",
+                        "$accessToken",
+                        "$creds"
+                    ],
+                    "description": "Call Amazon SP-API with AWS Signature V4"
+                }
+            ]
+        },
+        {
+            "file": "inbound/removal_api.php",
+            "size": 24147,
+            "modified": "2025-11-07 20:10:45",
+            "classes": [
+                {
+                    "name": "RemovalOrdersAPI",
+                    "type": "class",
+                    "line": 41,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 53,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Removal Orders API Handler File: modules/inbound/removal_api.php Gestisce download e storage di Removal Orders da Amazon SP-API Azioni supportate: - request_report: Richiede report a Amazon - check_status: Controlla stato report - download_report: Scarica e processa TSV - get_removal_orders: Fetch da DB per tabella",
+                            "static": false
+                        },
+                        {
+                            "name": "requestReport",
+                            "line": 291,
+                            "parameters": [
+                                "$startDate",
+                                "$endDate"
+                            ],
+                            "description": "Richiede report Removal Orders a Amazon",
+                            "static": false
+                        },
+                        {
+                            "name": "checkReportStatus",
+                            "line": 341,
+                            "parameters": [
+                                "$reportId"
+                            ],
+                            "description": "Controlla stato report",
+                            "static": false
+                        },
+                        {
+                            "name": "downloadReport",
+                            "line": 385,
+                            "parameters": [
+                                "$documentId"
+                            ],
+                            "description": "Scarica e processa report TSV",
+                            "static": false
+                        },
+                        {
+                            "name": "getRemovalOrders",
+                            "line": 563,
+                            "parameters": [
+                                "$filters"
+                            ],
+                            "description": "Fetch removal orders da DB",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "inbound/inbound_core.php",
+            "size": 109368,
+            "modified": "2025-10-19 00:25:39",
+            "classes": [
+                {
+                    "name": "InboundCore",
+                    "type": "class",
+                    "line": 22,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 81,
+                            "parameters": [
+                                "$userId",
+                                "$options"
+                            ],
+                            "description": "Costruttore",
+                            "static": false
+                        },
+                        {
+                            "name": "setProgressCallback",
+                            "line": 101,
+                            "parameters": [
+                                "$callback"
+                            ],
+                            "description": "Imposta callback per progress (output real-time)",
+                            "static": false
+                        },
+                        {
+                            "name": "call",
+                            "line": 325,
+                            "parameters": [
+                                "$method",
+                                "$path",
+                                "$params",
+                                "$body",
+                                "$phase"
+                            ],
+                            "description": "Esegui chiamata API con retry automatico e backoff",
+                            "static": false
+                        },
+                        {
+                            "name": "getShipmentsV0",
+                            "line": 538,
+                            "parameters": [
+                                "$fromUtcOrOptions",
+                                "$toUtc",
+                                "$nextToken"
+                            ],
+                            "description": "Lista shipments via API v0 (SUPPORTA PARAMETRI OPZIONALI) Modalit\u00e0 1 (paginazione): ['NextToken' => '...'] Modalit\u00e0 2 (finestra strict): ['LastUpdatedAfter' => '...', 'LastUpdatedBefore' => '...'] Modalit\u00e0 3 (broad before): ['LastUpdatedBefore' => '...'] Modalit\u00e0 4 (legacy): $fromUtc, $toUtc come stringhe",
+                            "static": false
+                        },
+                        {
+                            "name": "getShipmentItemsV0",
+                            "line": 617,
+                            "parameters": [
+                                "$shipmentId",
+                                "$nextToken"
+                            ],
+                            "description": "Ottieni items di uno shipment via API v0 (con paginazione)",
+                            "static": false
+                        },
+                        {
+                            "name": "getShipmentDetailsV0",
+                            "line": 635,
+                            "parameters": [
+                                "$shipmentId"
+                            ],
+                            "description": "Recupera dettagli di una singola spedizione per ID",
+                            "static": false
+                        },
+                        {
+                            "name": "acquireLock",
+                            "line": 652,
+                            "parameters": [],
+                            "description": "Acquisisce lock per l'utente (previene sync concorrenti)",
+                            "static": false
+                        },
+                        {
+                            "name": "updateHeartbeat",
+                            "line": 718,
+                            "parameters": [],
+                            "description": "Aggiorna heartbeat (chiamare ogni ~30s durante sync)",
+                            "static": false
+                        },
+                        {
+                            "name": "releaseLock",
+                            "line": 746,
+                            "parameters": [],
+                            "description": "Rilascia lock",
+                            "static": false
+                        },
+                        {
+                            "name": "isCircuitOpen",
+                            "line": 774,
+                            "parameters": [],
+                            "description": "Check se circuit breaker \u00e8 open per questo utente",
+                            "static": false
+                        },
+                        {
+                            "name": "syncIncremental",
+                            "line": 988,
+                            "parameters": [
+                                "$options"
+                            ],
+                            "description": "Sync incrementale: scarica solo shipments modificati dopo last_cursor_utc",
+                            "static": false
+                        },
+                        {
+                            "name": "syncHistoricalFull",
+                            "line": 1233,
+                            "parameters": [
+                                "$options"
+                            ],
+                            "description": "Sync Storico COMPLETO: Sweep per stato con finestre fisse (30gg) Niente early-exit, niente jump: scan esaustivo fino a min_date",
+                            "static": false
+                        },
+                        {
+                            "name": "processManualShipment",
+                            "line": 1898,
+                            "parameters": [
+                                "$shipmentData"
+                            ],
+                            "description": "Process Shipment Manuale (public wrapper per import CSV/TXT)",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "inbound/discrepanze.php",
+            "size": 56337,
+            "modified": "2025-11-01 16:56:55",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "inbound/inbound_cron.php",
+            "size": 13809,
+            "modified": "2025-11-10 21:54:40",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "cronLog",
+                    "line": 46,
+                    "parameters": [
+                        "$message",
+                        "$level"
+                    ],
+                    "description": "Inbound Cron Job - Multi-User Sequential Sync File: modules/inbound/inbound_cron.php Features: - Processa TUTTI gli utenti attivi con token Amazon - Loop sequenziale (non parallelo) - Lock per utente (previene concorrenza) - Circuit breaker check per utente - Errori per utente non bloccano gli altri - Summary finale aggregato - Log su file per monitoring esterno - \u2705 PROTEZIONE: Skip spedizioni MANUAL (importate manualmente) Configurazione Cron (esempio): Ogni 15 minuti: 0,15,30,45 * * * * php /path/to/inbound_cron.php >> /var/log/inbound_cron.log 2>&1"
+                }
+            ]
+        },
+        {
+            "file": "inbound/downloads/index.php",
+            "size": 54,
+            "modified": "2025-11-07 18:35:15",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "inbound/downloads/removal_debug/index.php",
+            "size": 55,
+            "modified": "2025-11-07 18:27:27",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "inbound/inbound_sync.php",
+            "size": 32453,
+            "modified": "2025-11-15 10:45:05",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "inbound/inbound.php",
+            "size": 26932,
+            "modified": "2025-10-18 20:57:16",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "inbound/removal_cron.php",
+            "size": 10369,
+            "modified": "2025-11-10 21:54:40",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "cronLog",
+                    "line": 52,
+                    "parameters": [
+                        "$message",
+                        "$level"
+                    ],
+                    "description": "Removal Orders Cron Job - Multi-User Sequential Download File: modules/inbound/removal_cron.php Features: - Processa TUTTI gli utenti attivi con token Amazon - Download report GET_FBA_RECOMMENDED_REMOVAL_DATA - Parse TSV e salvataggio in removal_orders table usando RemovalOrdersAPI - Lock per utente (previene concorrenza) - Errori per utente non bloccano gli altri - Summary finale aggregato Configurazione Cron (esempio): Daily at 02:00: 0 2 * * * php /path/to/removal_cron.php >> /var/log/removal_cron.log 2>&1"
+                },
+                {
+                    "name": "downloadRemovalOrdersForUser",
+                    "line": 209,
+                    "parameters": [
+                        "$db",
+                        "$userId"
+                    ],
+                    "description": "Download and parse Removal Orders for a single user using RemovalOrdersAPI"
+                }
+            ]
+        }
+    ]
+}

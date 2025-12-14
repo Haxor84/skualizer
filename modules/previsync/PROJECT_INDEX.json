@@ -1,0 +1,407 @@
+{
+    "module": "previsync",
+    "generated_at": "2025-12-11 18:18:30",
+    "base_path": "previsync/",
+    "files": [
+        {
+            "file": "previsync/cron_inventory_previsync.php",
+            "size": 26153,
+            "modified": "2025-11-10 21:54:40",
+            "classes": [
+                {
+                    "name": "InventoryQueueManager",
+                    "type": "class",
+                    "line": 86,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 89,
+                            "parameters": [],
+                            "description": "Classe per gestione coda inventory reports",
+                            "static": false
+                        },
+                        {
+                            "name": "populateQueue",
+                            "line": 125,
+                            "parameters": [],
+                            "description": "Popola coda con tutti gli utenti attivi",
+                            "static": false
+                        },
+                        {
+                            "name": "getNextUserToProcess",
+                            "line": 193,
+                            "parameters": [],
+                            "description": "Ottieni prossimo utente da processare",
+                            "static": false
+                        },
+                        {
+                            "name": "getQueueStats",
+                            "line": 226,
+                            "parameters": [],
+                            "description": "Ottieni statistiche coda",
+                            "static": false
+                        },
+                        {
+                            "name": "cleanupQueue",
+                            "line": 251,
+                            "parameters": [],
+                            "description": "Pulisci coda (mantieni solo ultimi 7 giorni)",
+                            "static": false
+                        },
+                        {
+                            "name": "resetProcessingUsers",
+                            "line": 265,
+                            "parameters": [],
+                            "description": "Reset tutti gli utenti in elaborazione (recovery)",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": [
+                {
+                    "name": "logInventory",
+                    "line": 293,
+                    "parameters": [
+                        "$message",
+                        "$level",
+                        "$context"
+                    ],
+                    "description": "Log Inventory - Utilizza CentralLogger"
+                },
+                {
+                    "name": "processUserWithQueue",
+                    "line": 442,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Elabora singolo utente tramite queue system"
+                },
+                {
+                    "name": "buildInventoryUrl",
+                    "line": 563,
+                    "parameters": [],
+                    "description": "Costruisce URL per inventory_sync.php"
+                },
+                {
+                    "name": "cleanupInventoryLogs",
+                    "line": 574,
+                    "parameters": [],
+                    "description": "Pulizia log - Ora gestita da CentralLogger"
+                }
+            ]
+        },
+        {
+            "file": "previsync/email_notifications.php",
+            "size": 16827,
+            "modified": "2025-10-04 11:33:01",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "logEmail",
+                    "line": 27,
+                    "parameters": [
+                        "$message",
+                        "$level",
+                        "$context"
+                    ],
+                    "description": "Log Email - Utilizza CentralLogger"
+                },
+                {
+                    "name": "getUsersForToday",
+                    "line": 45,
+                    "parameters": [],
+                    "description": "Ottiene utenti attivi con notifiche abilitate per oggi"
+                },
+                {
+                    "name": "generateInventoryPDF",
+                    "line": 104,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Genera PDF rifornimento per utente specifico"
+                },
+                {
+                    "name": "sendInventoryEmail",
+                    "line": 298,
+                    "parameters": [
+                        "$user",
+                        "$pdfPath"
+                    ],
+                    "description": "Invia email con PDF allegato"
+                },
+                {
+                    "name": "cleanupTempFiles",
+                    "line": 348,
+                    "parameters": [],
+                    "description": "Pulizia file temporanei"
+                },
+                {
+                    "name": "main",
+                    "line": 373,
+                    "parameters": [],
+                    "description": "Pulizia file temporanei"
+                },
+                {
+                    "name": "debugOutput",
+                    "line": 446,
+                    "parameters": [
+                        "$message",
+                        "$level"
+                    ],
+                    "description": "Pulizia file temporanei"
+                }
+            ]
+        },
+        {
+            "file": "previsync/inventory_export_pdf.php",
+            "size": 10419,
+            "modified": "2025-11-08 12:57:26",
+            "classes": [
+                {
+                    "name": "InventoryReportPDF",
+                    "type": "class",
+                    "line": 92,
+                    "public_methods": [
+                        {
+                            "name": "Header",
+                            "line": 100,
+                            "parameters": [],
+                            "description": "Esporta in PDF la lista delle varianti da rifornire Percorso: /modules/previsync/inventory_export_pdf.php Questo script genera un PDF professionale che riporta solo i prodotti per i quali il sistema suggerisce un rifornimento (invio_suggerito > 0). Il layout \u00e8 pensato per essere leggibile e coerente con lo stile Margynomic. Viene creato un'intestazione con titolo e data e un pi\u00e8 di pagina con numerazione delle pagine. Le righe sono evidenziate per criticit\u00e0.",
+                            "static": false
+                        },
+                        {
+                            "name": "Footer",
+                            "line": 116,
+                            "parameters": [],
+                            "description": "Esporta in PDF la lista delle varianti da rifornire Percorso: /modules/previsync/inventory_export_pdf.php Questo script genera un PDF professionale che riporta solo i prodotti per i quali il sistema suggerisce un rifornimento (invio_suggerito > 0). Il layout \u00e8 pensato per essere leggibile e coerente con lo stile Margynomic. Viene creato un'intestazione con titolo e data e un pi\u00e8 di pagina con numerazione delle pagine. Le righe sono evidenziate per criticit\u00e0.",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "previsync/inventory_strategy_manager.php",
+            "size": 9485,
+            "modified": "2025-08-16 14:32:06",
+            "classes": [
+                {
+                    "name": "InventoryStrategyManager",
+                    "type": "class",
+                    "line": 13,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 18,
+                            "parameters": [
+                                "$db",
+                                "$userId"
+                            ],
+                            "description": "Inventory Strategy Manager - Logica Avanzata Rifornimenti File: modules/previsync/inventory_strategy_manager.php Gestisce strategie avanzate per calcolo rifornimenti basate su: - Storico vendite - Tempo ultimo rifornimento (last_charge) - Test di mercato per prodotti esauriti - Eliminazione intelligente prodotti morti",
+                            "static": false
+                        },
+                        {
+                            "name": "calculateAdvancedStrategy",
+                            "line": 29,
+                            "parameters": [
+                                "$item"
+                            ],
+                            "description": "Calcola strategia rifornimento avanzata",
+                            "static": false
+                        },
+                        {
+                            "name": "updateLastCharge",
+                            "line": 181,
+                            "parameters": [
+                                "$sku"
+                            ],
+                            "description": "Aggiorna last_charge per uno SKU specifico Chiamato da inventory_sync.php quando afn_warehouse_quantity > 0",
+                            "static": false
+                        },
+                        {
+                            "name": "getStrategiaStats",
+                            "line": 230,
+                            "parameters": [],
+                            "description": "Ottieni statistiche strategia per debug",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "previsync/inventory.php",
+            "size": 54240,
+            "modified": "2025-11-15 09:53:08",
+            "classes": [
+                {
+                    "name": "InventoryAnalyzer",
+                    "type": "class",
+                    "line": 36,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 42,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Classe per analisi inventario con calcoli avanzati",
+                            "static": false
+                        },
+                        {
+                            "name": "getCompleteInventoryAnalysis",
+                            "line": 54,
+                            "parameters": [],
+                            "description": "Analisi completa inventario con tutti i calcoli richiesti",
+                            "static": false
+                        },
+                        {
+                            "name": "getInventoryOverview",
+                            "line": 223,
+                            "parameters": [],
+                            "description": "Statistiche generali inventario",
+                            "static": false
+                        },
+                        {
+                            "name": "getStrategiaStats",
+                            "line": 251,
+                            "parameters": [],
+                            "description": "Ottieni statistiche strategia avanzata per debug",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": [
+                {
+                    "name": "timeAgo",
+                    "line": 276,
+                    "parameters": [
+                        "$datetime"
+                    ],
+                    "description": "Ottieni statistiche strategia avanzata per debug"
+                },
+                {
+                    "name": "camelize",
+                    "line": 1266,
+                    "parameters": [],
+                    "description": "Ottieni statistiche strategia avanzata per debug {"
+                }
+            ]
+        },
+        {
+            "file": "previsync/test_strategy_manager.php",
+            "size": 7204,
+            "modified": "2025-08-16 14:32:52",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "previsync/email_template.php",
+            "size": 8916,
+            "modified": "2025-08-07 12:21:55",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "previsync/inventory_fbm.php",
+            "size": 11243,
+            "modified": "2025-10-04 15:34:48",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "processFbmFile",
+                    "line": 22,
+                    "parameters": [
+                        "$filePath",
+                        "$userId",
+                        "$db"
+                    ],
+                    "description": "Processa file FBM TSV"
+                },
+                {
+                    "name": "restoreFbmMappingsFromStates",
+                    "line": 189,
+                    "parameters": [
+                        "$userId",
+                        "$db"
+                    ],
+                    "description": "Ripristina mapping FBM da mapping_states"
+                },
+                {
+                    "name": "syncFbmProductMapping",
+                    "line": 212,
+                    "parameters": [
+                        "$userId",
+                        "$db"
+                    ],
+                    "description": "Mapping FBM con tabella products esistente PROTEZIONE: Non sovrascrive mapping manuali/locked dell'admin"
+                },
+                {
+                    "name": "parseDecimal",
+                    "line": 250,
+                    "parameters": [
+                        "$value"
+                    ],
+                    "description": "Helper per parsing decimali"
+                },
+                {
+                    "name": "parseBoolean",
+                    "line": 258,
+                    "parameters": [
+                        "$value"
+                    ],
+                    "description": "Helper per parsing boolean"
+                }
+            ]
+        },
+        {
+            "file": "previsync/inventory_sync.php",
+            "size": 39218,
+            "modified": "2025-10-04 14:51:09",
+            "classes": [
+                {
+                    "name": "InventorySync",
+                    "type": "class",
+                    "line": 63,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 91,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Margynomic - Sistema Inventory Sync con Queue Management File: modules/previsync/inventory_sync.php SISTEMA OTTIMIZZATO CON: 1. Endpoint dinamici per regione Amazon 2. Signature AWS V4 completa 3. Gestione FATAL con logging dettagliato 4. Selezione automatica report type 5. Integrazione con inventory_report_queue",
+                            "static": false
+                        },
+                        {
+                            "name": "syncBothInventoryTypes",
+                            "line": 198,
+                            "parameters": [],
+                            "description": "Sincronizza entrambi i tipi di inventario (FBA + FBM)",
+                            "static": false
+                        },
+                        {
+                            "name": "getInventoryStats",
+                            "line": 775,
+                            "parameters": [],
+                            "description": "Ottieni statistiche inventario",
+                            "static": false
+                        },
+                        {
+                            "name": "fullSync",
+                            "line": 843,
+                            "parameters": [],
+                            "description": "Processo completo di sincronizzazione con gestione queue",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        }
+    ]
+}

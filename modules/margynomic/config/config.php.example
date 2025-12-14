@@ -1,0 +1,275 @@
+<?php
+
+/**
+ * Configurazione Principale per Margynomic
+ * File: modules/margynomic/config/config.php.example
+ * 
+ * ISTRUZIONI SETUP:
+ * 1. Copia questo file come "config.php" (rimuovi .example)
+ * 2. Compila le credenziali qui sotto con i TUOI dati
+ * 3. NON caricare MAI il file config.php su GitHub
+ */
+
+// Connessione database Margynomic
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'nome_database');      // ← Inserisci il nome del tuo database
+define('DB_USER', 'username_database');   // ← Inserisci username database
+define('DB_PASS', 'password_database');   // ← Inserisci password database
+define('DB_CHARSET', 'utf8mb4');
+define('DB_COLLATION', 'utf8mb4_unicode_ci');
+define('DEBUG_MODE', false); // Cambiato a false per ridurre log verbosi
+
+// Configurazione applicazione
+define('BASE_URL', 'https://www.tuosito.com/modules/margynomic'); // ← Modifica con il tuo URL
+define('SITE_NAME', 'Margynomic');
+define('ADMIN_EMAIL', 'admin@tuosito.com'); // ← Inserisci la tua email admin
+
+// Configurazione sessioni
+define('SESSION_LIFETIME', 3600); // 1 ora
+define('REMEMBER_ME_LIFETIME', 2592000); // 30 giorni
+
+// Impostazioni SMTP (da aggiornare in produzione)
+define('SMTP_HOST', 'mailserver.tuoprovider.com'); // ← Server SMTP
+define('SMTP_PORT', 587);
+define('SMTP_SECURE', 'TLS'); // 587 = TLS
+define('SMTP_USER', 'email@tuosito.com');          // ← Email SMTP
+define('SMTP_PASS', 'password_smtp');              // ← Password SMTP
+define('SMTP_FROM_EMAIL', 'email@tuosito.com');
+define('SMTP_FROM_NAME', 'Skualizer AI System');
+
+// Configurazione sicurezza
+define('PASSWORD_MIN_LENGTH', 8);
+define('RESET_TOKEN_EXPIRY', 3600); // 1 ora
+define('MAX_LOGIN_ATTEMPTS', 5);
+define('LOCKOUT_TIME', 900); // 15 minuti
+
+// === CONFIGURAZIONE LOGGING AVANZATA ===
+define('LOG_LEVEL_NONE', 0);      // Nessun log
+define('LOG_LEVEL_ERROR', 1);     // Solo errori critici
+define('LOG_LEVEL_WARNING', 2);   // Errori + warning
+define('LOG_LEVEL_INFO', 3);      // Errori + warning + info
+define('LOG_LEVEL_DEBUG', 4);     // Tutti i log (molto verboso)
+
+// Imposta livello log globale (cambia questo per controllare verbosità)
+define('CURRENT_LOG_LEVEL', LOG_LEVEL_WARNING); // Cambia a LOG_LEVEL_ERROR per produzione
+
+/**
+ * Funzione di logging condizionale
+ */
+function conditionalLog($message, $level = LOG_LEVEL_INFO, $prefix = 'SYSTEM') {
+    if (CURRENT_LOG_LEVEL >= $level) {
+        $levelNames = [
+            LOG_LEVEL_ERROR => 'ERROR',
+            LOG_LEVEL_WARNING => 'WARNING', 
+            LOG_LEVEL_INFO => 'INFO',
+            LOG_LEVEL_DEBUG => 'DEBUG'
+        ];
+        $levelName = $levelNames[$level] ?? 'UNKNOWN';
+        error_log("[{$prefix}] [{$levelName}] {$message}");
+    }
+}
+
+// === CONFIGURAZIONE LOGGING CENTRALIZZATA ===
+require_once __DIR__ . '/CentralLogger.php';
+
+/**
+ * Trova dinamicamente il percorso logs da qualsiasi posizione
+ */
+function getLogBasePath() {
+    $currentDir = __DIR__;
+    
+    // Risali fino a trovare la cartella "modules"
+    while (basename($currentDir) !== 'modules' && $currentDir !== dirname($currentDir)) {
+        $currentDir = dirname($currentDir);
+    }
+    
+    // Se siamo in modules/, aggiungi logs/
+    if (basename($currentDir) === 'modules') {
+        return $currentDir . '/logs/';
+    }
+    
+    // Fallback: percorso relativo da config
+    return __DIR__ . '/../../logs/';
+}
+
+define('LOG_BASE_DIR', getLogBasePath());
+define('LOG_LEVEL', 'INFO'); // DEBUG, INFO, WARNING, ERROR
+define('LOG_RETENTION_DAYS', 30);
+define('LOG_MAX_FILE_SIZE', 10485760); // 10MB in bytes
+
+// === FILE LOG DEPRECATI - Migrati a sync_debug_logs (CentralLogger) ===
+// Queste costanti non sono più utilizzate dal sistema.
+// Tutti i log sono ora centralizzati nella tabella sync_debug_logs.
+// Commentate dopo migrazione completata il 2025-10-04.
+
+// define('LOG_SETTLEMENT_SYNC', LOG_BASE_DIR . 'cron_settlement_margynomic.log');
+// define('LOG_INVENTORY_SYNC', LOG_BASE_DIR . 'cron_inventory_previsync.log');
+// define('LOG_AI_MAPPING', LOG_BASE_DIR . 'ai_mapping.log');
+// define('LOG_OAUTH_OPERATIONS', LOG_BASE_DIR . 'oauth_operations.log');
+// define('LOG_HISTORICAL_IMPORTS', LOG_BASE_DIR . 'historical_imports.log');
+// define('LOG_CRON_OPERATIONS', LOG_BASE_DIR . 'cron_operations.log');
+// define('LOG_ADMIN_OPERATIONS', LOG_BASE_DIR . 'admin_operations.log');
+// define('LOG_SYSTEM_ERRORS', LOG_BASE_DIR . 'system_errors.log');
+// define('LOG_MAPPING_CONFLICTS', LOG_BASE_DIR . 'mapping_conflicts.log');
+
+// Assicurati che la directory log esista
+if (!is_dir(LOG_BASE_DIR)) {
+    mkdir(LOG_BASE_DIR, 0755, true);
+}
+
+/**
+ * Connessione al database
+ */
+function getDbConnection() {
+    static $pdo = null;
+    
+    if ($pdo === null) {
+        try {
+            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
+            $options = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                PDO::ATTR_EMULATE_PREPARES => false,
+            ];
+            
+            $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+        } catch (PDOException $e) {
+            error_log("Database connection failed: " . $e->getMessage());
+            die("Errore di connessione al database. Riprova più tardi.");
+        }
+    }
+    
+    return $pdo;
+}
+
+/**
+ * Inizializza sessione sicura
+ */
+function initSecureSession() {
+    if (session_status() === PHP_SESSION_NONE) {
+        // Configurazione sicura della sessione
+        ini_set('session.cookie_httponly', 1);
+        ini_set('session.cookie_secure', isset($_SERVER['HTTPS']));
+        ini_set('session.use_strict_mode', 1);
+        ini_set('session.cookie_samesite', 'Strict');
+        
+        session_start();
+        
+        // Rigenera ID sessione per sicurezza
+        if (!isset($_SESSION['initiated'])) {
+            session_regenerate_id(true);
+            $_SESSION['initiated'] = true;
+        }
+    }
+}
+
+/**
+ * Funzioni di autoload per le classi
+ */
+spl_autoload_register(function ($className) {
+    $directories = [
+        __DIR__ . '/../login/',
+        __DIR__ . '/../models/',
+    ];
+    
+    foreach ($directories as $directory) {
+        $file = $directory . $className . '.php';
+        if (file_exists($file)) {
+            require_once $file;
+            return;
+        }
+    }
+});
+
+// Inizializza sessione solo se headers non sono stati inviati
+if (!headers_sent()) {
+    initSecureSession();
+}
+
+// === ENTERPRISE MAPPING SYSTEM ===
+define('ENTERPRISE_MAPPING_ENABLED', true);
+define('ENTERPRISE_MAPPING_PATH', '/modules/mapping/');
+
+/**
+ * Ottieni istanza Enterprise Mapping Engine
+ */
+function getEnterpriseMappingEngine() {
+    static $engine = null;
+    
+    if ($engine === null && ENTERPRISE_MAPPING_ENABLED) {
+        try {
+            $mappingPath = dirname(__DIR__, 2) . '/mapping/';
+            $configPath = $mappingPath . 'config/mapping_config.php';
+            
+            // DEBUG: Log del percorso
+            error_log("ENTERPRISE DEBUG: Tentativo caricamento da: " . $mappingPath);
+            
+            if (file_exists($mappingPath . 'MappingService.php') && file_exists($configPath)) {
+                require_once $mappingPath . 'MappingRepository.php';
+                require_once $mappingPath . 'MappingService.php';
+                require_once $configPath;
+                
+                $config = getMappingConfig();
+                $repository = new MappingRepository(getDbConnection(), $config);
+                $engine = new MappingService($repository, $config);
+                
+                error_log("ENTERPRISE DEBUG: Engine creato con successo");
+            } else {
+                error_log("ENTERPRISE DEBUG: File mancanti in " . $mappingPath);
+            }
+        } catch (Exception $e) {
+            error_log("Errore caricamento Enterprise Mapping Engine: " . $e->getMessage());
+        }
+    }
+    
+    return $engine;
+}
+
+/**
+ * Verifica se enterprise mapping è disponibile
+ */
+function isEnterpriseMappingAvailable() {
+    return ENTERPRISE_MAPPING_ENABLED && getEnterpriseMappingEngine() !== null;
+}
+
+/**
+ * Inizializza directory mapping enterprise
+ */
+function initializeEnterpriseMappingDirectories() {
+    $baseDir = __DIR__ . '/../../mapping';
+    $directories = [
+        $baseDir,
+        $baseDir . '/config',
+        $baseDir . '/interfaces', 
+        $baseDir . '/sources',
+        $baseDir . '/strategies',
+        $baseDir . '/migration',
+        $baseDir . '/utils'
+    ];
+    
+    foreach ($directories as $dir) {
+        if (!is_dir($dir)) {
+            mkdir($dir, 0755, true);
+        }
+    }
+    
+    // Crea file log se non esiste
+    $logDir = LOG_BASE_DIR; // Usa la costante globale
+    $logFile = $logDir . 'enterprise_mapping.log';
+    
+    if (!is_dir($logDir)) {
+        mkdir($logDir, 0755, true);
+    }
+    
+    if (!file_exists($logFile)) {
+        touch($logFile);
+        chmod($logFile, 0644);
+    }
+}
+
+// Inizializza directory al caricamento
+if (ENTERPRISE_MAPPING_ENABLED) {
+    initializeEnterpriseMappingDirectories();
+}
+
+?>

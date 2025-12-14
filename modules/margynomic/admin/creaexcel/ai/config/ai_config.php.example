@@ -1,0 +1,165 @@
+<?php
+/**
+ * AI Product Creator - Configuration
+ * Path: modules/margynomic/admin/creaexcel/ai/config/ai_config.php.example
+ * 
+ * SETUP INIZIALE:
+ * 1. Copia questo file come "ai_config.php" (rimuovi .example)
+ * 2. Inserisci le tue API keys qui sotto
+ * 3. NON caricare MAI il file ai_config.php su GitHub
+ * 4. Modifica paths se necessario
+ * 5. Abilita mock_mode per test senza API calls
+ */
+
+return [
+    // === LLM PROVIDERS (NUOVO: Architettura modulare) ===
+    
+    // Anthropic Claude API (backup)
+    'anthropic_api_key' => 'sk-ant-api03-YOUR_ANTHROPIC_KEY_HERE', // ← Inserisci la tua API key Claude
+    
+    // OpenAI API (backup)
+    'openai_api_key' => 'sk-YOUR_OPENAI_KEY_HERE', // ← Inserisci la tua API key OpenAI
+    
+    // Google Gemini API (ATTIVO)
+    'gemini_api_key' => 'YOUR_GEMINI_API_KEY_HERE', // ← Inserisci la tua API key Gemini
+    
+    // Provider predefinito ('anthropic', 'openai', 'gemini')
+    'default_llm_provider' => 'gemini',
+    'default_llm_model' => 'gemini-3-pro-preview',
+    
+    // Fallback model se Gemini 3 non disponibile
+    'fallback_model' => 'gemini-2.0-flash-exp',
+    
+    // Modelli disponibili Google Gemini:
+    // === GEMINI 3 (LATEST - PREVIEW) ===
+    // 'gemini-3-pro-preview'    - 🚀 GEMINI 3 PRO (preview, latest)
+    // 'gemini-3-pro-image-preview' - 🖼️ Gemini 3 Pro con immagini
+    //
+    // === GEMINI 2.0 (FREE) ===
+    // 'gemini-2.0-flash-exp'    - 🚀 Velocissimo + GRATIS (sperimentale)
+    // 'gemini-2.0-flash-thinking-exp' - 🧠 Con reasoning nativo (GRATIS)
+    //
+    // === GEMINI 1.5 (STABILE) ===
+    // 'gemini-1.5-pro'          - 🎯 Qualità alta (gratis fino a 2 req/min)
+    // 'gemini-1.5-flash'        - ⚡ Veloce + Economico (gratis fino a 15 req/min)
+    //
+    // === OPENAI (BACKUP) ===
+    // 'o1-mini'        - 🧠 Reasoning economico ($1.10/$4.40)
+    // 'gpt-4o'         - 🎯 Qualità alta ($2.50/$10.00)
+    // 'gpt-4o-mini'    - ⚡ Economico ($0.15/$0.60)
+    
+    // Extended Thinking (Gemini 2.0 thinking ha reasoning nativo)
+    'enable_thinking' => false, // Gemini 2.0 Flash non ha thinking separato
+    'thinking_budget' => 0, // Non applicabile
+    
+    // Self-Repair Loop (correzione automatica errori)
+    'enable_self_repair' => true,
+    'max_repair_attempts' => 1, // Una sola correzione guidata
+    
+    // Temperature (0.0-1.0: creatività LLM)
+    // 0.3 = PRECISO (segue limiti alla lettera, ideale per contenuti con regole strict)
+    // 0.7 = CREATIVO (ignora limiti, ideale per brainstorming)
+    'temperature' => 0.3,
+    
+    // Timeouts e retry - LIMITI COMMENTATI
+    'request_timeout' => 600, // 10 MINUTI - Gemini 3 è lentissimo
+    // 'max_requests_per_minute' => 20, // COMMENTATO - nessun limite
+    
+    // === EAN GENERATION ===
+    'ean' => [
+        'prefix' => '802096', // Prefix aziendale 6 cifre (NON modificare)
+        'start_sequential' => 1, // Primo numero sequenziale (se DB vuoto)
+        'checksum_algorithm' => 'ean13' // Standard EAN-13
+    ],
+    
+    // === FILESYSTEM PATHS ===
+    'paths' => [
+        'templates' => __DIR__ . '/../../uploads/templates/', // Template Excel caricati
+        'exports' => __DIR__ . '/../../uploads/exports/',     // File Excel generati
+        'policy_file' => __DIR__ . '/amazon_policy.json',    // Policy rules JSON
+        'base_url' => '/modules/margynomic/admin/creaexcel/ai/' // Base URL per API
+    ],
+    
+    // === AMAZON SCRAPING ===
+    'scraping' => [
+        'enabled' => true, // Disabilita se problemi con scraping
+        'base_url' => 'https://www.amazon.it',
+        'rate_limit_sec' => 2, // Secondi tra richieste (anti-ban)
+        'max_retries' => 3,
+        'timeout' => 10, // Timeout per singola richiesta
+        'max_asins_per_batch' => 10, // Massimo ASIN processabili per volta
+        
+        // User-Agent rotation (10 UA realistici)
+        'user_agents' => [
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.1 Safari/605.1.15',
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36 Edg/119.0.0.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 OPR/106.0.0.0',
+            'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:121.0) Gecko/20100101 Firefox/121.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:121.0) Gecko/20100101 Firefox/121.0'
+        ],
+        
+        // Selettori CSS Amazon.it (fallback multipli)
+        'selectors' => [
+            'title' => ['#productTitle', '.product-title-word-break', 'h1.a-size-large', 'span#productTitle'],
+            'description' => ['#feature-bullets', '#productDescription', '.a-unordered-list.a-vertical', 'div#featurebullets_feature_div'],
+            'bullets' => ['.a-unordered-list .a-list-item', '#feature-bullets li span.a-list-item', 'ul.a-unordered-list li']
+        ],
+        
+        // Stopwords italiane (da rimuovere da keyword)
+        'stopwords_it' => [
+            'il', 'lo', 'la', 'i', 'gli', 'le', 'un', 'uno', 'una', 'di', 'da', 'del', 'della', 'dei', 'degli', 'delle',
+            'a', 'al', 'allo', 'alla', 'ai', 'agli', 'alle', 'con', 'su', 'per', 'tra', 'fra', 'in', 'e', 'o', 'ma', 'se',
+            'come', 'che', 'chi', 'cui', 'questo', 'questa', 'questi', 'queste', 'quello', 'quella', 'quelli', 'quelle',
+            'mio', 'mia', 'miei', 'mie', 'tuo', 'tua', 'tuoi', 'tue', 'suo', 'sua', 'suoi', 'sue', 'nostro', 'nostra'
+        ]
+    ],
+    
+    // === CHAT & SESSION ===
+    'session' => [
+        'max_conversation_length' => 100, // Massimo messaggi in history (poi tronca)
+        'auto_save_interval' => 30, // Secondi tra auto-save working_data
+        'session_timeout' => 3600, // Secondi inattività prima di timeout (1 ora)
+        'max_concurrent_sessions' => 5 // Massimo sessioni attive per user
+    ],
+    
+    // === VALIDATION ===
+    'validation' => [
+        'strict_mode' => false, // true = blocca export se errori, false = solo warning
+        'auto_fix_enabled' => true, // Abilita auto-fix per errori semplici
+        'policy_cache_ttl' => 3600 // Secondi cache policy rules in memoria
+    ],
+    
+    // === DEBUG & LOGGING ===
+    'debug' => [
+        'mock_mode' => false, // ✅ FALSE = Usa API reali (Claude configurato)
+        'verbose_logging' => true, // Abilita log dettagliati in CentralLogger
+        'save_llm_responses' => false, // Salva tutte le risposte LLM in working_data (debug)
+        'save_scraping_html' => false // Salva HTML scraping in file (debug)
+    ],
+    
+    // === RATE LIMITING ===
+    'rate_limit' => [
+        'enabled' => true,
+        'max_requests_per_minute' => 10, // Per user
+        'max_llm_calls_per_hour' => 50,  // Limite LLM calls per prevenire costi
+        'max_scraping_per_hour' => 100   // Limite scraping anti-ban
+    ],
+    
+    // === MOCK DATA (se mock_mode = true) ===
+    'mock' => [
+        'llm_response_delay' => 2, // Simula latenza API (secondi)
+        'scraping_response_delay' => 1,
+        'fake_keywords' => [
+            'mandorle', 'sgusciate', 'naturali', 'premium', 'californiane', 'biologiche',
+            'proteine', 'magnesio', 'vitamina e', 'snack', 'salutare', '500g', 'busta',
+            'richiudibile', 'frutta secca', 'alta qualità', 'tostatura', 'dolci', 'cucina'
+        ],
+        'fake_title' => 'Mandorle Sgusciate Californiane 500g Premium | Naturali Non Salate | Ricche Proteine Magnesio Vitamina E | Snack Sano | Ideali per Cucina Dolci',
+        'fake_description' => '<strong>🌟 Mandorle Premium Californiane - Qualità USA</strong><br><br>Scopri il sapore autentico delle <strong>mandorle californiane</strong>, coltivate sotto il sole degli Stati Uniti...'
+    ]
+];

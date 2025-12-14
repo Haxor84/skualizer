@@ -1,0 +1,4292 @@
+{
+    "module": "margynomic",
+    "generated_at": "2025-12-11 18:18:30",
+    "base_path": "margynomic/",
+    "files": [
+        {
+            "file": "margynomic/self_authorization.php",
+            "size": 16741,
+            "modified": "2025-07-19 12:57:46",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "canonicalQuery",
+                    "line": 61,
+                    "parameters": [
+                        "$raw"
+                    ],
+                    "description": "Self Authorization Amazon SP-API File: sincro/self_authorization.php Gestisce processo completo: token \u2192 download report \u2192 salvataggio"
+                },
+                {
+                    "name": "signedRequest",
+                    "line": 73,
+                    "parameters": [
+                        "$method",
+                        "$url",
+                        "$accessToken",
+                        "$awsKey",
+                        "$awsSecret",
+                        "$region",
+                        "$service",
+                        "$payload"
+                    ],
+                    "description": "Self Authorization Amazon SP-API File: sincro/self_authorization.php Gestisce processo completo: token \u2192 download report \u2192 salvataggio"
+                },
+                {
+                    "name": "getAccessToken",
+                    "line": 167,
+                    "parameters": [
+                        "$clientId",
+                        "$clientSecret",
+                        "$refreshToken"
+                    ],
+                    "description": "Self Authorization Amazon SP-API File: sincro/self_authorization.php Gestisce processo completo: token \u2192 download report \u2192 salvataggio"
+                },
+                {
+                    "name": "verificaToken",
+                    "line": 221,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Verifica se l'utente ha un refresh token"
+                },
+                {
+                    "name": "ottieniAccessToken",
+                    "line": 255,
+                    "parameters": [
+                        "$refreshToken"
+                    ],
+                    "description": "Converte refresh token in access token"
+                },
+                {
+                    "name": "scaricaReport",
+                    "line": 279,
+                    "parameters": [
+                        "$userId",
+                        "$accessToken"
+                    ],
+                    "description": "Scarica report settlement con firma AWS"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/admin_notifier.php",
+            "size": 82329,
+            "modified": "2025-10-18 21:44:06",
+            "classes": [
+                {
+                    "name": "AdminNotifier",
+                    "type": "class",
+                    "line": 18,
+                    "public_methods": [
+                        {
+                            "name": "checkCooldown",
+                            "line": 38,
+                            "parameters": [
+                                "$type",
+                                "$identifier"
+                            ],
+                            "description": "Verifica cooldown per evitare spam",
+                            "static": true
+                        },
+                        {
+                            "name": "notifyEmailFailure",
+                            "line": 139,
+                            "parameters": [
+                                "$userId",
+                                "$userEmail",
+                                "$error",
+                                "$context"
+                            ],
+                            "description": "Notifica fallimento email immediato",
+                            "static": true
+                        },
+                        {
+                            "name": "notifySettlementCronFailure",
+                            "line": 200,
+                            "parameters": [
+                                "$error",
+                                "$context"
+                            ],
+                            "description": "Notifica fallimento cron settlement",
+                            "static": true
+                        },
+                        {
+                            "name": "notifyInboundCronCompletion",
+                            "line": 259,
+                            "parameters": [
+                                "$summary",
+                                "$details"
+                            ],
+                            "description": "Notifica completamento cron Inbound con dettagli completi",
+                            "static": true
+                        },
+                        {
+                            "name": "notifyInventoryCronFailure",
+                            "line": 427,
+                            "parameters": [
+                                "$error",
+                                "$context"
+                            ],
+                            "description": "Notifica fallimento cron inventory",
+                            "static": true
+                        },
+                        {
+                            "name": "getInboundBreakdown",
+                            "line": 486,
+                            "parameters": [],
+                            "description": "Get Inbound Module Breakdown (ultime 24h)",
+                            "static": true
+                        },
+                        {
+                            "name": "analyzeDailyLogs",
+                            "line": 578,
+                            "parameters": [],
+                            "description": "Analizza log giornalieri e estrae metriche",
+                            "static": true
+                        },
+                        {
+                            "name": "sendDailyReport",
+                            "line": 890,
+                            "parameters": [],
+                            "description": "Invia report giornaliero completo - VERSION 2.0 Features: User Breakdown, API Stats, Database Stats, Trend Analysis",
+                            "static": true
+                        },
+                        {
+                            "name": "cleanupNotificationCache",
+                            "line": 1556,
+                            "parameters": [],
+                            "description": "Pulizia cache notifiche vecchie",
+                            "static": true
+                        },
+                        {
+                            "name": "testNotificationSystem",
+                            "line": 1631,
+                            "parameters": [],
+                            "description": "Test sistema notifiche",
+                            "static": true
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/config/database.php",
+            "size": 2209,
+            "modified": "2025-08-02 20:29:39",
+            "classes": [
+                {
+                    "name": "Database",
+                    "type": "class",
+                    "line": 4,
+                    "public_methods": [
+                        {
+                            "name": "getInstance",
+                            "line": 41,
+                            "parameters": [],
+                            "description": "",
+                            "static": true
+                        },
+                        {
+                            "name": "getConnection",
+                            "line": 53,
+                            "parameters": [],
+                            "description": "",
+                            "static": false
+                        },
+                        {
+                            "name": "__wakeup",
+                            "line": 59,
+                            "parameters": [],
+                            "description": "",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/config/CentralLogger.php",
+            "size": 14087,
+            "modified": "2025-10-12 09:20:33",
+            "classes": [
+                {
+                    "name": "CentralLogger",
+                    "type": "class",
+                    "line": 10,
+                    "public_methods": [
+                        {
+                            "name": "log",
+                            "line": 55,
+                            "parameters": [
+                                "$module",
+                                "$level",
+                                "$message",
+                                "$context"
+                            ],
+                            "description": "Log principale - punto di accesso unico",
+                            "static": true
+                        },
+                        {
+                            "name": "debug",
+                            "line": 288,
+                            "parameters": [
+                                "$module",
+                                "$message",
+                                "$context"
+                            ],
+                            "description": "Metodi helper per livelli specifici",
+                            "static": true
+                        },
+                        {
+                            "name": "info",
+                            "line": 292,
+                            "parameters": [
+                                "$module",
+                                "$message",
+                                "$context"
+                            ],
+                            "description": "Metodi helper per livelli specifici",
+                            "static": true
+                        },
+                        {
+                            "name": "warning",
+                            "line": 296,
+                            "parameters": [
+                                "$module",
+                                "$message",
+                                "$context"
+                            ],
+                            "description": "Metodi helper per livelli specifici",
+                            "static": true
+                        },
+                        {
+                            "name": "error",
+                            "line": 300,
+                            "parameters": [
+                                "$module",
+                                "$message",
+                                "$context"
+                            ],
+                            "description": "Metodi helper per livelli specifici",
+                            "static": true
+                        },
+                        {
+                            "name": "critical",
+                            "line": 304,
+                            "parameters": [
+                                "$module",
+                                "$message",
+                                "$context"
+                            ],
+                            "description": "Metodi helper per livelli specifici",
+                            "static": true
+                        },
+                        {
+                            "name": "cleanup",
+                            "line": 311,
+                            "parameters": [
+                                "$retentionDays"
+                            ],
+                            "description": "Pulizia automatica log vecchi (chiamata opzionale da cron)",
+                            "static": true
+                        },
+                        {
+                            "name": "getStats",
+                            "line": 346,
+                            "parameters": [],
+                            "description": "Ottieni statistiche sui log",
+                            "static": true
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/config/config.php",
+            "size": 8623,
+            "modified": "2025-10-04 16:30:39",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "conditionalLog",
+                    "line": 54,
+                    "parameters": [
+                        "$message",
+                        "$level",
+                        "$prefix"
+                    ],
+                    "description": "Funzione di logging condizionale"
+                },
+                {
+                    "name": "getLogBasePath",
+                    "line": 73,
+                    "parameters": [],
+                    "description": "Trova dinamicamente il percorso logs da qualsiasi posizione"
+                },
+                {
+                    "name": "getDbConnection",
+                    "line": 118,
+                    "parameters": [],
+                    "description": "Connessione al database"
+                },
+                {
+                    "name": "initSecureSession",
+                    "line": 143,
+                    "parameters": [],
+                    "description": "Inizializza sessione sicura"
+                },
+                {
+                    "name": "getEnterpriseMappingEngine",
+                    "line": 191,
+                    "parameters": [],
+                    "description": "Ottieni istanza Enterprise Mapping Engine"
+                },
+                {
+                    "name": "isEnterpriseMappingAvailable",
+                    "line": 226,
+                    "parameters": [],
+                    "description": "Verifica se enterprise mapping \u00e8 disponibile"
+                },
+                {
+                    "name": "initializeEnterpriseMappingDirectories",
+                    "line": 233,
+                    "parameters": [],
+                    "description": "Inizializza directory mapping enterprise"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/profilo_utente.php",
+            "size": 42739,
+            "modified": "2025-11-11 22:32:45",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "getAutomaticStats",
+                    "line": 30,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Profilo Utente - Dashboard Margynomic File: profilo_utente.php Dashboard utente con statistiche automatiche Settlement + Inventory Design magico ispirato a margini.php e inventory.php"
+                },
+                {
+                    "name": "timeAgo",
+                    "line": 177,
+                    "parameters": [
+                        "$datetime"
+                    ],
+                    "description": "Profilo Utente - Dashboard Margynomic File: profilo_utente.php Dashboard utente con statistiche automatiche Settlement + Inventory Design magico ispirato a margini.php e inventory.php"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/sincro/settlement_parser.php",
+            "size": 13992,
+            "modified": "2025-10-05 17:38:00",
+            "classes": [
+                {
+                    "name": "SettlementParser",
+                    "type": "class",
+                    "line": 12,
+                    "public_methods": [
+                        {
+                            "name": "parseAndImportSettlement",
+                            "line": 56,
+                            "parameters": [
+                                "$userId",
+                                "$filePath"
+                            ],
+                            "description": "Funzione principale: parse e import completo",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": [
+                {
+                    "name": "parseSettlementFile",
+                    "line": 375,
+                    "parameters": [
+                        "$userId",
+                        "$filePath"
+                    ],
+                    "description": "Log import nel database"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/sincro/oauth_controller.php",
+            "size": 9612,
+            "modified": "2025-10-05 17:38:02",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "logOAuthOperation",
+                    "line": 26,
+                    "parameters": [
+                        "$message",
+                        "$level",
+                        "$context"
+                    ],
+                    "description": "Log OAuth - Utilizza CentralLogger"
+                },
+                {
+                    "name": "handleAuthorize",
+                    "line": 48,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "STEP 1: Gestisce richiesta di autorizzazione"
+                },
+                {
+                    "name": "handleCallback",
+                    "line": 85,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "STEP 2: gestisce il callback da Amazon"
+                },
+                {
+                    "name": "generateSecureState",
+                    "line": 160,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Genera state sicuro per OAuth CSRF protection"
+                },
+                {
+                    "name": "buildAuthorizationUrl",
+                    "line": 167,
+                    "parameters": [
+                        "$state"
+                    ],
+                    "description": "Costruisce URL di autorizzazione Amazon SP-API"
+                },
+                {
+                    "name": "exchangeCodeForToken",
+                    "line": 188,
+                    "parameters": [
+                        "$authCode"
+                    ],
+                    "description": "Scambia authorization code con refresh token Chiamata REALE all'API Amazon LWA"
+                },
+                {
+                    "name": "saveRefreshToken",
+                    "line": 246,
+                    "parameters": [
+                        "$userId",
+                        "$refreshToken",
+                        "$sellingPartnerId"
+                    ],
+                    "description": "Salva refresh token nella tabella amazon_client_tokens"
+                },
+                {
+                    "name": "hasValidToken",
+                    "line": 286,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Verifica se utente ha gi\u00e0 un token valido"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/sincro/api_config.php",
+            "size": 3988,
+            "modified": "2025-10-05 17:38:04",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/sincro/populate_queue.php",
+            "size": 3187,
+            "modified": "2025-10-05 17:38:02",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "debugLogPopulate",
+                    "line": 8,
+                    "parameters": [
+                        "$message"
+                    ],
+                    "description": ""
+                }
+            ]
+        },
+        {
+            "file": "margynomic/sincro/sku_mapping_system.php",
+            "size": 5243,
+            "modified": "2025-10-05 17:38:00",
+            "classes": [
+                {
+                    "name": "SkuMappingSystem",
+                    "type": "class",
+                    "line": 7,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 12,
+                            "parameters": [],
+                            "description": "",
+                            "static": false
+                        },
+                        {
+                            "name": "processUnmappedSkus",
+                            "line": 24,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Processa SKU non mappati (METODO PRINCIPALE per batch_processor) Ora delega al nuovo sistema di mapping.",
+                            "static": false
+                        },
+                        {
+                            "name": "performAutoMapping",
+                            "line": 57,
+                            "parameters": [
+                                "$userId",
+                                "$sourceTable"
+                            ],
+                            "description": "DEPRECATED: Questa funzione non \u00e8 pi\u00f9 utilizzata direttamente. La logica di auto-mapping \u00e8 ora gestita da MappingService.",
+                            "static": false
+                        },
+                        {
+                            "name": "syncBidirectional",
+                            "line": 66,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "DEPRECATED: Questa funzione non \u00e8 pi\u00f9 utilizzata direttamente. La logica di sincronizzazione \u00e8 ora gestita da MappingService o dovrebbe essere migrata.",
+                            "static": false
+                        },
+                        {
+                            "name": "getUnmappedSkuDetails",
+                            "line": 84,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "DEPRECATED: Questa funzione non \u00e8 pi\u00f9 utilizzata direttamente. La logica di dettaglio \u00e8 ora gestita da MappingService o dovrebbe essere migrata.",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/sincro/sync_helpers.php",
+            "size": 21135,
+            "modified": "2025-10-05 17:37:59",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "hasActiveAmazonSync",
+                    "line": 16,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Verifica se l'utente ha una sincronizzazione Amazon attiva"
+                },
+                {
+                    "name": "hasCompletedFirstImport",
+                    "line": 43,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Verifica se l'utente ha completato il primo import"
+                },
+                {
+                    "name": "logSyncOperation",
+                    "line": 69,
+                    "parameters": [
+                        "$userId",
+                        "$step",
+                        "$status",
+                        "$message",
+                        "$contextJson"
+                    ],
+                    "description": "Log operazioni di sincronizzazione - Sostituito da CentralLogger Mantenuto per retrocompatibilit\u00e0"
+                },
+                {
+                    "name": "createSyncDebugLogsTable",
+                    "line": 96,
+                    "parameters": [
+                        "$pdo"
+                    ],
+                    "description": "Funzione obsoleta - tabella gestita automaticamente"
+                },
+                {
+                    "name": "logSettlement",
+                    "line": 104,
+                    "parameters": [
+                        "$message",
+                        "$level",
+                        "$context"
+                    ],
+                    "description": "Log Settlement - Utilizza CentralLogger"
+                },
+                {
+                    "name": "logToFile",
+                    "line": 117,
+                    "parameters": [
+                        "$userId",
+                        "$step",
+                        "$status",
+                        "$message",
+                        "$contextJson"
+                    ],
+                    "description": "Log su file - Obsoleto, sostituito da CentralLogger Mantenuto per retrocompatibilit\u00e0, redirige a CentralLogger"
+                },
+                {
+                    "name": "getAmazonCredentials",
+                    "line": 129,
+                    "parameters": [
+                        "$userId",
+                        "$marketplaceId"
+                    ],
+                    "description": "Ottieni credenziali Amazon per l'utente"
+                },
+                {
+                    "name": "isTokenExpiring",
+                    "line": 154,
+                    "parameters": [
+                        "$expiresAt",
+                        "$thresholdSeconds"
+                    ],
+                    "description": "Verifica se il token \u00e8 in scadenza"
+                },
+                {
+                    "name": "generateUniqueRowHash",
+                    "line": 172,
+                    "parameters": [
+                        "$data"
+                    ],
+                    "description": "Genera hash univoco per riga di dati (per evitare duplicati)"
+                },
+                {
+                    "name": "formatAmountForDb",
+                    "line": 192,
+                    "parameters": [
+                        "$amount",
+                        "$currency"
+                    ],
+                    "description": "Formatta importo per database (gestisce valute diverse)"
+                },
+                {
+                    "name": "formatDateForDb",
+                    "line": 219,
+                    "parameters": [
+                        "$dateString"
+                    ],
+                    "description": "Formatta data per database"
+                },
+                {
+                    "name": "cleanSku",
+                    "line": 262,
+                    "parameters": [
+                        "$sku"
+                    ],
+                    "description": "Pulisce e valida SKU"
+                },
+                {
+                    "name": "getSyncStats",
+                    "line": 277,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Ottieni statistiche di sincronizzazione per l'utente"
+                },
+                {
+                    "name": "tableExists",
+                    "line": 330,
+                    "parameters": [
+                        "$tableName"
+                    ],
+                    "description": "Verifica se una tabella esiste nel database"
+                },
+                {
+                    "name": "sanitizeFilename",
+                    "line": 356,
+                    "parameters": [
+                        "$filename"
+                    ],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "popolaCodaReport",
+                    "line": 371,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Popola coda con tutti i report disponibili per utente"
+                },
+                {
+                    "name": "aggiungiReportAllaCoda",
+                    "line": 439,
+                    "parameters": [
+                        "$userId",
+                        "$reportData"
+                    ],
+                    "description": "Aggiunge singolo report alla coda se non presente"
+                },
+                {
+                    "name": "processaUnReportDallaCoda",
+                    "line": 467,
+                    "parameters": [],
+                    "description": "Processa un report dalla coda"
+                },
+                {
+                    "name": "formatFileSize",
+                    "line": 522,
+                    "parameters": [
+                        "$bytes"
+                    ],
+                    "description": "Converte dimensione file in formato leggibile"
+                },
+                {
+                    "name": "isDebugMode",
+                    "line": 536,
+                    "parameters": [],
+                    "description": "Verifica se l'ambiente \u00e8 in modalit\u00e0 debug"
+                },
+                {
+                    "name": "debugLog",
+                    "line": 543,
+                    "parameters": [
+                        "$message",
+                        "$context"
+                    ],
+                    "description": "Log condizionale (solo in debug mode)"
+                },
+                {
+                    "name": "getMarketplaceConfig",
+                    "line": 552,
+                    "parameters": [
+                        "$marketplaceId"
+                    ],
+                    "description": "Ottieni configurazione marketplace"
+                },
+                {
+                    "name": "getAccessToken",
+                    "line": 567,
+                    "parameters": [
+                        "$clientId",
+                        "$clientSecret",
+                        "$refreshToken"
+                    ],
+                    "description": "Ottieni access token da refresh token"
+                },
+                {
+                    "name": "signedRequest",
+                    "line": 593,
+                    "parameters": [
+                        "$method",
+                        "$url",
+                        "$accessToken",
+                        "$awsKey",
+                        "$awsSecret",
+                        "$region",
+                        "$service",
+                        "$payload"
+                    ],
+                    "description": "Ottieni access token da refresh token"
+                },
+                {
+                    "name": "canonicalQuery",
+                    "line": 687,
+                    "parameters": [
+                        "$raw"
+                    ],
+                    "description": "Ottieni access token da refresh token"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/sincro/cron_settlement_margynomic.php",
+            "size": 6032,
+            "modified": "2025-11-10 21:54:40",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "cleanupSettlementLogs",
+                    "line": 151,
+                    "parameters": [],
+                    "description": "Funzione obsoleta - pulizia gestita da CentralLogger"
+                },
+                {
+                    "name": "testSettlementCron",
+                    "line": 159,
+                    "parameters": [],
+                    "description": "Funzione per test manuale"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/sincro/settlement_manager.php",
+            "size": 20224,
+            "modified": "2025-10-05 17:38:01",
+            "classes": [
+                {
+                    "name": "SettlementManager",
+                    "type": "class",
+                    "line": 4,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 9,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "",
+                            "static": false
+                        },
+                        {
+                            "name": "getAvailableUsers",
+                            "line": 14,
+                            "parameters": [],
+                            "description": "",
+                            "static": false
+                        },
+                        {
+                            "name": "getDiagnostics",
+                            "line": 26,
+                            "parameters": [],
+                            "description": "",
+                            "static": false
+                        },
+                        {
+                            "name": "recoveryMetadata",
+                            "line": 150,
+                            "parameters": [],
+                            "description": "",
+                            "static": false
+                        },
+                        {
+                            "name": "deleteDuplicates",
+                            "line": 218,
+                            "parameters": [
+                                "$dryRun"
+                            ],
+                            "description": "",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/sincro/amazon_callback.php",
+            "size": 18378,
+            "modified": "2025-10-05 17:38:05",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "logCallbackOperation",
+                    "line": 26,
+                    "parameters": [
+                        "$message",
+                        "$level",
+                        "$context"
+                    ],
+                    "description": "Log Callback - Utilizza CentralLogger"
+                },
+                {
+                    "name": "exchangeCodeForRefreshToken",
+                    "line": 146,
+                    "parameters": [
+                        "$authCode"
+                    ],
+                    "description": "Log Callback - Utilizza CentralLogger"
+                },
+                {
+                    "name": "saveRefreshTokenToDb",
+                    "line": 172,
+                    "parameters": [
+                        "$userId",
+                        "$refreshToken"
+                    ],
+                    "description": "Log Callback - Utilizza CentralLogger"
+                },
+                {
+                    "name": "verificaToken",
+                    "line": 257,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Verifica se l'utente ha un refresh token"
+                },
+                {
+                    "name": "ottieniAccessToken",
+                    "line": 291,
+                    "parameters": [
+                        "$refreshToken"
+                    ],
+                    "description": "Converte refresh token in access token"
+                },
+                {
+                    "name": "scaricaReport",
+                    "line": 315,
+                    "parameters": [
+                        "$userId",
+                        "$accessToken"
+                    ],
+                    "description": "Scarica report settlement con firma AWS"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/sincro/batch_processor.php",
+            "size": 9039,
+            "modified": "2025-10-05 17:38:04",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "scaricaReportDallaCoda",
+                    "line": 146,
+                    "parameters": [
+                        "$reportInfo"
+                    ],
+                    "description": "Scarica report specifico dalla coda Questa funzione non \u00e8 stata modificata in questa fase, ma potrebbe richiedere refactoring per integrarsi meglio con un sistema di gestione code pi\u00f9 robusto."
+                },
+                {
+                    "name": "getUnmappedSkuStats",
+                    "line": 232,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Ottieni statistiche SKU non mappati Questa funzione \u00e8 ora deprecata e dovrebbe essere rimossa o la sua logica integrata nel nuovo sistema di mapping se le statistiche sono ancora necessarie."
+                }
+            ]
+        },
+        {
+            "file": "margynomic/sincro/historical_scanner.php",
+            "size": 18753,
+            "modified": "2025-10-05 17:38:03",
+            "classes": [
+                {
+                    "name": "HistoricalScanner",
+                    "type": "class",
+                    "line": 11,
+                    "public_methods": [
+                        {
+                            "name": "scanUserHistoricalFiles",
+                            "line": 17,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Scansiona file storici per utente",
+                            "static": false
+                        },
+                        {
+                            "name": "processHistoricalFile",
+                            "line": 247,
+                            "parameters": [
+                                "$userId",
+                                "$filePath"
+                            ],
+                            "description": "Processa singolo file storico",
+                            "static": false
+                        },
+                        {
+                            "name": "processHistoricalBatch",
+                            "line": 300,
+                            "parameters": [
+                                "$userId",
+                                "$filePaths"
+                            ],
+                            "description": "Processa batch di file storici",
+                            "static": false
+                        },
+                        {
+                            "name": "addFilesToQueue",
+                            "line": 337,
+                            "parameters": [
+                                "$userId",
+                                "$filePaths"
+                            ],
+                            "description": "Aggiunge file alla coda settlement (opzionale)",
+                            "static": false
+                        },
+                        {
+                            "name": "verifyDownloadStructure",
+                            "line": 467,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Verifica integrit\u00e0 cartelle download",
+                            "static": false
+                        },
+                        {
+                            "name": "getGlobalStats",
+                            "line": 499,
+                            "parameters": [],
+                            "description": "Ottieni statistiche globali sistema",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": [
+                {
+                    "name": "scanHistoricalFiles",
+                    "line": 539,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Scansiona file storici per utente"
+                },
+                {
+                    "name": "processHistoricalFile",
+                    "line": 547,
+                    "parameters": [
+                        "$userId",
+                        "$filePath"
+                    ],
+                    "description": "Processa singolo file storico"
+                },
+                {
+                    "name": "processHistoricalBatch",
+                    "line": 555,
+                    "parameters": [
+                        "$userId",
+                        "$filePaths"
+                    ],
+                    "description": "Processa batch file storici"
+                },
+                {
+                    "name": "verifyUserDownloadStructure",
+                    "line": 563,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Verifica struttura cartelle"
+                },
+                {
+                    "name": "getHistoricalGlobalStats",
+                    "line": 571,
+                    "parameters": [],
+                    "description": "Ottieni statistiche globali"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/sincro/retroactive_mapping.php",
+            "size": 10069,
+            "modified": "2025-10-05 17:38:01",
+            "classes": [
+                {
+                    "name": "RetroactiveMapping",
+                    "type": "class",
+                    "line": 13,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 17,
+                            "parameters": [],
+                            "description": "Sistema Mapping Retroattivo Completo File: sincro/retroactive_mapping.php",
+                            "static": false
+                        },
+                        {
+                            "name": "processAllUnmappedSkus",
+                            "line": 24,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Processa TUTTI gli SKU non mappati di un utente (settlement + inventory)",
+                            "static": false
+                        },
+                        {
+                            "name": "processAllUsers",
+                            "line": 224,
+                            "parameters": [],
+                            "description": "Processa tutti gli utenti del sistema",
+                            "static": false
+                        },
+                        {
+                            "name": "getUserStats",
+                            "line": 274,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Ottieni statistiche rapide utente (settlement + inventory)",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/admin_credenziali.php",
+            "size": 25353,
+            "modified": "2025-12-06 16:48:31",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/admin_ajax.php",
+            "size": 6470,
+            "modified": "2025-08-02 20:26:15",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "handleSaveSingleMapping",
+                    "line": 63,
+                    "parameters": [],
+                    "description": "Salva mapping singolo SKU"
+                },
+                {
+                    "name": "handleSaveBulkMappings",
+                    "line": 91,
+                    "parameters": [],
+                    "description": "Salva mappings multipli (bulk)"
+                },
+                {
+                    "name": "handleGetAiSuggestion",
+                    "line": 124,
+                    "parameters": [],
+                    "description": "Ottieni suggerimento AI per SKU"
+                },
+                {
+                    "name": "handleCheckProductIdUniqueness",
+                    "line": 152,
+                    "parameters": [],
+                    "description": "Controlla unicit\u00e0 Product ID"
+                },
+                {
+                    "name": "handleGetSkuMappings",
+                    "line": 176,
+                    "parameters": [],
+                    "description": "Ottieni mappings SKU per utente"
+                },
+                {
+                    "name": "validateRequiredParams",
+                    "line": 209,
+                    "parameters": [
+                        "$params",
+                        "$required"
+                    ],
+                    "description": "Funzione helper per validazione parametri"
+                },
+                {
+                    "name": "logAjaxAction",
+                    "line": 220,
+                    "parameters": [
+                        "$action",
+                        "$userId",
+                        "$details"
+                    ],
+                    "description": "Funzione helper per logging AJAX"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/admin/admin_log_api.php",
+            "size": 17937,
+            "modified": "2025-10-04 17:01:39",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "getDashboardStats",
+                    "line": 75,
+                    "parameters": [
+                        "$pdo"
+                    ],
+                    "description": "Dashboard Stats - Statistiche overview"
+                },
+                {
+                    "name": "getFilteredLogs",
+                    "line": 136,
+                    "parameters": [
+                        "$pdo"
+                    ],
+                    "description": "Filtered Logs - Query con filtri avanzati"
+                },
+                {
+                    "name": "searchLogs",
+                    "line": 253,
+                    "parameters": [
+                        "$pdo"
+                    ],
+                    "description": "Search Logs - Full-text search"
+                },
+                {
+                    "name": "getTopErrors",
+                    "line": 303,
+                    "parameters": [
+                        "$pdo"
+                    ],
+                    "description": "Top Errors - Errori pi\u00f9 frequenti"
+                },
+                {
+                    "name": "getChartData",
+                    "line": 335,
+                    "parameters": [
+                        "$pdo"
+                    ],
+                    "description": "Chart Data - Dati per grafici trend"
+                },
+                {
+                    "name": "exportLogs",
+                    "line": 383,
+                    "parameters": [
+                        "$pdo"
+                    ],
+                    "description": "Export Logs - CSV o JSON"
+                },
+                {
+                    "name": "checkNewLogs",
+                    "line": 478,
+                    "parameters": [
+                        "$pdo"
+                    ],
+                    "description": "Check New Logs - Polling per nuovi log"
+                },
+                {
+                    "name": "cleanupOldLogs",
+                    "line": 499,
+                    "parameters": [
+                        "$pdo"
+                    ],
+                    "description": "Cleanup log pi\u00f9 vecchi di N giorni"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/admin/crea_admin.php",
+            "size": 647,
+            "modified": "2025-08-02 20:26:55",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/admin_helpers.php",
+            "size": 56674,
+            "modified": "2025-12-10 15:58:28",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "isAdminLogged",
+                    "line": 29,
+                    "parameters": [],
+                    "description": "Verifica se l'admin \u00e8 loggato"
+                },
+                {
+                    "name": "verifyAdminCredentials",
+                    "line": 36,
+                    "parameters": [
+                        "$email",
+                        "$password"
+                    ],
+                    "description": "Verifica credenziali admin dal database"
+                },
+                {
+                    "name": "requireAdmin",
+                    "line": 55,
+                    "parameters": [],
+                    "description": "Richiede autenticazione admin - redirect se non loggato"
+                },
+                {
+                    "name": "getAdminDbConnection",
+                    "line": 84,
+                    "parameters": [],
+                    "description": "Connessione database admin"
+                },
+                {
+                    "name": "countActiveUsers",
+                    "line": 93,
+                    "parameters": [],
+                    "description": "Conta utenti attivi"
+                },
+                {
+                    "name": "countActiveCredentials",
+                    "line": 106,
+                    "parameters": [],
+                    "description": "Conta credenziali Amazon attive"
+                },
+                {
+                    "name": "countDebugLogs",
+                    "line": 129,
+                    "parameters": [],
+                    "description": "Conta log debug totali"
+                },
+                {
+                    "name": "getUsers",
+                    "line": 144,
+                    "parameters": [],
+                    "description": "Ottieni lista utenti"
+                },
+                {
+                    "name": "getUsersWithSyncStatus",
+                    "line": 161,
+                    "parameters": [
+                        "$limit"
+                    ],
+                    "description": "Ottieni utenti con status sync"
+                },
+                {
+                    "name": "deleteUser",
+                    "line": 218,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Elimina utente"
+                },
+                {
+                    "name": "deactivateUser",
+                    "line": 231,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Disattiva utente"
+                },
+                {
+                    "name": "getUnmappedSkus",
+                    "line": 246,
+                    "parameters": [
+                        "$userId",
+                        "$limit"
+                    ],
+                    "description": "Ottieni SKU non mappati per utente"
+                },
+                {
+                    "name": "saveSingleMapping",
+                    "line": 303,
+                    "parameters": [
+                        "$userId",
+                        "$sku",
+                        "$productId",
+                        "$productName"
+                    ],
+                    "description": "Salva mapping singolo SKU"
+                },
+                {
+                    "name": "saveBulkMappings",
+                    "line": 449,
+                    "parameters": [
+                        "$userId",
+                        "$mappings"
+                    ],
+                    "description": "Salva mapping multipli (bulk)"
+                },
+                {
+                    "name": "getAiSuggestionForSku",
+                    "line": 534,
+                    "parameters": [
+                        "$userId",
+                        "$sku"
+                    ],
+                    "description": "Ottieni suggerimento AI per SKU"
+                },
+                {
+                    "name": "checkProductIdUniqueness",
+                    "line": 552,
+                    "parameters": [
+                        "$userId",
+                        "$productId",
+                        "$excludeSku"
+                    ],
+                    "description": "Verifica unicit\u00e0 Product ID"
+                },
+                {
+                    "name": "getAdminAmazonCredentials",
+                    "line": 588,
+                    "parameters": [],
+                    "description": "Ottieni credenziali Amazon ADMIN (rinominata per evitare conflitti)"
+                },
+                {
+                    "name": "addAmazonCredentials",
+                    "line": 606,
+                    "parameters": [
+                        "$awsAccessKey",
+                        "$awsSecretKey",
+                        "$awsRegion",
+                        "$clientId",
+                        "$clientSecret"
+                    ],
+                    "description": "Aggiungi credenziali Amazon"
+                },
+                {
+                    "name": "toggleCredentialStatus",
+                    "line": 623,
+                    "parameters": [
+                        "$credentialId"
+                    ],
+                    "description": "Toggle status credenziali"
+                },
+                {
+                    "name": "deleteCredential",
+                    "line": 640,
+                    "parameters": [
+                        "$credentialId"
+                    ],
+                    "description": "Elimina credenziali"
+                },
+                {
+                    "name": "maskSensitiveString",
+                    "line": 653,
+                    "parameters": [
+                        "$string",
+                        "$visibleStart",
+                        "$visibleEnd"
+                    ],
+                    "description": "Maschera parzialmente una stringa sensibile"
+                },
+                {
+                    "name": "getCredentialById",
+                    "line": 667,
+                    "parameters": [
+                        "$credentialId"
+                    ],
+                    "description": "Ottieni credenziale per ID"
+                },
+                {
+                    "name": "updateAmazonCredentials",
+                    "line": 686,
+                    "parameters": [
+                        "$credentialId",
+                        "$awsAccessKey",
+                        "$awsSecretKey",
+                        "$awsRegion",
+                        "$clientId",
+                        "$clientSecret"
+                    ],
+                    "description": "Aggiorna credenziali Amazon esistenti"
+                },
+                {
+                    "name": "getRecentDebugLogs",
+                    "line": 710,
+                    "parameters": [
+                        "$limit",
+                        "$level",
+                        "$userId"
+                    ],
+                    "description": "Ottieni log debug recenti"
+                },
+                {
+                    "name": "getUsersForDropdown",
+                    "line": 749,
+                    "parameters": [],
+                    "description": "Ottieni utenti per dropdown"
+                },
+                {
+                    "name": "getMappingStatistics",
+                    "line": 764,
+                    "parameters": [],
+                    "description": "Statistiche mapping per admin_mapping.php"
+                },
+                {
+                    "name": "executeCompleteMapping",
+                    "line": 831,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Esegui mapping completo per utente"
+                },
+                {
+                    "name": "executeGlobalMapping",
+                    "line": 868,
+                    "parameters": [],
+                    "description": "Esegui mapping globale per tutti gli utenti"
+                },
+                {
+                    "name": "formatDate",
+                    "line": 884,
+                    "parameters": [
+                        "$date"
+                    ],
+                    "description": "Formatta data per visualizzazione"
+                },
+                {
+                    "name": "formatBytes",
+                    "line": 892,
+                    "parameters": [
+                        "$size",
+                        "$precision"
+                    ],
+                    "description": "Formatta dimensione file"
+                },
+                {
+                    "name": "getAdminHeader",
+                    "line": 904,
+                    "parameters": [
+                        "$title"
+                    ],
+                    "description": "Header HTML comune"
+                },
+                {
+                    "name": "getAdminNavigation",
+                    "line": 935,
+                    "parameters": [
+                        "$currentPage"
+                    ],
+                    "description": "Header HTML comune"
+                },
+                {
+                    "name": "getAdminFooter",
+                    "line": 1301,
+                    "parameters": [],
+                    "description": "Footer HTML comune"
+                },
+                {
+                    "name": "showMessage",
+                    "line": 1308,
+                    "parameters": [
+                        "$message",
+                        "$type"
+                    ],
+                    "description": "Mostra messaggio alert"
+                },
+                {
+                    "name": "createUserSettlementTable",
+                    "line": 1319,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Crea tabella settlement per utente specifico"
+                },
+                {
+                    "name": "createSettlementTablesForExistingUsers",
+                    "line": 1385,
+                    "parameters": [],
+                    "description": "Crea tabelle settlement per tutti gli utenti esistenti"
+                },
+                {
+                    "name": "mergeProducts",
+                    "line": 1417,
+                    "parameters": [
+                        "$userId",
+                        "$sourceSku",
+                        "$targetProductId"
+                    ],
+                    "description": "Unisce prodotti (merge product_id)"
+                },
+                {
+                    "name": "createSettlementTableForUser",
+                    "line": 1481,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Crea tabella settlement per utente se non esiste"
+                },
+                {
+                    "name": "logAdminOperation",
+                    "line": 1516,
+                    "parameters": [
+                        "$operation",
+                        "$userId",
+                        "$message",
+                        "$context"
+                    ],
+                    "description": "Log operazioni admin nel sistema centralizzato"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/admin/admin_log_dashboard.php",
+            "size": 18692,
+            "modified": "2025-11-15 13:01:16",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "getHealthClass",
+                    "line": 94,
+                    "parameters": [
+                        "$score"
+                    ],
+                    "description": "Admin Log Dashboard - Overview Sistema Log File: admin/admin_log_dashboard.php Dashboard centrale con statistiche, trend e health score"
+                },
+                {
+                    "name": "getHealthIcon",
+                    "line": 101,
+                    "parameters": [
+                        "$score"
+                    ],
+                    "description": "Admin Log Dashboard - Overview Sistema Log File: admin/admin_log_dashboard.php Dashboard centrale con statistiche, trend e health score"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/admin/admin_easyship.php",
+            "size": 28003,
+            "modified": "2025-09-27 00:37:04",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "sanitizeFileName",
+                    "line": 27,
+                    "parameters": [
+                        "$name"
+                    ],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "loadStats",
+                    "line": 418,
+                    "parameters": [],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "loadShipments",
+                    "line": 435,
+                    "parameters": [],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "loadUsers",
+                    "line": 477,
+                    "parameters": [],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "getStatusBadge",
+                    "line": 495,
+                    "parameters": [],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "viewShipment",
+                    "line": 504,
+                    "parameters": [],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "showShipmentModal",
+                    "line": 519,
+                    "parameters": [],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "closeModal",
+                    "line": 592,
+                    "parameters": [],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "uploadBolla",
+                    "line": 596,
+                    "parameters": [],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "handleFileUpload",
+                    "line": 602,
+                    "parameters": [],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "sendEmailBolla",
+                    "line": 636,
+                    "parameters": [],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "exportShipments",
+                    "line": 657,
+                    "parameters": [],
+                    "description": "Sanitizza nome file per sicurezza"
+                },
+                {
+                    "name": "showToast",
+                    "line": 662,
+                    "parameters": [],
+                    "description": "Sanitizza nome file per sicurezza"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/admin/admin_server_logs.php",
+            "size": 24569,
+            "modified": "2025-10-11 22:43:49",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "parseErrorLog",
+                    "line": 36,
+                    "parameters": [
+                        "$filePath",
+                        "$limit"
+                    ],
+                    "description": "Parsa error_log del server - OTTIMIZZATO per file grandi"
+                },
+                {
+                    "name": "parseAccessLog",
+                    "line": 104,
+                    "parameters": [
+                        "$filePath",
+                        "$limit"
+                    ],
+                    "description": "Parsa access_log del server"
+                },
+                {
+                    "name": "parseProxyLog",
+                    "line": 178,
+                    "parameters": [
+                        "$filePath",
+                        "$limit"
+                    ],
+                    "description": "Parsa proxy_error_log del server"
+                },
+                {
+                    "name": "updateLimit",
+                    "line": 756,
+                    "parameters": [],
+                    "description": "Parsa proxy_error_log del server"
+                },
+                {
+                    "name": "updateRefresh",
+                    "line": 762,
+                    "parameters": [],
+                    "description": "Parsa proxy_error_log del server"
+                },
+                {
+                    "name": "startRefreshTimer",
+                    "line": 773,
+                    "parameters": [],
+                    "description": "Parsa proxy_error_log del server"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/admin/admin_dashboard.php",
+            "size": 25850,
+            "modified": "2025-11-15 10:58:34",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/admin_utenti.php",
+            "size": 32826,
+            "modified": "2025-09-28 13:12:33",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "confirmDelete",
+                    "line": 857,
+                    "parameters": [],
+                    "description": "Gestione Utenti Admin - VERSIONE PROFESSIONALE File: admin/admin_utenti.php Interfaccia moderna per gestione completa utenti Margynomic"
+                },
+                {
+                    "name": "closeDeleteModal",
+                    "line": 863,
+                    "parameters": [],
+                    "description": "Gestione Utenti Admin - VERSIONE PROFESSIONALE File: admin/admin_utenti.php Interfaccia moderna per gestione completa utenti Margynomic"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/admin/admin_fnsku.php",
+            "size": 28845,
+            "modified": "2025-11-15 09:42:46",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ExcelParser.php",
+            "size": 19754,
+            "modified": "2025-12-10 13:44:33",
+            "classes": [
+                {
+                    "name": "ExcelParser",
+                    "type": "class",
+                    "line": 34,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 56,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Costruttore",
+                            "static": false
+                        },
+                        {
+                            "name": "parse",
+                            "line": 97,
+                            "parameters": [
+                                "$filepath",
+                                "$userId"
+                            ],
+                            "description": "Parsa file Excel completo",
+                            "static": false
+                        },
+                        {
+                            "name": "extractProductRows",
+                            "line": 373,
+                            "parameters": [
+                                "$worksheet",
+                                "$columnMapping",
+                                "$startRow"
+                            ],
+                            "description": "Estrai tutti i dati prodotti dalle righe 5+",
+                            "static": false
+                        },
+                        {
+                            "name": "matchSkuToProduct",
+                            "line": 430,
+                            "parameters": [
+                                "$sku"
+                            ],
+                            "description": "Match SKU con tabella products",
+                            "static": false
+                        },
+                        {
+                            "name": "saveToDatabase",
+                            "line": 459,
+                            "parameters": [
+                                "$filepath",
+                                "$filename",
+                                "$parseResult",
+                                "$productRows"
+                            ],
+                            "description": "Salva dati parsing nel database",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ValidationEngine.php",
+            "size": 8552,
+            "modified": "2025-10-11 23:51:41",
+            "classes": [
+                {
+                    "name": "ValidationEngine",
+                    "type": "class",
+                    "line": 29,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 46,
+                            "parameters": [],
+                            "description": "Costruttore",
+                            "static": false
+                        },
+                        {
+                            "name": "validateExcel",
+                            "line": 53,
+                            "parameters": [
+                                "$excelId"
+                            ],
+                            "description": "Valida intero file Excel",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "namespace": "class ValidationEngine {\n    \n    private $pdo",
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/DropdownExtractor.php",
+            "size": 23219,
+            "modified": "2025-12-10 13:19:24",
+            "classes": [
+                {
+                    "name": "DropdownExtractor",
+                    "type": "class",
+                    "line": 21,
+                    "public_methods": [
+                        {
+                            "name": "extractDropdowns",
+                            "line": 95,
+                            "parameters": [
+                                "$mainWorksheet",
+                                "$headers"
+                            ],
+                            "description": "Estrai dropdown UNIVERSALE - legge Data Validation direttamente da Excel",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ai/core/PolicyManager.php",
+            "size": 3942,
+            "modified": "2025-12-10 21:43:52",
+            "classes": [
+                {
+                    "name": "PolicyManager",
+                    "type": "class",
+                    "line": 6,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 33,
+                            "parameters": [
+                                "$policyFilePath"
+                            ],
+                            "description": "Mapping nomi campi Excel \u2192 nomi policy JSON",
+                            "static": false
+                        },
+                        {
+                            "name": "getPolicyForField",
+                            "line": 65,
+                            "parameters": [
+                                "$fieldName"
+                            ],
+                            "description": "Ottieni policy per campo specifico",
+                            "static": false
+                        },
+                        {
+                            "name": "getAllPolicies",
+                            "line": 85,
+                            "parameters": [],
+                            "description": "Ottieni tutte le policy",
+                            "static": false
+                        },
+                        {
+                            "name": "hasPolicy",
+                            "line": 94,
+                            "parameters": [
+                                "$fieldName"
+                            ],
+                            "description": "Verifica se campo ha policy definite",
+                            "static": false
+                        },
+                        {
+                            "name": "getCharLimits",
+                            "line": 102,
+                            "parameters": [
+                                "$fieldName"
+                            ],
+                            "description": "Ottieni limiti caratteri per campo",
+                            "static": false
+                        },
+                        {
+                            "name": "getForbiddenWords",
+                            "line": 115,
+                            "parameters": [],
+                            "description": "Ottieni parole vietate globali",
+                            "static": false
+                        },
+                        {
+                            "name": "getRecommendedStructure",
+                            "line": 124,
+                            "parameters": [
+                                "$fieldName"
+                            ],
+                            "description": "Ottieni struttura raccomandata per campo",
+                            "static": false
+                        },
+                        {
+                            "name": "getRecommendations",
+                            "line": 133,
+                            "parameters": [
+                                "$fieldName"
+                            ],
+                            "description": "Ottieni raccomandazioni per campo",
+                            "static": false
+                        },
+                        {
+                            "name": "getFieldMapping",
+                            "line": 142,
+                            "parameters": [],
+                            "description": "Ottieni mapping completo campi Excel \u2192 policy JSON",
+                            "static": false
+                        },
+                        {
+                            "name": "mapFieldName",
+                            "line": 150,
+                            "parameters": [
+                                "$fieldName"
+                            ],
+                            "description": "Converti nome campo Excel in nome policy",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ai/core/ContentValidator.php",
+            "size": 12088,
+            "modified": "2025-12-11 17:54:28",
+            "classes": [
+                {
+                    "name": "ContentValidator",
+                    "type": "class",
+                    "line": 6,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 10,
+                            "parameters": [
+                                "$policyManager"
+                            ],
+                            "description": "ContentValidator Valida contenuti generati contro policy Amazon",
+                            "static": false
+                        },
+                        {
+                            "name": "validate",
+                            "line": 22,
+                            "parameters": [
+                                "$fieldName",
+                                "$content"
+                            ],
+                            "description": "Valida contenuto per campo",
+                            "static": false
+                        },
+                        {
+                            "name": "validateMultiple",
+                            "line": 290,
+                            "parameters": [
+                                "$fields"
+                            ],
+                            "description": "Validazione batch (multipli campi)",
+                            "static": false
+                        },
+                        {
+                            "name": "validateLengthOnly",
+                            "line": 329,
+                            "parameters": [
+                                "$fieldName",
+                                "$content"
+                            ],
+                            "description": "Validazione rapida solo lunghezza (metodo pubblico)",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ai/core/AiContentGenerator.php",
+            "size": 40981,
+            "modified": "2025-12-11 15:30:30",
+            "classes": [
+                {
+                    "name": "AiContentGenerator",
+                    "type": "class",
+                    "line": 11,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 20,
+                            "parameters": [
+                                "$config",
+                                "$userId"
+                            ],
+                            "description": "AiContentGenerator Orchestrator principale - coordina tutti i componenti",
+                            "static": false
+                        },
+                        {
+                            "name": "generateField",
+                            "line": 41,
+                            "parameters": [
+                                "$fieldName",
+                                "$context",
+                                "$attempt"
+                            ],
+                            "description": "Genera contenuto per campo con auto-retry se brand sbagliato",
+                            "static": false
+                        },
+                        {
+                            "name": "generateMultipleFields",
+                            "line": 229,
+                            "parameters": [
+                                "$fieldNames",
+                                "$context"
+                            ],
+                            "description": "Genera MULTIPLI campi in modo coordinato Mantiene coerenza narrativa e NO ripetizioni",
+                            "static": false
+                        },
+                        {
+                            "name": "testConfiguration",
+                            "line": 709,
+                            "parameters": [],
+                            "description": "Test configurazione",
+                            "static": false
+                        },
+                        {
+                            "name": "getPolicyForField",
+                            "line": 783,
+                            "parameters": [
+                                "$fieldName"
+                            ],
+                            "description": "Ottieni policy per campo (espone PolicyManager)",
+                            "static": false
+                        },
+                        {
+                            "name": "validateContent",
+                            "line": 791,
+                            "parameters": [
+                                "$fieldName",
+                                "$content"
+                            ],
+                            "description": "Valida contenuto (espone ContentValidator)",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ai/core/AiEngine.php",
+            "size": 120227,
+            "modified": "2025-12-11 15:37:21",
+            "classes": [
+                {
+                    "name": "AiEngine",
+                    "type": "class",
+                    "line": 37,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 49,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "AI Product Creator - Engine Core Path: modules/margynomic/admin/creaexcel/ai/core/AiEngine.php Monolite backend con tutta la logica AI Product Creator: - EAN-13 generation con checksum - Template upload e parsing - Competitor scraping Amazon.it - Keyword extraction e scoring - LLM integration (Claude Sonnet 4 + GPT-4 Turbo) - Policy validation engine - Excel export con PhpSpreadsheet - Session state machine",
+                            "static": false
+                        },
+                        {
+                            "name": "generateEan",
+                            "line": 146,
+                            "parameters": [],
+                            "description": "Genera nuovo EAN-13 con checksum valido",
+                            "static": false
+                        },
+                        {
+                            "name": "validateEan",
+                            "line": 224,
+                            "parameters": [
+                                "$ean"
+                            ],
+                            "description": "Valida EAN-13 esistente",
+                            "static": false
+                        },
+                        {
+                            "name": "uploadTemplate",
+                            "line": 256,
+                            "parameters": [
+                                "$file",
+                                "$categoria",
+                                "$folder"
+                            ],
+                            "description": "Upload e parsing template Excel Amazon",
+                            "static": false
+                        },
+                        {
+                            "name": "listTemplates",
+                            "line": 376,
+                            "parameters": [
+                                "$categoria"
+                            ],
+                            "description": "Lista template disponibili per user",
+                            "static": false
+                        },
+                        {
+                            "name": "analyzeCompetitors",
+                            "line": 412,
+                            "parameters": [
+                                "$asins",
+                                "$offset",
+                                "$limit"
+                            ],
+                            "description": "Scraping competitor ASINs da Amazon.it",
+                            "static": false
+                        },
+                        {
+                            "name": "extractKeywords",
+                            "line": 686,
+                            "parameters": [
+                                "$competitorData",
+                                "$categoria"
+                            ],
+                            "description": "Estrai keywords da risultati competitor scraped",
+                            "static": false
+                        },
+                        {
+                            "name": "generateFieldContent",
+                            "line": 808,
+                            "parameters": [
+                                "$fieldName",
+                                "$context",
+                                "$llmPreference"
+                            ],
+                            "description": "Genera contenuto campo singolo con LLM NUOVO: Delega a AiContentGenerator orchestrator",
+                            "static": false
+                        },
+                        {
+                            "name": "generateMultipleFields",
+                            "line": 818,
+                            "parameters": [
+                                "$fieldNames",
+                                "$context"
+                            ],
+                            "description": "Genera MULTIPLI campi in modo coordinato NUOVO: Delega a AiContentGenerator per generazione multi-campo",
+                            "static": false
+                        },
+                        {
+                            "name": "testAiConfiguration",
+                            "line": 828,
+                            "parameters": [],
+                            "description": "Test configurazione AI NUOVO: Verifica setup completo (policy, LLM, validator)",
+                            "static": false
+                        },
+                        {
+                            "name": "getPolicyForField",
+                            "line": 837,
+                            "parameters": [
+                                "$fieldName"
+                            ],
+                            "description": "Ottieni policy per campo specifico NUOVO: Espone PolicyManager via AiContentGenerator",
+                            "static": false
+                        },
+                        {
+                            "name": "validateContent",
+                            "line": 846,
+                            "parameters": [
+                                "$fieldName",
+                                "$content"
+                            ],
+                            "description": "Valida contenuto esistente NUOVO: Espone ContentValidator via AiContentGenerator",
+                            "static": false
+                        },
+                        {
+                            "name": "validateFieldContent",
+                            "line": 1126,
+                            "parameters": [
+                                "$fieldName",
+                                "$content",
+                                "$policyRules"
+                            ],
+                            "description": "Valida contenuto campo contro policy rules",
+                            "static": false
+                        },
+                        {
+                            "name": "autoFixContent",
+                            "line": 1202,
+                            "parameters": [
+                                "$fieldName",
+                                "$content",
+                                "$validationResult"
+                            ],
+                            "description": "Auto-fix contenuto based on validation errors",
+                            "static": false
+                        },
+                        {
+                            "name": "exportExcel",
+                            "line": 1260,
+                            "parameters": [
+                                "$sessionId"
+                            ],
+                            "description": "Genera Excel finale da sessione completata",
+                            "static": false
+                        },
+                        {
+                            "name": "createSession",
+                            "line": 1391,
+                            "parameters": [
+                                "$templateId",
+                                "$initialData"
+                            ],
+                            "description": "Crea nuova sessione chat AI",
+                            "static": false
+                        },
+                        {
+                            "name": "updateSessionState",
+                            "line": 1450,
+                            "parameters": [
+                                "$sessionId",
+                                "$newState",
+                                "$workingData",
+                                "$conversationEntry"
+                            ],
+                            "description": "Aggiorna session state",
+                            "static": false
+                        },
+                        {
+                            "name": "loadSession",
+                            "line": 1496,
+                            "parameters": [
+                                "$sessionId"
+                            ],
+                            "description": "Carica session esistente",
+                            "static": false
+                        },
+                        {
+                            "name": "updateProductAsin",
+                            "line": 1525,
+                            "parameters": [
+                                "$ean",
+                                "$asin"
+                            ],
+                            "description": "Update ASIN post-upload Amazon",
+                            "static": false
+                        },
+                        {
+                            "name": "loadExcelRows",
+                            "line": 1590,
+                            "parameters": [
+                                "$filepath"
+                            ],
+                            "description": "Carica tutte le righe prodotti da Excel file",
+                            "static": false
+                        },
+                        {
+                            "name": "getRow",
+                            "line": 1796,
+                            "parameters": [
+                                "$filepath",
+                                "$rowNumber"
+                            ],
+                            "description": "Carica dati singola riga per editing",
+                            "static": false
+                        },
+                        {
+                            "name": "saveRow",
+                            "line": 1864,
+                            "parameters": [
+                                "$filepath",
+                                "$rowNumber",
+                                "$rowData"
+                            ],
+                            "description": "Salva modifiche a singola riga Excel",
+                            "static": false
+                        },
+                        {
+                            "name": "addRow",
+                            "line": 2009,
+                            "parameters": [
+                                "$filepath",
+                                "$rowData",
+                                "$generateEan"
+                            ],
+                            "description": "Aggiungi nuova riga prodotto",
+                            "static": false
+                        },
+                        {
+                            "name": "deleteRow",
+                            "line": 2080,
+                            "parameters": [
+                                "$filepath",
+                                "$rowNumber"
+                            ],
+                            "description": "Elimina riga prodotto (svuota celle)",
+                            "static": false
+                        },
+                        {
+                            "name": "validateAllRows",
+                            "line": 2132,
+                            "parameters": [
+                                "$filepath"
+                            ],
+                            "description": "Valida tutte le righe prodotti",
+                            "static": false
+                        },
+                        {
+                            "name": "syncPricesFromDatabase",
+                            "line": 2380,
+                            "parameters": [
+                                "$filepath"
+                            ],
+                            "description": "Sincronizza prezzi da database products",
+                            "static": false
+                        },
+                        {
+                            "name": "syncEanCodes",
+                            "line": 2614,
+                            "parameters": [
+                                "$filepath"
+                            ],
+                            "description": "Sincronizza codici EAN da Excel a database products.ean Salva External Product Id nella colonna ean per ogni SKU matchato",
+                            "static": false
+                        },
+                        {
+                            "name": "verifyAndColorSkus",
+                            "line": 2784,
+                            "parameters": [
+                                "$filepath"
+                            ],
+                            "description": "Verifica e colora SKU matching in products Colora di verde celle item_sku che esistono in products.sku",
+                            "static": false
+                        },
+                        {
+                            "name": "duplicateExcel",
+                            "line": 3009,
+                            "parameters": [
+                                "$filepath",
+                                "$newName"
+                            ],
+                            "description": "Duplica un file Excel",
+                            "static": false
+                        },
+                        {
+                            "name": "renameExcel",
+                            "line": 3077,
+                            "parameters": [
+                                "$filepath",
+                                "$newName"
+                            ],
+                            "description": "Rinomina un file Excel",
+                            "static": false
+                        },
+                        {
+                            "name": "duplicateRow",
+                            "line": 3147,
+                            "parameters": [
+                                "$filepath",
+                                "$rowNumber"
+                            ],
+                            "description": "Duplica una riga nell'Excel Inserisce copia della riga subito sotto l'originale",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ai/core/PromptBuilder.php",
+            "size": 45925,
+            "modified": "2025-12-11 17:54:28",
+            "classes": [
+                {
+                    "name": "PromptBuilder",
+                    "type": "class",
+                    "line": 6,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 10,
+                            "parameters": [
+                                "$policyManager"
+                            ],
+                            "description": "PromptBuilder Costruisce prompt AI ottimizzati per ogni campo",
+                            "static": false
+                        },
+                        {
+                            "name": "buildPrompt",
+                            "line": 22,
+                            "parameters": [
+                                "$fieldName",
+                                "$context"
+                            ],
+                            "description": "Costruisce prompt completo per generazione campo",
+                            "static": false
+                        },
+                        {
+                            "name": "buildMultiFieldPrompt",
+                            "line": 551,
+                            "parameters": [
+                                "$fieldNames",
+                                "$context"
+                            ],
+                            "description": "Costruisce prompt per generazione multi-campo coordinata",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ai/core/LlmClient.php",
+            "size": 18753,
+            "modified": "2025-12-11 17:54:28",
+            "classes": [
+                {
+                    "name": "LlmClient",
+                    "type": "class",
+                    "line": 6,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 13,
+                            "parameters": [
+                                "$config",
+                                "$provider",
+                                "$model"
+                            ],
+                            "description": "LlmClient Gestisce chiamate API a Claude/OpenAI",
+                            "static": false
+                        },
+                        {
+                            "name": "generate",
+                            "line": 27,
+                            "parameters": [
+                                "$prompt",
+                                "$maxTokens"
+                            ],
+                            "description": "Genera contenuto tramite LLM con fallback automatico",
+                            "static": false
+                        },
+                        {
+                            "name": "getLastThinking",
+                            "line": 236,
+                            "parameters": [],
+                            "description": "Get last thinking process (if available)",
+                            "static": false
+                        },
+                        {
+                            "name": "testConnection",
+                            "line": 477,
+                            "parameters": [],
+                            "description": "Test connessione API",
+                            "static": false
+                        },
+                        {
+                            "name": "getProviderInfo",
+                            "line": 507,
+                            "parameters": [],
+                            "description": "Ottieni info provider corrente",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ai/config/ai_config.php",
+            "size": 8279,
+            "modified": "2025-12-11 15:37:21",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ai/test_ai_setup.php",
+            "size": 19722,
+            "modified": "2025-12-11 15:25:03",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ai/api/download.php",
+            "size": 3702,
+            "modified": "2025-12-08 04:01:03",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ai/api/ai_api.php",
+            "size": 56352,
+            "modified": "2025-12-11 07:55:28",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "checkRateLimit",
+                    "line": 89,
+                    "parameters": [
+                        "$key",
+                        "$window",
+                        "$max"
+                    ],
+                    "description": "AI Product Creator - API Router Path: modules/margynomic/admin/creaexcel/ai/api/ai_api.php Single endpoint router per tutte le azioni AI Creator: - start: Crea nuova sessione + genera EAN - chat: Processa messaggio user - upload_template: Upload file Excel - analyze_competitors: Scraping ASIN + keyword extraction - generate_field: LLM per singolo campo - validate_field: Valida contenuto campo - export: Genera Excel finale - update_asin: Post-upload Amazon - job_status: Polling job asincroni"
+                },
+                {
+                    "name": "sendResponse",
+                    "line": 113,
+                    "parameters": [
+                        "$data",
+                        "$httpCode"
+                    ],
+                    "description": "AI Product Creator - API Router Path: modules/margynomic/admin/creaexcel/ai/api/ai_api.php Single endpoint router per tutte le azioni AI Creator: - start: Crea nuova sessione + genera EAN - chat: Processa messaggio user - upload_template: Upload file Excel - analyze_competitors: Scraping ASIN + keyword extraction - generate_field: LLM per singolo campo - validate_field: Valida contenuto campo - export: Genera Excel finale - update_asin: Post-upload Amazon - job_status: Polling job asincroni"
+                },
+                {
+                    "name": "processChatMessage",
+                    "line": 1473,
+                    "parameters": [
+                        "$message",
+                        "$currentState",
+                        "$workingData",
+                        "$engine"
+                    ],
+                    "description": "Processa messaggio chat basato su stato corrente"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ai/views/creator.php",
+            "size": 17121,
+            "modified": "2025-12-10 23:52:35",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/BulkOperations.php",
+            "size": 8431,
+            "modified": "2025-10-11 23:58:56",
+            "classes": [
+                {
+                    "name": "BulkOperations",
+                    "type": "class",
+                    "line": 24,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 28,
+                            "parameters": [],
+                            "description": "Bulk Operations - Find/Replace & Price Sync File: modules/margynomic/admin/creaexcel/BulkOperations.php",
+                            "static": false
+                        },
+                        {
+                            "name": "findReplace",
+                            "line": 41,
+                            "parameters": [
+                                "$excelId",
+                                "$search",
+                                "$replace",
+                                "$caseSensitive",
+                                "$columns"
+                            ],
+                            "description": "Find & Replace su tutte le colonne testuali o colonne specifiche",
+                            "static": false
+                        },
+                        {
+                            "name": "syncPricesFromProducts",
+                            "line": 146,
+                            "parameters": [
+                                "$excelId"
+                            ],
+                            "description": "Sync prezzi da database products (unidirezionale DB \u2192 Excel)",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "namespace": "class BulkOperations {\n    \n    private $pdo",
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/ExcelListingManager.php",
+            "size": 22126,
+            "modified": "2025-12-10 13:19:34",
+            "classes": [
+                {
+                    "name": "ExcelListingManager",
+                    "type": "class",
+                    "line": 35,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 43,
+                            "parameters": [],
+                            "description": "Costruttore",
+                            "static": false
+                        },
+                        {
+                            "name": "handleUpload",
+                            "line": 56,
+                            "parameters": [
+                                "$file",
+                                "$userId"
+                            ],
+                            "description": "Gestisci upload file Excel",
+                            "static": false
+                        },
+                        {
+                            "name": "loadExcelForEditor",
+                            "line": 177,
+                            "parameters": [
+                                "$excelId"
+                            ],
+                            "description": "Carica dati Excel per editor",
+                            "static": false
+                        },
+                        {
+                            "name": "saveChanges",
+                            "line": 391,
+                            "parameters": [
+                                "$excelId",
+                                "$changes"
+                            ],
+                            "description": "Salva modifiche da editor",
+                            "static": false
+                        },
+                        {
+                            "name": "exportExcel",
+                            "line": 449,
+                            "parameters": [
+                                "$excelId"
+                            ],
+                            "description": "Export file Excel modificato",
+                            "static": false
+                        },
+                        {
+                            "name": "downloadFile",
+                            "line": 513,
+                            "parameters": [
+                                "$excelId"
+                            ],
+                            "description": "Download handler",
+                            "static": false
+                        },
+                        {
+                            "name": "getExcelList",
+                            "line": 549,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Ottieni lista file Excel caricati",
+                            "static": false
+                        },
+                        {
+                            "name": "deleteExcel",
+                            "line": 582,
+                            "parameters": [
+                                "$excelId"
+                            ],
+                            "description": "Elimina file Excel",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "namespace": "class ExcelListingManager {\n    \n    private $pdo",
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/api/sync_prices.php",
+            "size": 803,
+            "modified": "2025-10-11 18:38:38",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/api/export.php",
+            "size": 784,
+            "modified": "2025-10-11 18:38:38",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/api/save_changes.php",
+            "size": 868,
+            "modified": "2025-10-11 18:38:38",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/api/bulk_replace.php",
+            "size": 1049,
+            "modified": "2025-10-11 23:58:56",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/api/delete.php",
+            "size": 788,
+            "modified": "2025-10-12 09:08:25",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/api/validate.php",
+            "size": 791,
+            "modified": "2025-10-11 18:38:38",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/views/download.php",
+            "size": 480,
+            "modified": "2025-10-11 18:38:38",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/views/editor.php",
+            "size": 35589,
+            "modified": "2025-10-11 23:58:55",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/views/test_paths.php",
+            "size": 2804,
+            "modified": "2025-12-10 13:19:43",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/creaexcel/views/upload.php",
+            "size": 15901,
+            "modified": "2025-10-12 09:08:25",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "debugLog",
+                    "line": 30,
+                    "parameters": [
+                        "$message",
+                        "$data"
+                    ],
+                    "description": "Excel Upload View File: modules/margynomic/admin/creaexcel/views/upload.php Form upload file Excel con selezione utente"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/admin/admin_amazon_price_export.php",
+            "size": 70826,
+            "modified": "2025-11-15 12:41:33",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "toggleSelectAll",
+                    "line": 1575,
+                    "parameters": [],
+                    "description": "Admin Export Prezzi Amazon - Export modifiche prezzi in formato Amazon flat file File: modules/margynomic/admin/admin_amazon_price_export.php Genera file TSV compatibile con Amazon Seller Central per upload prezzi Supporta tutti gli utenti del sistema (nessun hardcoding user_id)"
+                },
+                {
+                    "name": "updateSelectedCount",
+                    "line": 1582,
+                    "parameters": [],
+                    "description": "Admin Export Prezzi Amazon - Export modifiche prezzi in formato Amazon flat file File: modules/margynomic/admin/admin_amazon_price_export.php Genera file TSV compatibile con Amazon Seller Central per upload prezzi Supporta tutti gli utenti del sistema (nessun hardcoding user_id)"
+                },
+                {
+                    "name": "generateExport",
+                    "line": 1602,
+                    "parameters": [],
+                    "description": "Admin Export Prezzi Amazon - Export modifiche prezzi in formato Amazon flat file File: modules/margynomic/admin/admin_amazon_price_export.php Genera file TSV compatibile con Amazon Seller Central per upload prezzi Supporta tutti gli utenti del sistema (nessun hardcoding user_id)"
+                },
+                {
+                    "name": "toggleSelectAllVerify",
+                    "line": 1685,
+                    "parameters": [],
+                    "description": "Admin Export Prezzi Amazon - Export modifiche prezzi in formato Amazon flat file File: modules/margynomic/admin/admin_amazon_price_export.php Genera file TSV compatibile con Amazon Seller Central per upload prezzi Supporta tutti gli utenti del sistema (nessun hardcoding user_id)"
+                },
+                {
+                    "name": "updateSelectedVerifyCount",
+                    "line": 1692,
+                    "parameters": [],
+                    "description": "Admin Export Prezzi Amazon - Export modifiche prezzi in formato Amazon flat file File: modules/margynomic/admin/admin_amazon_price_export.php Genera file TSV compatibile con Amazon Seller Central per upload prezzi Supporta tutti gli utenti del sistema (nessun hardcoding user_id)"
+                },
+                {
+                    "name": "resetPrice",
+                    "line": 1823,
+                    "parameters": [],
+                    "description": "Admin Export Prezzi Amazon - Export modifiche prezzi in formato Amazon flat file File: modules/margynomic/admin/admin_amazon_price_export.php Genera file TSV compatibile con Amazon Seller Central per upload prezzi Supporta tutti gli utenti del sistema (nessun hardcoding user_id)"
+                },
+                {
+                    "name": "showToast",
+                    "line": 1836,
+                    "parameters": [],
+                    "description": "Admin Export Prezzi Amazon - Export modifiche prezzi in formato Amazon flat file File: modules/margynomic/admin/admin_amazon_price_export.php Genera file TSV compatibile con Amazon Seller Central per upload prezzi Supporta tutti gli utenti del sistema (nessun hardcoding user_id)"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/admin/admin_historical.php",
+            "size": 26333,
+            "modified": "2025-08-02 20:26:28",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "resetScanner",
+                    "line": 278,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "scanHistoricalFiles",
+                    "line": 299,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "refreshFileList",
+                    "line": 373,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "updateFilesTable",
+                    "line": 379,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "updateStats",
+                    "line": 425,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "toggleSelectAll",
+                    "line": 443,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "updateSelectionButtons",
+                    "line": 455,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "processSelectedFiles",
+                    "line": 465,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "processAllNewFiles",
+                    "line": 479,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "processSingleFile",
+                    "line": 495,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "processBatch",
+                    "line": 507,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "processFilesSequentially",
+                    "line": 529,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "completeProcessing",
+                    "line": 587,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "showProgress",
+                    "line": 604,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "hideProgress",
+                    "line": 608,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "updateProgress",
+                    "line": 613,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "addLog",
+                    "line": 625,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "clearLog",
+                    "line": 639,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "scrollLogToBottom",
+                    "line": 645,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "formatFileSize",
+                    "line": 651,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "formatDate",
+                    "line": 659,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                },
+                {
+                    "name": "getStatusLabel",
+                    "line": 663,
+                    "parameters": [],
+                    "description": "Historical Parser - Admin Interface File: admin/admin_historical.php Interfaccia per processare report settlement storici dalle cartelle download"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/admin/admin_login.php",
+            "size": 3920,
+            "modified": "2025-08-02 20:26:41",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/admin_cleanup.php",
+            "size": 22753,
+            "modified": "2025-11-15 12:56:15",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/admin_logout.php",
+            "size": 239,
+            "modified": "2025-08-02 20:26:46",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/admin/admin_log.php",
+            "size": 21735,
+            "modified": "2025-10-04 16:56:23",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "getLevelClass",
+                    "line": 132,
+                    "parameters": [
+                        "$level"
+                    ],
+                    "description": "Admin Application Logs - Sistema Log Applicativi DB File: admin/admin_log.php Visualizza log da sync_debug_logs con filtri avanzati e ricerca"
+                },
+                {
+                    "name": "toggleContext",
+                    "line": 463,
+                    "parameters": [],
+                    "description": "Admin Application Logs - Sistema Log Applicativi DB File: admin/admin_log.php Visualizza log da sync_debug_logs con filtri avanzati e ricerca"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/sp_credentials.php",
+            "size": 3144,
+            "modified": "2025-07-19 12:57:47",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/margini/get_fee_breakdown.php",
+            "size": 754,
+            "modified": "2025-09-20 00:23:20",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/margini/daily_price_changes_notification.php",
+            "size": 10747,
+            "modified": "2025-10-19 01:42:43",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "logPriceNotification",
+                    "line": 25,
+                    "parameters": [
+                        "$message",
+                        "$level",
+                        "$context"
+                    ],
+                    "description": "Log cron price notification"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/margini/admin_fee_dashboard.php",
+            "size": 11634,
+            "modified": "2025-09-28 12:11:10",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/margini/visualizza_settlement.php",
+            "size": 41530,
+            "modified": "2025-09-13 21:53:32",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/margini/fee_mapping_helpers.php",
+            "size": 12909,
+            "modified": "2025-10-04 12:30:57",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "getTransactionCategory",
+                    "line": 12,
+                    "parameters": [
+                        "$transactionType",
+                        "$userId"
+                    ],
+                    "description": "Ottiene categoria per transaction_type (con fallback utente \u2192 globale)"
+                },
+                {
+                    "name": "getDefaultCategory",
+                    "line": 50,
+                    "parameters": [
+                        "$transactionType"
+                    ],
+                    "description": "Categorizzazione automatica di emergenza"
+                },
+                {
+                    "name": "discoverAllTransactionTypes",
+                    "line": 68,
+                    "parameters": [],
+                    "description": "Rileva tutti i transaction_type presenti nei database utenti"
+                },
+                {
+                    "name": "getMappingStats",
+                    "line": 145,
+                    "parameters": [],
+                    "description": "Ottiene statistiche mapping per dashboard"
+                },
+                {
+                    "name": "getAvailableCategories",
+                    "line": 198,
+                    "parameters": [],
+                    "description": "Categorie disponibili per il sistema (dinamiche da database)"
+                },
+                {
+                    "name": "createFeeCategory",
+                    "line": 221,
+                    "parameters": [
+                        "$code",
+                        "$name",
+                        "$description"
+                    ],
+                    "description": "Crea nuova categoria"
+                },
+                {
+                    "name": "updateFeeCategory",
+                    "line": 238,
+                    "parameters": [
+                        "$id",
+                        "$code",
+                        "$name",
+                        "$description"
+                    ],
+                    "description": "Aggiorna categoria esistente (solo nome e descrizione)"
+                },
+                {
+                    "name": "toggleFeeCategory",
+                    "line": 256,
+                    "parameters": [
+                        "$id",
+                        "$active"
+                    ],
+                    "description": "Attiva/disattiva categoria"
+                },
+                {
+                    "name": "getAllFeeCategories",
+                    "line": 270,
+                    "parameters": [],
+                    "description": "Ottieni tutte le categorie (anche inattive)"
+                },
+                {
+                    "name": "getTransactionTypeDescription",
+                    "line": 287,
+                    "parameters": [
+                        "$transactionType"
+                    ],
+                    "description": "Ottiene descrizione per transaction type"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/margini/admin_fee_user_overrides.php",
+            "size": 30305,
+            "modified": "2025-09-28 12:11:06",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/margini/feed_status.php",
+            "size": 57075,
+            "modified": "2025-10-04 13:36:27",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "safe_getDbConnection",
+                    "line": 53,
+                    "parameters": [],
+                    "description": "Amazon Price Update Debug Dashboard File: modules/margynomic/margini/feed_status.php Centro di controllo per monitoraggio operazioni Amazon SP-API"
+                },
+                {
+                    "name": "safe_getLogger",
+                    "line": 61,
+                    "parameters": [],
+                    "description": "Amazon Price Update Debug Dashboard File: modules/margynomic/margini/feed_status.php Centro di controllo per monitoraggio operazioni Amazon SP-API"
+                },
+                {
+                    "name": "checkActualAmazonPrice",
+                    "line": 72,
+                    "parameters": [
+                        "$sku",
+                        "$asin",
+                        "$expectedPrice",
+                        "$token"
+                    ],
+                    "description": "Amazon Price Update Debug Dashboard File: modules/margynomic/margini/feed_status.php Centro di controllo per monitoraggio operazioni Amazon SP-API"
+                },
+                {
+                    "name": "getAmazonAccessToken",
+                    "line": 143,
+                    "parameters": [
+                        "$userId",
+                        "$pdo"
+                    ],
+                    "description": "Amazon Price Update Debug Dashboard File: modules/margynomic/margini/feed_status.php Centro di controllo per monitoraggio operazioni Amazon SP-API"
+                },
+                {
+                    "name": "makeAmazonApiCall",
+                    "line": 194,
+                    "parameters": [
+                        "$endpoint",
+                        "$token"
+                    ],
+                    "description": "Amazon Price Update Debug Dashboard File: modules/margynomic/margini/feed_status.php Centro di controllo per monitoraggio operazioni Amazon SP-API"
+                },
+                {
+                    "name": "parsePriceFeedReportOk",
+                    "line": 220,
+                    "parameters": [
+                        "$report"
+                    ],
+                    "description": "Amazon Price Update Debug Dashboard File: modules/margynomic/margini/feed_status.php Centro di controllo per monitoraggio operazioni Amazon SP-API"
+                },
+                {
+                    "name": "debugAmazonFeedContent",
+                    "line": 253,
+                    "parameters": [
+                        "$feedId",
+                        "$pdo"
+                    ],
+                    "description": "Amazon Price Update Debug Dashboard File: modules/margynomic/margini/feed_status.php Centro di controllo per monitoraggio operazioni Amazon SP-API"
+                },
+                {
+                    "name": "generatePriceUpdateXML",
+                    "line": 283,
+                    "parameters": [
+                        "$sku",
+                        "$price"
+                    ],
+                    "description": "Amazon Price Update Debug Dashboard File: modules/margynomic/margini/feed_status.php Centro di controllo per monitoraggio operazioni Amazon SP-API"
+                },
+                {
+                    "name": "checkFeedIssues",
+                    "line": 302,
+                    "parameters": [
+                        "$feed"
+                    ],
+                    "description": "Amazon Price Update Debug Dashboard File: modules/margynomic/margini/feed_status.php Centro di controllo per monitoraggio operazioni Amazon SP-API"
+                },
+                {
+                    "name": "analyzeFeedFailures",
+                    "line": 320,
+                    "parameters": [
+                        "$pdo",
+                        "$hours"
+                    ],
+                    "description": "Amazon Price Update Debug Dashboard File: modules/margynomic/margini/feed_status.php Centro di controllo per monitoraggio operazioni Amazon SP-API"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/margini/margins_overview.php",
+            "size": 80294,
+            "modified": "2025-11-15 11:31:58",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/margini/fee_transaction_details.php",
+            "size": 15821,
+            "modified": "2025-09-20 13:59:22",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "generateDetailsHTML",
+                    "line": 42,
+                    "parameters": [
+                        "$transactionType"
+                    ],
+                    "description": "Genera HTML per i dettagli con query reali settlement"
+                },
+                {
+                    "name": "getSettlementExamples",
+                    "line": 179,
+                    "parameters": [
+                        "$transactionType",
+                        "$limit"
+                    ],
+                    "description": "Ottiene esempi da settlement tables"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/margini/update_product_pricing.php",
+            "size": 7459,
+            "modified": "2025-11-10 21:54:40",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "logPricingUpdate",
+                    "line": 35,
+                    "parameters": [
+                        "$message",
+                        "$level"
+                    ],
+                    "description": "Update Product Pricing - Endpoint per aggiornare prezzi e costi prodotto File: modules/margynomic/margini/update_product_pricing.php"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/margini/modifica_prezzo.php",
+            "size": 1984,
+            "modified": "2025-10-04 12:30:57",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "inviaNotificaCambioPrezzo",
+                    "line": 13,
+                    "parameters": [
+                        "$userId",
+                        "$productId",
+                        "$nuovoPrezzo"
+                    ],
+                    "description": "Invia notifica email per cambio prezzo"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/margini/get_chart_data.php",
+            "size": 9003,
+            "modified": "2025-09-21 14:44:59",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "getRevenueVsFeeData",
+                    "line": 63,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Ottiene dati per il grafico Revenue vs Fee giornaliere (ultimi 30 giorni)"
+                },
+                {
+                    "name": "getTopProductsData",
+                    "line": 172,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Ottiene dati per il grafico Top 5 Prodotti Profittevoli"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/margini/api_amazon_price.php",
+            "size": 31628,
+            "modified": "2025-10-04 13:36:27",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "updateAmazonPriceViaSPAPI",
+                    "line": 350,
+                    "parameters": [
+                        "$product",
+                        "$newPrice",
+                        "$logId",
+                        "$pdo"
+                    ],
+                    "description": "Funzione per aggiornare prezzo su Amazon tramite SP-API"
+                },
+                {
+                    "name": "submitPriceFeed",
+                    "line": 451,
+                    "parameters": [
+                        "$data"
+                    ],
+                    "description": "Submit price feed to Amazon SP-API"
+                },
+                {
+                    "name": "buildPriceFeedXML",
+                    "line": 565,
+                    "parameters": [
+                        "$sku",
+                        "$asin",
+                        "$price",
+                        "$marketplaceId"
+                    ],
+                    "description": "Build XML feed for price update"
+                },
+                {
+                    "name": "getAmazonAccessToken",
+                    "line": 612,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Get Amazon access token (real implementation)"
+                },
+                {
+                    "name": "uploadFeedDocument",
+                    "line": 712,
+                    "parameters": [
+                        "$xml"
+                    ],
+                    "description": "Upload feed document (real implementation)"
+                },
+                {
+                    "name": "makeHttpPostRequest",
+                    "line": 826,
+                    "parameters": [
+                        "$url",
+                        "$options"
+                    ],
+                    "description": "Make HTTP POST request (real implementation)"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/margini/config_shared.php",
+            "size": 7123,
+            "modified": "2025-10-04 13:36:27",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "requireUserAuth",
+                    "line": 90,
+                    "parameters": [],
+                    "description": "Verifica autenticazione utente"
+                },
+                {
+                    "name": "getTransactionCategory",
+                    "line": 101,
+                    "parameters": [
+                        "$transactionType",
+                        "$userId"
+                    ],
+                    "description": "Ottiene categoria per transaction_type"
+                },
+                {
+                    "name": "getAllFeeCategories",
+                    "line": 137,
+                    "parameters": [],
+                    "description": "Ottiene tutte le categorie attive"
+                },
+                {
+                    "name": "getExchangeRate",
+                    "line": 160,
+                    "parameters": [
+                        "$marketplace"
+                    ],
+                    "description": "Exchange rates semplificati"
+                },
+                {
+                    "name": "getMarketplaceIdForCountry",
+                    "line": 178,
+                    "parameters": [
+                        "$cc"
+                    ],
+                    "description": "Marketplace mapping"
+                },
+                {
+                    "name": "logMarginsOperation",
+                    "line": 186,
+                    "parameters": [
+                        "$message",
+                        "$context"
+                    ],
+                    "description": "Logging semplificato"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/margini/margins_engine.php",
+            "size": 29751,
+            "modified": "2025-11-15 09:53:06",
+            "classes": [
+                {
+                    "name": "MarginsEngine",
+                    "type": "class",
+                    "line": 10,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 16,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Margins Engine - Calcolo Margini Semplificato (Versione Semplificata) File: modules/margynomic/margini/margins_engine.php",
+                            "static": false
+                        },
+                        {
+                            "name": "searchProducts",
+                            "line": 30,
+                            "parameters": [
+                                "$query"
+                            ],
+                            "description": "Cerca prodotti per ricerca dinamica",
+                            "static": false
+                        },
+                        {
+                            "name": "calculateMargins",
+                            "line": 63,
+                            "parameters": [
+                                "$filters"
+                            ],
+                            "description": "Calcola margini per prodotti con categorizzazione fee",
+                            "static": false
+                        },
+                        {
+                            "name": "calculatePeriodKPIs",
+                            "line": 357,
+                            "parameters": [],
+                            "description": "Calcola KPI per periodi temporali (7d, 30d, 90d, storico) Replica la logica della query SQL query_fee_totali_periodi.sql",
+                            "static": false
+                        },
+                        {
+                            "name": "getFeeBreakdown",
+                            "line": 559,
+                            "parameters": [
+                                "$productId"
+                            ],
+                            "description": "Ottiene breakdown dettagliato fee per prodotto",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/margini/admin_fee_mappings.php",
+            "size": 26372,
+            "modified": "2025-11-01 15:11:17",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/margini/update_custom_fee.php",
+            "size": 1706,
+            "modified": "2025-09-13 21:53:31",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/daily_report_helpers.php",
+            "size": 20266,
+            "modified": "2025-10-04 14:51:09",
+            "classes": [
+                {
+                    "name": "DailyReportHelpers",
+                    "type": "class",
+                    "line": 15,
+                    "public_methods": [
+                        {
+                            "name": "getDatabaseStats",
+                            "line": 20,
+                            "parameters": [],
+                            "description": "Get detailed database statistics",
+                            "static": true
+                        },
+                        {
+                            "name": "getApiMetrics",
+                            "line": 106,
+                            "parameters": [],
+                            "description": "Get API performance metrics from api_debug_log",
+                            "static": true
+                        },
+                        {
+                            "name": "getInventoryUserBreakdown",
+                            "line": 230,
+                            "parameters": [],
+                            "description": "Get detailed user breakdown for inventory",
+                            "static": true
+                        },
+                        {
+                            "name": "getSettlementUserBreakdown",
+                            "line": 311,
+                            "parameters": [],
+                            "description": "Get detailed user breakdown for settlement",
+                            "static": true
+                        },
+                        {
+                            "name": "getTrendAnalysis",
+                            "line": 377,
+                            "parameters": [],
+                            "description": "Get trend comparison (vs yesterday and last 7 days avg)",
+                            "static": true
+                        },
+                        {
+                            "name": "saveDailySnapshot",
+                            "line": 438,
+                            "parameters": [
+                                "$category",
+                                "$metricName",
+                                "$value",
+                                "$metadata"
+                            ],
+                            "description": "Save today's metrics snapshot",
+                            "static": true
+                        },
+                        {
+                            "name": "generateRecommendations",
+                            "line": 471,
+                            "parameters": [
+                                "$metrics"
+                            ],
+                            "description": "Generate actionable recommendations based on metrics",
+                            "static": true
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/cleanup_logs_enhanced.php",
+            "size": 3204,
+            "modified": "2025-10-04 14:56:48",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/cleanup_logs.php",
+            "size": 7619,
+            "modified": "2025-10-04 21:10:23",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "logCleanup",
+                    "line": 20,
+                    "parameters": [
+                        "$message",
+                        "$level"
+                    ],
+                    "description": "Log operazioni pulizia"
+                },
+                {
+                    "name": "getFileSizeMB",
+                    "line": 33,
+                    "parameters": [
+                        "$filepath"
+                    ],
+                    "description": "Ottieni dimensione file in MB"
+                },
+                {
+                    "name": "rotateLogFile",
+                    "line": 41,
+                    "parameters": [
+                        "$filepath",
+                        "$maxSizeMB"
+                    ],
+                    "description": "Ruota file log se troppo grande"
+                },
+                {
+                    "name": "cleanupOldFiles",
+                    "line": 60,
+                    "parameters": [
+                        "$directory",
+                        "$pattern",
+                        "$retentionDays"
+                    ],
+                    "description": "Pulisci file vecchi"
+                },
+                {
+                    "name": "cleanupSpecificOldFiles",
+                    "line": 83,
+                    "parameters": [
+                        "$directory",
+                        "$filenames",
+                        "$retentionDays"
+                    ],
+                    "description": "Pulisci file specifici se vecchi (per file come ApiDebugLogger.php)"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/gestione_vendor.php",
+            "size": 3638,
+            "modified": "2025-12-10 13:19:43",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "inviaEmailSMTP",
+                    "line": 26,
+                    "parameters": [
+                        "$to",
+                        "$subject",
+                        "$htmlBody"
+                    ],
+                    "description": "Funzione centralizzata per inviare email"
+                },
+                {
+                    "name": "inviaEmailSMTPWithAttachment",
+                    "line": 67,
+                    "parameters": [
+                        "$to",
+                        "$subject",
+                        "$htmlBody",
+                        "$attachmentPath"
+                    ],
+                    "description": "Funzione per inviare email con allegato"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/shared_header.php",
+            "size": 12769,
+            "modified": "2025-11-16 11:53:52",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "getCurrentModuleColors",
+                    "line": 12,
+                    "parameters": [],
+                    "description": "Header condiviso per tutte le pagine del sistema File: modules/margynomic/shared_header.php"
+                },
+                {
+                    "name": "isActiveLink",
+                    "line": 47,
+                    "parameters": [
+                        "$page",
+                        "$dir"
+                    ],
+                    "description": "Header condiviso per tutte le pagine del sistema File: modules/margynomic/shared_header.php"
+                },
+                {
+                    "name": "getRelativePath",
+                    "line": 62,
+                    "parameters": [
+                        "$target"
+                    ],
+                    "description": "Header condiviso per tutte le pagine del sistema File: modules/margynomic/shared_header.php"
+                },
+                {
+                    "name": "doLogout",
+                    "line": 306,
+                    "parameters": [],
+                    "description": "Header condiviso per tutte le pagine del sistema File: modules/margynomic/shared_header.php"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/scripts/complete_mapping.php",
+            "size": 8756,
+            "modified": "2025-07-06 14:10:46",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/cron_daily_report.php",
+            "size": 9268,
+            "modified": "2025-10-04 11:36:57",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "logDailyReport",
+                    "line": 37,
+                    "parameters": [
+                        "$message",
+                        "$level",
+                        "$context"
+                    ],
+                    "description": "Log Daily Report - Utilizza CentralLogger"
+                },
+                {
+                    "name": "sendFallbackEmail",
+                    "line": 54,
+                    "parameters": [
+                        "$error",
+                        "$context"
+                    ],
+                    "description": "Invia email di fallback in caso di errori critici"
+                },
+                {
+                    "name": "testDailyReportCron",
+                    "line": 190,
+                    "parameters": [],
+                    "description": "Funzione per test manuale"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/login/login.php",
+            "size": 10643,
+            "modified": "2025-11-10 20:55:33",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/login/forgot_password.php",
+            "size": 10021,
+            "modified": "2025-11-10 20:55:33",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/login/register.php",
+            "size": 11419,
+            "modified": "2025-11-10 20:55:33",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/login/cookie_helpers.php",
+            "size": 357,
+            "modified": "2025-08-02 20:22:23",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "clearRememberMeCookie",
+                    "line": 5,
+                    "parameters": [
+                        "$paths"
+                    ],
+                    "description": "Funzioni per la gestione del cookie \"remember_me\""
+                }
+            ]
+        },
+        {
+            "file": "margynomic/login/AuthController.php",
+            "size": 13257,
+            "modified": "2025-11-10 20:55:33",
+            "classes": [
+                {
+                    "name": "AuthController",
+                    "type": "class",
+                    "line": 9,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 12,
+                            "parameters": [],
+                            "description": "AuthController - Controller per autenticazione Margynomic File: controllers/AuthController.php",
+                            "static": false
+                        },
+                        {
+                            "name": "register",
+                            "line": 19,
+                            "parameters": [],
+                            "description": "Gestisce registrazione utente",
+                            "static": false
+                        },
+                        {
+                            "name": "login",
+                            "line": 91,
+                            "parameters": [],
+                            "description": "Gestisce login utente",
+                            "static": false
+                        },
+                        {
+                            "name": "logout",
+                            "line": 142,
+                            "parameters": [],
+                            "description": "Gestisce logout utente",
+                            "static": false
+                        },
+                        {
+                            "name": "forgotPassword",
+                            "line": 167,
+                            "parameters": [],
+                            "description": "Gestisce richiesta reset password",
+                            "static": false
+                        },
+                        {
+                            "name": "resetPassword",
+                            "line": 219,
+                            "parameters": [],
+                            "description": "Gestisce reset password",
+                            "static": false
+                        },
+                        {
+                            "name": "checkExistingSession",
+                            "line": 356,
+                            "parameters": [],
+                            "description": "Verifica sessione esistente (per auto-login)",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/login/reset_password.php",
+            "size": 17303,
+            "modified": "2025-11-10 20:55:33",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "maskEmail",
+                    "line": 453,
+                    "parameters": [
+                        "$email"
+                    ],
+                    "description": "Funzione helper per mascherare email"
+                }
+            ]
+        },
+        {
+            "file": "margynomic/login/logout.php",
+            "size": 1102,
+            "modified": "2025-08-02 20:22:41",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "margynomic/login/UserModel.php",
+            "size": 11595,
+            "modified": "2025-08-02 20:23:12",
+            "classes": [
+                {
+                    "name": "UserModel",
+                    "type": "class",
+                    "line": 8,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 11,
+                            "parameters": [],
+                            "description": "UserModel - Gestione utenti per Margynomic File: models/UserModel.php",
+                            "static": false
+                        },
+                        {
+                            "name": "findByEmail",
+                            "line": 21,
+                            "parameters": [
+                                "$email"
+                            ],
+                            "description": "Trova utente per email",
+                            "static": false
+                        },
+                        {
+                            "name": "findById",
+                            "line": 39,
+                            "parameters": [
+                                "$id"
+                            ],
+                            "description": "Trova utente per ID",
+                            "static": false
+                        },
+                        {
+                            "name": "createUser",
+                            "line": 57,
+                            "parameters": [
+                                "$data"
+                            ],
+                            "description": "Crea nuovo utente",
+                            "static": false
+                        },
+                        {
+                            "name": "emailExists",
+                            "line": 97,
+                            "parameters": [
+                                "$email"
+                            ],
+                            "description": "Verifica se email esiste gi\u00e0",
+                            "static": false
+                        },
+                        {
+                            "name": "validateCredentials",
+                            "line": 111,
+                            "parameters": [
+                                "$email",
+                                "$password"
+                            ],
+                            "description": "Valida credenziali utente",
+                            "static": false
+                        },
+                        {
+                            "name": "updatePasswordHash",
+                            "line": 145,
+                            "parameters": [
+                                "$userId",
+                                "$newPasswordHash"
+                            ],
+                            "description": "Aggiorna password utente",
+                            "static": false
+                        },
+                        {
+                            "name": "storeResetToken",
+                            "line": 164,
+                            "parameters": [
+                                "$email",
+                                "$token"
+                            ],
+                            "description": "Salva token di reset password",
+                            "static": false
+                        },
+                        {
+                            "name": "verifyResetToken",
+                            "line": 187,
+                            "parameters": [
+                                "$token"
+                            ],
+                            "description": "Verifica token di reset password",
+                            "static": false
+                        },
+                        {
+                            "name": "markTokenAsUsed",
+                            "line": 221,
+                            "parameters": [
+                                "$token"
+                            ],
+                            "description": "Marca token come utilizzato",
+                            "static": false
+                        },
+                        {
+                            "name": "cleanupResetTokens",
+                            "line": 240,
+                            "parameters": [
+                                "$email"
+                            ],
+                            "description": "Pulisci token di reset scaduti o usati",
+                            "static": false
+                        },
+                        {
+                            "name": "updateLastLogin",
+                            "line": 269,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Aggiorna ultimo accesso utente",
+                            "static": false
+                        },
+                        {
+                            "name": "getUserStats",
+                            "line": 288,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Ottieni statistiche utente",
+                            "static": false
+                        },
+                        {
+                            "name": "clearLoginAttempts",
+                            "line": 310,
+                            "parameters": [
+                                "$email"
+                            ],
+                            "description": "Pulisci tentativi di login falliti per sbloccare account",
+                            "static": false
+                        },
+                        {
+                            "name": "updateProfile",
+                            "line": 326,
+                            "parameters": [
+                                "$userId",
+                                "$data"
+                            ],
+                            "description": "Aggiorna profilo utente",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "margynomic/login/auth_helpers.php",
+            "size": 9987,
+            "modified": "2025-11-10 20:56:19",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "isLoggedIn",
+                    "line": 10,
+                    "parameters": [],
+                    "description": "Verifica se l'utente \u00e8 autenticato"
+                },
+                {
+                    "name": "isMobileDevice",
+                    "line": 17,
+                    "parameters": [],
+                    "description": "Rileva se l'utente \u00e8 su dispositivo mobile"
+                },
+                {
+                    "name": "isAdmin",
+                    "line": 25,
+                    "parameters": [],
+                    "description": "Verifica se l'utente \u00e8 admin"
+                },
+                {
+                    "name": "getCurrentUser",
+                    "line": 33,
+                    "parameters": [],
+                    "description": "Ottieni dati utente dalla sessione Se mancano dati nella sessione, li recupera dal database"
+                },
+                {
+                    "name": "requireAuth",
+                    "line": 84,
+                    "parameters": [
+                        "$redirectTo"
+                    ],
+                    "description": "Redirect con controllo autenticazione"
+                },
+                {
+                    "name": "redirectToDashboard",
+                    "line": 93,
+                    "parameters": [],
+                    "description": "Redirect intelligente basato su device"
+                },
+                {
+                    "name": "requireGuest",
+                    "line": 104,
+                    "parameters": [
+                        "$redirectTo"
+                    ],
+                    "description": "Redirect se gi\u00e0 autenticato"
+                },
+                {
+                    "name": "sanitizeInput",
+                    "line": 137,
+                    "parameters": [
+                        "$input"
+                    ],
+                    "description": "Sanitizza input"
+                },
+                {
+                    "name": "validateEmail",
+                    "line": 148,
+                    "parameters": [
+                        "$email"
+                    ],
+                    "description": "Valida email"
+                },
+                {
+                    "name": "validatePassword",
+                    "line": 155,
+                    "parameters": [
+                        "$password"
+                    ],
+                    "description": "Valida password"
+                },
+                {
+                    "name": "generateSecureToken",
+                    "line": 180,
+                    "parameters": [
+                        "$length"
+                    ],
+                    "description": "Genera token sicuro"
+                },
+                {
+                    "name": "hashPassword",
+                    "line": 187,
+                    "parameters": [
+                        "$password"
+                    ],
+                    "description": "Hash password"
+                },
+                {
+                    "name": "verifyPassword",
+                    "line": 194,
+                    "parameters": [
+                        "$password",
+                        "$hash"
+                    ],
+                    "description": "Verifica password"
+                },
+                {
+                    "name": "generateCSRFToken",
+                    "line": 201,
+                    "parameters": [],
+                    "description": "Genera CSRF token"
+                },
+                {
+                    "name": "verifyCSRFToken",
+                    "line": 211,
+                    "parameters": [
+                        "$token"
+                    ],
+                    "description": "Verifica CSRF token"
+                },
+                {
+                    "name": "getClientIP",
+                    "line": 218,
+                    "parameters": [],
+                    "description": "Ottieni indirizzo IP del client"
+                },
+                {
+                    "name": "logLoginAttempt",
+                    "line": 240,
+                    "parameters": [
+                        "$email",
+                        "$success"
+                    ],
+                    "description": "Registra tentativo di login"
+                },
+                {
+                    "name": "isAccountLocked",
+                    "line": 259,
+                    "parameters": [
+                        "$email"
+                    ],
+                    "description": "Verifica se l'account \u00e8 bloccato per troppi tentativi"
+                },
+                {
+                    "name": "cleanupLoginAttempts",
+                    "line": 285,
+                    "parameters": [],
+                    "description": "Pulisci tentativi di login vecchi"
+                },
+                {
+                    "name": "sendEmail",
+                    "line": 306,
+                    "parameters": [
+                        "$to",
+                        "$subject",
+                        "$htmlBody",
+                        "$headers"
+                    ],
+                    "description": "Invia email con PHPMailer (wrapper centralizzato)"
+                },
+                {
+                    "name": "formatErrorMessage",
+                    "line": 314,
+                    "parameters": [
+                        "$message"
+                    ],
+                    "description": "Formatta messaggio di errore per display"
+                },
+                {
+                    "name": "formatSuccessMessage",
+                    "line": 321,
+                    "parameters": [
+                        "$message"
+                    ],
+                    "description": "Formatta messaggio di successo per display"
+                },
+                {
+                    "name": "getFlashMessage",
+                    "line": 328,
+                    "parameters": [
+                        "$type"
+                    ],
+                    "description": "Ottieni messaggio flash dalla sessione"
+                },
+                {
+                    "name": "setFlashMessage",
+                    "line": 349,
+                    "parameters": [
+                        "$type",
+                        "$message"
+                    ],
+                    "description": "Imposta messaggio flash"
+                },
+                {
+                    "name": "checkRateLimit",
+                    "line": 356,
+                    "parameters": [
+                        "$action",
+                        "$limit",
+                        "$window"
+                    ],
+                    "description": "Rate limiting per azioni sensibili"
+                }
+            ]
+        }
+    ]
+}

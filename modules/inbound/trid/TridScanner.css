@@ -1,0 +1,847 @@
+/**
+ * TridScanner.css - Tema Rosa Margynomic
+ * Stile customer-facing per tracking inventario Amazon
+ */
+
+/* === TEMA ROSA MARGYNOMIC === */
+:root {
+    --primary-pink: #ec4899;
+    --secondary-pink: #f472b6;
+    --light-pink: #f9a8d4;
+    --dark-pink: #db2777;
+    --gradient-primary: linear-gradient(135deg, #ec4899 0%, #f472b6 50%, #f9a8d4 100%);
+    --danger: #FF3547;
+    --warning: #FFB400;
+    --success: #00C851;
+    --info: #17A2B8;
+    --dark: #1a1a1a;
+    --light: #f8f9fa;
+}
+
+/* === RESET & BASE === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--gradient-primary);
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* === CONTAINER === */
+.tridscanner-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* === WELCOME HERO === */
+.welcome-hero {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 3rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.welcome-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.welcome-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.welcome-title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--gradient-primary);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.welcome-subtitle {
+    font-size: 1.2rem;
+    color: #64748b;
+    margin-bottom: 0;
+    animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === KPI CARDS GRID === */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.kpi-card {
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    border: 3px solid rgba(236,72,153,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(236,72,153,0.1), transparent);
+    transition: left 0.6s;
+}
+
+.kpi-card:hover::before {
+    left: 100%;
+}
+
+.kpi-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.kpi-icon {
+    font-size: 2.5rem;
+    margin: 0 auto 1rem;
+    text-align: center;
+}
+
+.kpi-value {
+    font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+    font-weight: 800;
+    margin-bottom: 0.8rem;
+    font-family: 'SF Mono', 'Monaco', monospace;
+    color: #1a202c;
+    line-height: 1.2;
+}
+
+.kpi-label {
+    color: #4a5568;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.kpi-sublabel {
+    color: #718096;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* === ANIMAZIONE KPI === */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+.kpi-value {
+    animation: pulse 2s infinite;
+}
+
+/* === KPI CARD COLOR VARIANTS (BORDI COLORATI CON GRADIENTE) === */
+.kpi-primary {
+    border-color: #ec4899;
+    background: linear-gradient(135deg, rgba(236, 72, 153, 0.1) 0%, rgba(255,255,255,0.9) 100%);
+}
+
+.kpi-success {
+    border-color: #00C851;
+    background: linear-gradient(135deg, rgba(0, 200, 81, 0.1) 0%, rgba(255,255,255,0.9) 100%);
+}
+
+.kpi-warning {
+    border-color: #FFB400;
+    background: linear-gradient(135deg, rgba(255, 180, 0, 0.1) 0%, rgba(255,255,255,0.9) 100%);
+}
+
+.kpi-info {
+    border-color: #17A2B8;
+    background: linear-gradient(135deg, rgba(23, 162, 184, 0.1) 0%, rgba(255,255,255,0.9) 100%);
+}
+
+.kpi-transfer {
+    border-color: #f472b6;
+    background: linear-gradient(135deg, rgba(244, 114, 182, 0.1) 0%, rgba(255,255,255,0.9) 100%);
+}
+
+.kpi-giacenza {
+    border-color: #db2777;
+    background: linear-gradient(135deg, rgba(219, 39, 119, 0.1) 0%, rgba(255,255,255,0.9) 100%);
+}
+
+/* === BANNER UNITÀ SPARITE === */
+.unita-sparite-banner {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left: 6px solid var(--warning);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    box-shadow: 0 10px 30px rgba(251, 191, 36, 0.2);
+    animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.banner-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.banner-content {
+    flex: 1;
+}
+
+.banner-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #92400e;
+    margin-bottom: 1rem;
+}
+
+.banner-formula {
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #78350f;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.banner-formula span {
+    color: var(--dark-pink);
+    font-weight: 800;
+}
+
+.banner-formula small {
+    font-size: 0.75rem;
+    color: #a16207;
+    font-weight: 500;
+}
+
+.banner-formula .risultato-sparite {
+    color: #dc2626;
+    font-size: 1.5rem;
+}
+
+.banner-rimborsi {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 1rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: #78350f;
+    margin-bottom: 1rem;
+}
+
+.unita-da-recuperare {
+    color: #dc2626;
+}
+
+.banner-explanation {
+    font-size: 0.9rem;
+    color: #92400e;
+    line-height: 1.6;
+}
+
+/* === DASHBOARD GRID === */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.dashboard-column {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%);
+    backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 300px);
+}
+
+.column-header {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.column-header h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem 0;
+}
+
+.summary {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.column-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+/* === SHIPMENT CARDS === */
+.shipment-card {
+    background: #f9fafb;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.shipment-card:hover {
+    border-color: var(--primary-pink);
+    background: white;
+    transform: translateX(6px);
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.15);
+}
+
+.shipment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.shipment-id {
+    background: #1f2937;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-family: 'Courier New', monospace;
+}
+
+.shipment-qty-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.shipment-qty-shipped {
+    color: #6b7280;
+}
+
+.shipment-qty-arrow {
+    color: #9ca3af;
+    font-size: 1rem;
+}
+
+.shipment-qty-received {
+    color: #10b981;
+}
+
+.shipment-name {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+}
+
+.shipment-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.8125rem;
+    color: #6b7280;
+    flex-wrap: wrap;
+}
+
+/* === REIMBURSEMENTS === */
+.month-section {
+    margin-bottom: 1rem;
+}
+
+.month-header {
+    background: #fce7f3;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.month-header:hover {
+    background: #fbcfe8;
+}
+
+.month-header h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.1rem;
+    color: #831843;
+}
+
+.expand-icon {
+    font-size: 1.5rem;
+    color: var(--primary-pink);
+    transition: transform 0.3s ease;
+}
+
+.reimbursements-content {
+    padding: 0.75rem 0;
+}
+
+.reimbursement-item {
+    background: #fef3c7;
+    border-left: 4px solid var(--warning);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.reimb-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.reimb-date {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #92400e;
+}
+
+.reimb-qty {
+    font-weight: 800;
+    color: #dc2626;
+    font-size: 1.1rem;
+}
+
+.reimb-product {
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.reimb-meta {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.badge-fc {
+    padding: 0.25rem 0.75rem;
+    background: white;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #374151;
+}
+
+.badge-reason {
+    padding: 0.25rem 0.75rem;
+    background: #fbbf24;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #78350f;
+}
+
+.reimb-trid {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reimb-trid code {
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    background: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #374151;
+}
+
+.btn-copy-mini {
+    padding: 0.5rem 0.75rem;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);
+}
+
+.btn-copy-mini:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(236, 72, 153, 0.4);
+}
+
+/* === MODAL === */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    max-width: 900px;
+    width: 100%;
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    padding: 1.5rem;
+    border-bottom: 2px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: linear-gradient(135deg, #ec4899 0%, #f472b6 100%);
+    color: white;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.modal-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Items Table */
+.items-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.items-table thead {
+    background: #f9fafb;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.items-table th {
+    padding: 0.75rem;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.items-table td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.items-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.items-table code {
+    background: #f3f4f6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8125rem;
+    font-family: 'Courier New', monospace;
+}
+
+.diff-positive {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.diff-negative {
+    color: #ef4444;
+    font-weight: 600;
+}
+
+.diff-zero {
+    color: #6b7280;
+}
+
+/* === SPINNER === */
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary-pink);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* === SCROLLBAR PERSONALIZZATA === */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(236, 72, 153, 0.1);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ec4899, #f472b6);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #db2777, #ec4899);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1200px) {
+    .kpi-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-column {
+        max-height: 600px;
+    }
+}
+
+@media (max-width: 900px) {
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tridscanner-container {
+        padding: 1rem;
+    }
+    
+    .welcome-title {
+        font-size: 2rem;
+    }
+    
+    .welcome-subtitle {
+        font-size: 1rem;
+    }
+    
+    .kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .kpi-card {
+        padding: 1.5rem;
+    }
+    
+    .kpi-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .kpi-value {
+        font-size: 1.5rem;
+    }
+    
+    .unita-sparite-banner {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+    
+    .banner-icon {
+        font-size: 2.5rem;
+    }
+    
+    .banner-formula {
+        font-size: 0.95rem;
+    }
+    
+    .shipment-meta {
+        font-size: 0.75rem;
+    }
+    
+    .modal-content {
+        max-height: 95vh;
+    }
+    
+    .modal-header {
+        padding: 1rem;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.25rem;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .items-table {
+        font-size: 0.8125rem;
+    }
+    
+    .items-table th,
+    .items-table td {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 1.75rem;
+    }
+    
+    .kpi-card {
+        padding: 1.2rem;
+    }
+    
+    .kpi-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .kpi-value {
+        font-size: 1.3rem;
+    }
+    
+    .kpi-label {
+        font-size: 0.85rem;
+    }
+    
+    .banner-formula {
+        font-size: 0.85rem;
+    }
+}

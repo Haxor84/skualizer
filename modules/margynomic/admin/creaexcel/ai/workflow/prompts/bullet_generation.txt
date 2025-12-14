@@ -1,0 +1,55 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 ISTRUZIONI BULLET POINT #{BULLET_NUMBER}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+TEMA ASSEGNATO:
+{THEME}
+
+FOCUS SPECIFICO:
+{FOCUS}
+
+STRUTTURA SUGGERITA:
+{SUGGESTED_STRUCTURE}
+
+KEYWORDS DA INTEGRARE (usa naturalmente):
+{KEYWORDS_INTEGRATE}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTEXT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Keywords disponibili: {KEYWORDS}
+Keywords già usate (EVITA): {USED_KEYWORDS}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+POLICY AMAZON (LIMITI RIGIDI - NON NEGOZIABILI)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚫 LUNGHEZZA MAX ASSOLUTA: 250 caratteri
+✅ TARGET OTTIMALE: 200-230 caratteri
+⚠️ Se superi 250 char → RIFIUTO AMAZON
+
+ESEMPIO LUNGHEZZA CORRETTA (215 char):
+✓ VERSATILITÀ IN CUCINA: Perfetto per dolci e salato, questo ingrediente naturale arricchisce torte, panature gourmet e pesto fatto in casa. Ideale per dieta keto o gluten free, dona sapore intenso senza glutine.
+
+⚠️ Inizia con: ✓ KEYWORD_CAPS: descrizione
+⚠️ Focus su UN tema (quello assegnato)
+⚠️ NO ripetizioni keywords da altri bullet
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TASK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Scrivi bullet point #{BULLET_NUMBER} seguendo:
+1. La struttura suggerita sopra
+2. Sviluppando il focus specifico
+3. Integrando le keywords assegnate naturalmente
+4. Evitando keywords già usate
+
+VERIFICA:
+☐ Segue struttura suggerita
+☐ Lunghezza 180-240 char (MAX 250)
+☐ Focus sul tema assegnato
+☐ NO ripetizioni keywords
+
+OUTPUT: Solo bullet point, NO numero prefix, NO spiegazioni.

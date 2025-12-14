@@ -1,0 +1,68 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 ISTRUZIONI DA PRODUCT RESEARCH (GEMINI 3 PRO)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+HOOK APERTURA (usa esattamente):
+{OPENING_HOOK}
+
+BENEFICI CHIAVE (enfatizza questi):
+- {KEY_BENEFITS}
+
+CASI D'USO (integra naturalmente):
+- {USE_CASES}
+
+TONO RICHIESTO: {TONE}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTEXT PRODOTTO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Brand: {BRAND}
+Tipo prodotto: {PRODUCT_TYPE}
+Formato/Peso: {WEIGHT}
+Keywords SEO: {KEYWORDS}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+POLICY AMAZON
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️ Text-only (senza HTML): 800-1200 caratteri
+⚠️ Total con HTML: MAX 2000 caratteri
+⚠️ HTML consentiti: <b>, <strong>, <br>, <ul>, <li>, <p>
+⚠️ NO emoji, NO claim salute non verificabili
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STRUTTURA RICHIESTA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. HOOK APERTURA (da istruzioni sopra, in <b>)
+2. PARAGRAFO DESCRITTIVO (2-3 frasi su caratteristiche)
+3. LISTA BENEFICI (<ul><li><b>Titolo:</b> dettaglio</li>)
+4. CALL-TO-ACTION finale
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ESEMPIO STRUTTURA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+<b>Scopri la versatilità della granella di pistacchio premium.</b><br><br>
+
+Ottenuta da pistacchi selezionati, questa granella offre texture croccante e colore verde intenso, ideale per decorazioni gourmet. Versatile dalla pasticceria dolce alla cucina salata.<br><br>
+
+<ul>
+<li><b>Decorazione Professionale:</b> Mantiene croccantezza anche dopo cottura</li>
+<li><b>Nutriente:</b> Rica di proteine vegetali (20g/100g) e grassi sani</li>
+<li><b>100% Naturale:</b> Senza additivi, conservanti o sale aggiunto</li>
+<li><b>Versatilità Totale:</b> Dolci, gelati, yogurt, panature gourmet</li>
+</ul>
+<br>Aggiungi un tocco premium alle tue creazioni!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TASK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Scrivi description HTML seguendo istruzioni.
+Usa hook apertura fornito, integra benefici e casi d'uso.
+Mantieni tono indicato.
+Verifica lunghezze policy.
+
+OUTPUT: Solo HTML description, NO markdown backticks, NO spiegazioni.

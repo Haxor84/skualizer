@@ -1,0 +1,148 @@
+═══════════════════════════════════════════════════
+🎯 TASK: WEB RESEARCH + STRUCTURED CONTENT PLANNING
+═══════════════════════════════════════════════════
+
+SEI UN ESPERTO product researcher + content strategist per Amazon marketplace.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PRODOTTO DA ANALIZZARE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+SKU: {SKU}
+Brand: {BRAND}
+Peso/Formato: {WEIGHT}
+Product Type: {PRODUCT_TYPE}
+
+Titolo Attuale:
+{CURRENT_TITLE}
+
+Descrizione Attuale:
+{CURRENT_DESCRIPTION}
+
+Categoria: {CATEGORY}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FASE 1: ANALISI PRODOTTO (USA LA TUA CONOSCENZA ESPERTA)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Basandoti sulla TUA CONOSCENZA ESPERTA di questo tipo di prodotto ("{PRODUCT_TYPE}"):
+
+Analizza e documenta:
+- Descrizione fisica dettagliata (aspetto, colore, texture, dimensioni tipiche)
+- Caratteristiche organolettiche (gusto, aroma, consistenza)
+- Composizione e lavorazione standard
+- Proprietà nutrizionali tipiche (se food/supplement)
+- Usi pratici e applicazioni comuni (cucina, pasticceria, snack)
+- Benefici chiave riconosciuti
+- Differenziatori rispetto ad alternative simili
+- Target audience ideale
+
+⚠️ USA SOLO informazioni verificabili e generali del settore.
+⚠️ NO invenzioni, NO claim medici non supportati.
+⚠️ Focus su caratteristiche pratiche e d'uso reali.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FASE 2: GENERA ANALYSIS + STRUCTURED PROMPTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Genera DUE output:
+1. **analysis_markdown**: Testo completo per display (400-600 parole)
+2. **structured_prompts**: Istruzioni PRECISE per Step2-5 (title, description, bullets)
+
+CRITICAL: structured_prompts è il CUORE dell'output. Deve contenere:
+- Essenza prodotto (1-2 frasi chiave)
+- Cosa DEVE includere (must_include)
+- Cosa EVITARE assolutamente (avoid)
+- Struttura suggerita con placeholders
+- 5 bullet focus DISTINTI (no ripetizioni)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+FASE 3: ESTRAI KEYWORDS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Dall'analysis, estrai 100 keywords/frasi:
+- Mix: 40% singole parole, 60% long-tail (2-3 parole)
+- Ordinate per rilevanza SEO
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+OUTPUT FORMATO JSON (CRITICAL - SEGUI ESATTAMENTE)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+{
+  "analysis_markdown": "## Descrizione\n[Cos'è, aspetto, origine]\n\n## Proprietà\n[Composizione, valori nutrizionali]\n\n## Benefici\n[3-4 benefici chiave]\n\n## Usi\n[Applicazioni pratiche]\n\n## Differenziatori\n[Punti forza unici]",
+  
+  "keywords": ["keyword1", "keyword2", ..., "keyword100"],
+  
+  "structured_prompts": {
+    
+    "title": {
+      "product_essence": "[1-2 frasi essenza prodotto: texture, uso principale, beneficio key]",
+      "must_include": ["parola1", "parola2", "{weight}"],
+      "suggested_structure": "{brand} - [Prodotto Base] {weight} | [Feature] | [Benefit]",
+      "features_priority": ["feature1", "feature2", "feature3"],
+      "avoid": ["parola_sbagliata1", "parola_sbagliata2"]
+    },
+    
+    "description": {
+      "opening_hook": "Frase apertura emotiva/coinvolgente",
+      "key_benefits": [
+        "Beneficio 1 con dettaglio specifico",
+        "Beneficio 2 con dato concreto se disponibile",
+        "Beneficio 3 pratico/tangibile"
+      ],
+      "use_cases": [
+        "Uso 1 con esempio concreto",
+        "Uso 2 con contesto",
+        "Uso 3 alternativo"
+      ],
+      "tone": "premium/accessibile/professionale"
+    },
+    
+    "bullets": [
+      {
+        "index": 1,
+        "theme": "PRATICITÀ USO",
+        "focus": "Ready-to-use, aspetti pratici, come si usa facilmente",
+        "suggested_structure": "✓ KEYWORD CAPS: [descrizione uso + vantaggi pratici]",
+        "keywords_integrate": ["keyword1", "keyword2"]
+      },
+      {
+        "index": 2,
+        "theme": "BENEFICI NUTRIZIONALI",
+        "focus": "Valori nutrizionali, proprietà salute, superfood aspects",
+        "suggested_structure": "✓ KEYWORD CAPS: [valori nutrizionali + benefici]",
+        "keywords_integrate": ["keyword3", "keyword4"]
+      },
+      {
+        "index": 3,
+        "theme": "VERSATILITÀ",
+        "focus": "Molteplici usi, dolce+salato, dalla colazione alla cena",
+        "suggested_structure": "✓ KEYWORD CAPS: [usi multipli con esempi]",
+        "keywords_integrate": ["keyword5", "keyword6"]
+      },
+      {
+        "index": 4,
+        "theme": "QUALITÀ",
+        "focus": "Naturalità, purezza, assenza additivi, selezione materie prime",
+        "suggested_structure": "✓ KEYWORD CAPS: [caratteristiche qualità]",
+        "keywords_integrate": ["keyword7", "keyword8"]
+      },
+      {
+        "index": 5,
+        "theme": "FORMATO/TARGET",
+        "focus": "Praticità confezione, ideale per chi, conservazione",
+        "suggested_structure": "✓ KEYWORD CAPS: [vantaggi formato + target]",
+        "keywords_integrate": ["keyword9", "keyword10"]
+      }
+    ]
+  }
+}
+
+⚠️ REGOLE OUTPUT:
+- SOLO JSON puro (NO markdown code blocks ```json)
+- structured_prompts.bullets: ESATTAMENTE 5 elementi, themes DISTINTI
+- must_include: max 5 elementi critici
+- avoid: parole che causerebbero confusione (es: "crema" se è granella)
+- NO testo prima o dopo il JSON
+
+INIZIA OUTPUT:

@@ -1,0 +1,390 @@
+{
+    "module": "rendiconto",
+    "generated_at": "2025-12-11 18:18:30",
+    "base_path": "rendiconto/",
+    "files": [
+        {
+            "file": "rendiconto/index.php",
+            "size": 13110,
+            "modified": "2025-11-15 13:32:37",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "rendiconto/RendicontoModel.php",
+            "size": 17816,
+            "modified": "2025-11-15 14:23:19",
+            "classes": [
+                {
+                    "name": "RendicontoModel",
+                    "type": "class",
+                    "line": 3,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 6,
+                            "parameters": [
+                                "$pdo"
+                            ],
+                            "description": "",
+                            "static": false
+                        },
+                        {
+                            "name": "upsertDocumento",
+                            "line": 13,
+                            "parameters": [
+                                "$userId",
+                                "$anno",
+                                "$brand",
+                                "$valuta"
+                            ],
+                            "description": "Insert or update a documento record",
+                            "static": false
+                        },
+                        {
+                            "name": "upsertRigheBatch",
+                            "line": 44,
+                            "parameters": [
+                                "$documentoId",
+                                "$righe"
+                            ],
+                            "description": "Insert or update multiple righe records in batch",
+                            "static": false
+                        },
+                        {
+                            "name": "getDocumentoCompleto",
+                            "line": 104,
+                            "parameters": [
+                                "$documentoId",
+                                "$userId"
+                            ],
+                            "description": "Get complete documento with all righe",
+                            "static": false
+                        },
+                        {
+                            "name": "getDocumentoByAnno",
+                            "line": 172,
+                            "parameters": [
+                                "$userId",
+                                "$anno",
+                                "$brand"
+                            ],
+                            "description": "Get documento by anno and brand",
+                            "static": false
+                        },
+                        {
+                            "name": "getAvailableYears",
+                            "line": 188,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Get all available years",
+                            "static": false
+                        },
+                        {
+                            "name": "duplicateDocumento",
+                            "line": 198,
+                            "parameters": [
+                                "$userId",
+                                "$sourceAnno",
+                                "$targetAnno",
+                                "$brand"
+                            ],
+                            "description": "Duplicate documento from one year to another",
+                            "static": false
+                        },
+                        {
+                            "name": "deleteDocumento",
+                            "line": 257,
+                            "parameters": [
+                                "$userId",
+                                "$documentoId"
+                            ],
+                            "description": "Delete documento and all related righe",
+                            "static": false
+                        },
+                        {
+                            "name": "getPdo",
+                            "line": 289,
+                            "parameters": [],
+                            "description": "Get PDO connection for advanced queries",
+                            "static": false
+                        },
+                        {
+                            "name": "getInputUtente",
+                            "line": 296,
+                            "parameters": [
+                                "$userId",
+                                "$anno",
+                                "$tipoInput",
+                                "$mese",
+                                "$id"
+                            ],
+                            "description": "Get input utente filtrati per anno, tipo e mese (opzionale)",
+                            "static": false
+                        },
+                        {
+                            "name": "saveInputUtente",
+                            "line": 332,
+                            "parameters": [
+                                "$userId",
+                                "$anno",
+                                "$mese",
+                                "$tipoInput",
+                                "$importo",
+                                "$quantita",
+                                "$note",
+                                "$data",
+                                "$id",
+                                "$settlementId",
+                                "$currency",
+                                "$importoEur"
+                            ],
+                            "description": "Save or update input utente",
+                            "static": false
+                        },
+                        {
+                            "name": "deleteInputUtente",
+                            "line": 394,
+                            "parameters": [
+                                "$userId",
+                                "$id"
+                            ],
+                            "description": "Delete input utente by ID",
+                            "static": false
+                        },
+                        {
+                            "name": "getInputUtenteSummary",
+                            "line": 403,
+                            "parameters": [
+                                "$userId",
+                                "$anno"
+                            ],
+                            "description": "Get aggregated summary of input utente per mese",
+                            "static": false
+                        },
+                        {
+                            "name": "getKpiTotaliAnno",
+                            "line": 432,
+                            "parameters": [
+                                "$userId",
+                                "$anno"
+                            ],
+                            "description": "Get totali annuali per KPI (unita acquistate/spedite)",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "rendiconto/RendicontoController.php",
+            "size": 28742,
+            "modified": "2025-11-15 13:31:47",
+            "classes": [
+                {
+                    "name": "RendicontoController",
+                    "type": "class",
+                    "line": 7,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 13,
+                            "parameters": [
+                                "$pdo",
+                                "$userId"
+                            ],
+                            "description": "",
+                            "static": false
+                        },
+                        {
+                            "name": "loadDocument",
+                            "line": 23,
+                            "parameters": [
+                                "$id"
+                            ],
+                            "description": "Load document by ID",
+                            "static": false
+                        },
+                        {
+                            "name": "loadDocumentByYear",
+                            "line": 30,
+                            "parameters": [
+                                "$anno",
+                                "$brand"
+                            ],
+                            "description": "Load document by year with aggregated input utente",
+                            "static": false
+                        },
+                        {
+                            "name": "saveDocument",
+                            "line": 69,
+                            "parameters": [
+                                "$payload"
+                            ],
+                            "description": "Save document with validation and calculations",
+                            "static": false
+                        },
+                        {
+                            "name": "computeYearTotals",
+                            "line": 183,
+                            "parameters": [
+                                "$righe"
+                            ],
+                            "description": "Compute year totals from righe",
+                            "static": false
+                        },
+                        {
+                            "name": "computeKpi",
+                            "line": 229,
+                            "parameters": [
+                                "$totali"
+                            ],
+                            "description": "Compute KPI from totals",
+                            "static": false
+                        },
+                        {
+                            "name": "validate",
+                            "line": 279,
+                            "parameters": [
+                                "$payload"
+                            ],
+                            "description": "Validate input payload",
+                            "static": false
+                        },
+                        {
+                            "name": "getAvailableYears",
+                            "line": 328,
+                            "parameters": [],
+                            "description": "Get available years from all sources (documenti, input_utente, settlement)",
+                            "static": false
+                        },
+                        {
+                            "name": "duplicateYear",
+                            "line": 365,
+                            "parameters": [
+                                "$sourceAnno",
+                                "$targetAnno",
+                                "$brand"
+                            ],
+                            "description": "Duplicate year data",
+                            "static": false
+                        },
+                        {
+                            "name": "getFatturatoFromSettlement",
+                            "line": 400,
+                            "parameters": [
+                                "$anno"
+                            ],
+                            "description": "Get fatturato data from OrderInsights settlement table",
+                            "static": false
+                        },
+                        {
+                            "name": "getInputUtente",
+                            "line": 591,
+                            "parameters": [
+                                "$anno",
+                                "$tipoInput",
+                                "$mese",
+                                "$id"
+                            ],
+                            "description": "Get input utente per anno/tipo",
+                            "static": false
+                        },
+                        {
+                            "name": "saveInputUtente",
+                            "line": 611,
+                            "parameters": [
+                                "$payload"
+                            ],
+                            "description": "Save input utente",
+                            "static": false
+                        },
+                        {
+                            "name": "deleteInputUtente",
+                            "line": 652,
+                            "parameters": [
+                                "$id"
+                            ],
+                            "description": "Delete input utente",
+                            "static": false
+                        },
+                        {
+                            "name": "getUnitaVendute",
+                            "line": 678,
+                            "parameters": [
+                                "$anno"
+                            ],
+                            "description": "Get unit\u00e0 vendute da settlement per anno",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        },
+        {
+            "file": "rendiconto/views/rendiconto_view.php",
+            "size": 81413,
+            "modified": "2025-11-16 11:17:00",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "rendiconto/CurrencyConverter.php",
+            "size": 4102,
+            "modified": "2025-10-10 16:24:09",
+            "classes": [
+                {
+                    "name": "CurrencyConverter",
+                    "type": "class",
+                    "line": 3,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 29,
+                            "parameters": [
+                                "$pdo"
+                            ],
+                            "description": "",
+                            "static": false
+                        },
+                        {
+                            "name": "convertToEur",
+                            "line": 41,
+                            "parameters": [
+                                "$amount",
+                                "$currency",
+                                "$date"
+                            ],
+                            "description": "Converte un importo in EUR",
+                            "static": false
+                        },
+                        {
+                            "name": "formatAmount",
+                            "line": 109,
+                            "parameters": [
+                                "$amount",
+                                "$currency"
+                            ],
+                            "description": "Formatta importo con currency",
+                            "static": false
+                        },
+                        {
+                            "name": "formatWithEur",
+                            "line": 120,
+                            "parameters": [
+                                "$amount",
+                                "$currency"
+                            ],
+                            "description": "Formatta con conversione EUR",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        }
+    ]
+}

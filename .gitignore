@@ -1,0 +1,124 @@
+# ===============================================
+# SKUALIZER - File da NON caricare su GitHub
+# ===============================================
+
+# === FILE CON CREDENZIALI SENSIBILI ===
+# Questi file contengono password, API keys, tokens
+# NON DEVONO MAI essere caricati su GitHub pubblico
+
+# Config principale con password DB e SMTP
+modules/margynomic/config/config.php
+
+# AI config con API keys (Anthropic, OpenAI, Gemini)
+modules/margynomic/admin/creaexcel/ai/config/ai_config.php
+
+# Credenziali Amazon SP-API (Client ID, Secret, AWS Keys)
+modules/margynomic/sp_credentials.php
+
+# File ambiente con credenziali
+.env
+.env.local
+.env.production
+
+# === FILE TEMPORANEI E CACHE ===
+*.log
+*.tmp
+*.cache
+*.bak
+*.backup
+*.old
+*.swp
+*.swo
+*~
+
+# === DIRECTORY UPLOAD E DATI UTENTE ===
+# File caricati dagli utenti (Excel, immagini, etc)
+modules/margynomic/admin/creaexcel/uploads/
+modules/margynomic/uploads/
+uploads/
+temp/
+tmp/
+
+# === FILE SISTEMA OPERATIVO ===
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# === IDE E EDITOR ===
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.project
+.settings/
+
+# === COMPOSER E VENDOR ===
+# Se usi Composer, vendor/ dovrebbe essere in .gitignore
+# Ma verificare se il progetto ne ha bisogno
+vendor/
+composer.phar
+composer.lock
+
+# === NODE MODULES (se presenti) ===
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# === FILE DATABASE ===
+*.sql.gz
+*.sql.zip
+*.sqlite
+*.db
+
+# === LOG APPLICATIVI ===
+modules/logs/*.log
+logs/*.log
+error_log
+debug.log
+
+# === FILE BACKUP ===
+backup/
+backups/
+*.sql.backup
+
+# === FILE PRIVATI SPECIFICI PROGETTO ===
+inclusion_log.json
+/skualiz1_margynomic.sql
+
+# === CERTIFICATI E CHIAVI SSH ===
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# === ALTRI FILE SENSIBILI ===
+.htpasswd
+auth.json
+secrets.json
+credentials.json
+
+# === MODULI DA NON PUBBLICARE ===
+stealth/
+quizhack/
+101/
+
+# === FILE UTILITY E SVILUPPO ===
+.cursorrules
+albero_inclusioni.php
+generate_database_sitemap.php
+generate_sitemap.php
+inietta_logger_inclusioni.php
+modules_sitemap.html
+ocr_processor.php
+pulisci_duplicazioni.php
+qa_index.json
+telegram.php
+upload.php

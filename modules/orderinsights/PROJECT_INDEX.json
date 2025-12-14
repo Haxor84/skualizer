@@ -1,0 +1,223 @@
+{
+    "module": "orderinsights",
+    "generated_at": "2025-12-11 18:18:30",
+    "base_path": "orderinsights/",
+    "files": [
+        {
+            "file": "orderinsights/overview.php",
+            "size": 19291,
+            "modified": "2025-11-11 22:32:44",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "orderinsights/debug_complete.php",
+            "size": 20383,
+            "modified": "2025-10-03 21:14:01",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "orderinsights/OverviewController.php",
+            "size": 7924,
+            "modified": "2025-11-10 21:54:40",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "handleMonthSummary",
+                    "line": 84,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "GET ?action=month_summary&month=YYYY-MM (o start/end)"
+                },
+                {
+                    "name": "handleDaySummary",
+                    "line": 128,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "GET ?action=day_summary&day=YYYY-MM-DD"
+                },
+                {
+                    "name": "handleOrders",
+                    "line": 147,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "GET ?action=orders&day=YYYY-MM-DD"
+                },
+                {
+                    "name": "handleOrderDetail",
+                    "line": 167,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "GET ?action=order_detail&order_id=..."
+                },
+                {
+                    "name": "handleDayIndex",
+                    "line": 191,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "GET ?action=day_index&offset=0&limit=30&month=YYYY-MM|start/end"
+                },
+                {
+                    "name": "handleGetFullRange",
+                    "line": 231,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "GET ?action=get_full_range - Ottiene il range completo di date disponibili"
+                }
+            ]
+        },
+        {
+            "file": "orderinsights/clear_cache.php",
+            "size": 910,
+            "modified": "2025-10-03 20:36:46",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "orderinsights/OverviewModel.php",
+            "size": 51205,
+            "modified": "2025-11-09 21:18:09",
+            "classes": [
+                {
+                    "name": "OverviewModel",
+                    "type": "class",
+                    "line": 18,
+                    "public_methods": [
+                        {
+                            "name": "detectColumns",
+                            "line": 23,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Rileva colonne disponibili nella tabella settlement",
+                            "static": true
+                        },
+                        {
+                            "name": "getDateRange",
+                            "line": 84,
+                            "parameters": [
+                                "$month",
+                                "$start",
+                                "$end"
+                            ],
+                            "description": "Ottiene range date [from, to) da parametri mese o start/end",
+                            "static": true
+                        },
+                        {
+                            "name": "mapCategory",
+                            "line": 140,
+                            "parameters": [
+                                "$transactionType",
+                                "$userId"
+                            ],
+                            "description": "Mappa transaction_type a categoria usando fee_mapping_helpers.php",
+                            "static": true
+                        },
+                        {
+                            "name": "convertToEur",
+                            "line": 194,
+                            "parameters": [
+                                "$amount",
+                                "$currency",
+                                "$date"
+                            ],
+                            "description": "Converte importo in EUR",
+                            "static": true
+                        },
+                        {
+                            "name": "rowSignedAmountEUR",
+                            "line": 207,
+                            "parameters": [
+                                "$row",
+                                "$userId"
+                            ],
+                            "description": "Calcola importo firmato per riga in EUR",
+                            "static": true
+                        },
+                        {
+                            "name": "isReserveFund",
+                            "line": 240,
+                            "parameters": [
+                                "$transactionType"
+                            ],
+                            "description": "Verifica se transaction_type appartiene a Fondi Riserva",
+                            "static": true
+                        },
+                        {
+                            "name": "monthSummary",
+                            "line": 268,
+                            "parameters": [
+                                "$from",
+                                "$to",
+                                "$userId",
+                                "$includeReserve"
+                            ],
+                            "description": "Summary mensile con KPI e breakdown per categoria",
+                            "static": true
+                        },
+                        {
+                            "name": "daySummary",
+                            "line": 867,
+                            "parameters": [
+                                "$day",
+                                "$userId"
+                            ],
+                            "description": "Summary giornaliero",
+                            "static": true
+                        },
+                        {
+                            "name": "ordersByDay",
+                            "line": 945,
+                            "parameters": [
+                                "$day",
+                                "$userId"
+                            ],
+                            "description": "Lista ordini per giorno",
+                            "static": true
+                        },
+                        {
+                            "name": "dayIndex",
+                            "line": 995,
+                            "parameters": [
+                                "$from",
+                                "$to",
+                                "$userId",
+                                "$offset",
+                                "$limit"
+                            ],
+                            "description": "Indice giorni paginato",
+                            "static": true
+                        },
+                        {
+                            "name": "orderDetail",
+                            "line": 1068,
+                            "parameters": [
+                                "$orderId",
+                                "$userId"
+                            ],
+                            "description": "Dettaglio righe per ordine",
+                            "static": true
+                        },
+                        {
+                            "name": "hasEurConversionWarning",
+                            "line": 1097,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Verifica se la conversione EUR \u00e8 garantita",
+                            "static": true
+                        }
+                    ]
+                }
+            ],
+            "functions": []
+        }
+    ]
+}

@@ -1,0 +1,466 @@
+{
+    "module": "mobile",
+    "generated_at": "2025-12-11 18:18:30",
+    "base_path": "mobile/",
+    "files": [
+        {
+            "file": "mobile/index.php",
+            "size": 452,
+            "modified": "2025-11-14 17:31:32",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "mobile/Profilo.php",
+            "size": 34814,
+            "modified": "2025-11-16 17:25:19",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "getAutomaticStatsMobile",
+                    "line": 39,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Mobile Profilo - Profilo Utente Versione mobile semplificata di modules/margynomic/profilo_utente.php"
+                },
+                {
+                    "name": "timeAgo",
+                    "line": 155,
+                    "parameters": [
+                        "$datetime"
+                    ],
+                    "description": "Mobile Profilo - Profilo Utente Versione mobile semplificata di modules/margynomic/profilo_utente.php"
+                },
+                {
+                    "name": "doLogout",
+                    "line": 406,
+                    "parameters": [],
+                    "description": "Mobile Profilo - Profilo Utente Versione mobile semplificata di modules/margynomic/profilo_utente.php"
+                }
+            ]
+        },
+        {
+            "file": "mobile/_partials/mobile_tabbar.php",
+            "size": 1891,
+            "modified": "2025-11-16 13:53:24",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "mobile/_partials/mobile_header.php",
+            "size": 3670,
+            "modified": "2025-11-14 17:31:34",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "mobile/OrderInsights.php",
+            "size": 74404,
+            "modified": "2025-11-16 17:25:19",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "renderKPI",
+                    "line": 767,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "renderSections",
+                    "line": 796,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "renderFeeComponentsTable",
+                    "line": 930,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "renderCommissioniBreakdown",
+                    "line": 1046,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "renderOperativiBreakdown",
+                    "line": 1149,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "renderPerditeBreakdown",
+                    "line": 1239,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "renderMobileDays",
+                    "line": 1389,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "loadAllDays",
+                    "line": 1463,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "formatDateShort",
+                    "line": 1472,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "closeDrawer",
+                    "line": 1599,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "formatCurrency",
+                    "line": 1607,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "formatNumber",
+                    "line": 1611,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "formatDate",
+                    "line": 1615,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "formatDateLong",
+                    "line": 1619,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "escapeHtml",
+                    "line": 1626,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "doLogout",
+                    "line": 1633,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "showCategoryBreakdown",
+                    "line": 1640,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                },
+                {
+                    "name": "closeBreakdownModal",
+                    "line": 1676,
+                    "parameters": [],
+                    "description": "Mobile OrderInsights - Dashboard Completa Ordini Feature parity con desktop: 7 KPI, Filtri, Sezioni, Breakdown, Charts"
+                }
+            ]
+        },
+        {
+            "file": "mobile/diagnostics.php",
+            "size": 4301,
+            "modified": "2025-11-14 17:31:32",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "mobile/api/send_inventory_email.php",
+            "size": 3283,
+            "modified": "2025-11-14 17:31:38",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "mobile/Margynomic.php",
+            "size": 45761,
+            "modified": "2025-11-16 17:25:19",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "doLogout",
+                    "line": 526,
+                    "parameters": [],
+                    "description": "Mobile Margynomic - Margini Versione mobile identica nella logica a modules/margynomic/margini/margins_overview.php"
+                }
+            ]
+        },
+        {
+            "file": "mobile/EasyShip.php",
+            "size": 72730,
+            "modified": "2025-11-16 17:25:19",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "mobile/Rendiconto.php",
+            "size": 108940,
+            "modified": "2025-11-16 17:25:19",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "mobile/TridScanner.php",
+            "size": 35178,
+            "modified": "2025-11-16 17:25:19",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "doLogout",
+                    "line": 557,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "showError",
+                    "line": 693,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "renderKPI",
+                    "line": 705,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "renderBannerSparite",
+                    "line": 715,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "renderShipments",
+                    "line": 744,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "renderReimbursements",
+                    "line": 798,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "closeDrawer",
+                    "line": 920,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "copyTRID",
+                    "line": 925,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "toggleReimbMonth",
+                    "line": 948,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "formatNumber",
+                    "line": 956,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "formatDate",
+                    "line": 960,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "formatDateShort",
+                    "line": 967,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "formatDateTimeFull",
+                    "line": 974,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "formatMonthYear",
+                    "line": 981,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                },
+                {
+                    "name": "escapeHtml",
+                    "line": 995,
+                    "parameters": [],
+                    "description": "Mobile TridScanner - TRID Tracking Completo Feature parity con desktop: KPI, Unit\u00e0 Sparite, Spedizioni, Rimborsi, Filtri"
+                }
+            ]
+        },
+        {
+            "file": "mobile/helpers/mobile_cache_helper.php",
+            "size": 4144,
+            "modified": "2025-11-14 17:31:38",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "getMobileCache",
+                    "line": 15,
+                    "parameters": [
+                        "$userId",
+                        "$cacheType",
+                        "$ttl"
+                    ],
+                    "description": "Recupera dati dalla cache se validi"
+                },
+                {
+                    "name": "setMobileCache",
+                    "line": 64,
+                    "parameters": [
+                        "$userId",
+                        "$cacheType",
+                        "$data"
+                    ],
+                    "description": "Salva dati in cache"
+                },
+                {
+                    "name": "invalidateMobileCache",
+                    "line": 96,
+                    "parameters": [
+                        "$userId",
+                        "$cacheType"
+                    ],
+                    "description": "Invalida cache per utente e tipo specifico"
+                },
+                {
+                    "name": "cleanupExpiredCache",
+                    "line": 122,
+                    "parameters": [
+                        "$maxAge"
+                    ],
+                    "description": "Pulisce cache scaduta da tutto il database (usare in cron)"
+                }
+            ]
+        },
+        {
+            "file": "mobile/helpers/cache_events.php",
+            "size": 5476,
+            "modified": "2025-11-16 11:46:56",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "invalidateCacheOnEvent",
+                    "line": 23,
+                    "parameters": [
+                        "$userId",
+                        "$event"
+                    ],
+                    "description": "Invalida cache mobile basato su evento di sistema"
+                },
+                {
+                    "name": "invalidateAllUserCache",
+                    "line": 127,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Invalida TUTTA la cache per un utente (uso admin/debug)"
+                }
+            ]
+        },
+        {
+            "file": "mobile/Previsync.php",
+            "size": 38236,
+            "modified": "2025-11-16 17:25:19",
+            "classes": [
+                {
+                    "name": "InventoryAnalyzer",
+                    "type": "class",
+                    "line": 34,
+                    "public_methods": [
+                        {
+                            "name": "__construct",
+                            "line": 40,
+                            "parameters": [
+                                "$userId"
+                            ],
+                            "description": "Classe per analisi inventario (uguale a desktop)",
+                            "static": false
+                        },
+                        {
+                            "name": "getCompleteInventoryAnalysis",
+                            "line": 52,
+                            "parameters": [],
+                            "description": "Analisi completa inventario con tutti i calcoli",
+                            "static": false
+                        }
+                    ]
+                }
+            ],
+            "functions": [
+                {
+                    "name": "doLogout",
+                    "line": 450,
+                    "parameters": [],
+                    "description": "Analisi completa inventario con tutti i calcoli"
+                }
+            ]
+        },
+        {
+            "file": "mobile/login/login.php",
+            "size": 10986,
+            "modified": "2025-11-14 17:31:39",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "mobile/login/forgot_password.php",
+            "size": 9161,
+            "modified": "2025-11-14 17:31:39",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "mobile/login/register.php",
+            "size": 11441,
+            "modified": "2025-11-14 17:31:39",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "mobile/login/reset_password.php",
+            "size": 13515,
+            "modified": "2025-11-14 17:31:39",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "maskEmail",
+                    "line": 58,
+                    "parameters": [
+                        "$email"
+                    ],
+                    "description": "Reset Password Mobile - Margynomic Versione ottimizzata per dispositivi mobili e PWA"
+                }
+            ]
+        },
+        {
+            "file": "mobile/cron/cleanup_mobile_cache.php",
+            "size": 810,
+            "modified": "2025-11-14 17:31:38",
+            "classes": [],
+            "functions": []
+        }
+    ]
+}

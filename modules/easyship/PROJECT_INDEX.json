@@ -1,0 +1,210 @@
+{
+    "module": "easyship",
+    "generated_at": "2025-12-11 18:18:30",
+    "base_path": "easyship/",
+    "files": [
+        {
+            "file": "easyship/config_easyship.php",
+            "size": 8930,
+            "modified": "2025-11-16 14:45:59",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "requireEasyShipAuth",
+                    "line": 31,
+                    "parameters": [],
+                    "description": "Verifica autenticazione utente per EasyShip"
+                },
+                {
+                    "name": "isEasyShipAdmin",
+                    "line": 54,
+                    "parameters": [
+                        "$user"
+                    ],
+                    "description": "Verifica se l'utente \u00e8 admin"
+                },
+                {
+                    "name": "generateShipmentName",
+                    "line": 64,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Genera nome spedizione progressivo per il giorno corrente"
+                },
+                {
+                    "name": "sanitizeFolderName",
+                    "line": 92,
+                    "parameters": [
+                        "$name"
+                    ],
+                    "description": "Normalizza nome per cartella (minuscolo, spazi->underscore, rimozione accenti)"
+                },
+                {
+                    "name": "createShipmentFolders",
+                    "line": 118,
+                    "parameters": [
+                        "$shipmentName",
+                        "$boxCount"
+                    ],
+                    "description": "Crea cartelle per spedizione e box"
+                },
+                {
+                    "name": "getBollaPath",
+                    "line": 151,
+                    "parameters": [
+                        "$shipmentName",
+                        "$boxNumber"
+                    ],
+                    "description": "Ottieni path completo file bolla"
+                },
+                {
+                    "name": "bollaExists",
+                    "line": 159,
+                    "parameters": [
+                        "$shipmentName",
+                        "$boxNumber"
+                    ],
+                    "description": "Controlla se esiste bolla per un box"
+                },
+                {
+                    "name": "getBollaUrl",
+                    "line": 167,
+                    "parameters": [
+                        "$shipmentName",
+                        "$boxNumber"
+                    ],
+                    "description": "Ottieni URL pubblico bolla"
+                },
+                {
+                    "name": "getProductsAutocomplete",
+                    "line": 175,
+                    "parameters": [
+                        "$userId",
+                        "$query"
+                    ],
+                    "description": "Autocomplete prodotti per utente"
+                },
+                {
+                    "name": "json_success",
+                    "line": 222,
+                    "parameters": [
+                        "$data",
+                        "$message"
+                    ],
+                    "description": "Risposta JSON di successo"
+                },
+                {
+                    "name": "json_error",
+                    "line": 233,
+                    "parameters": [
+                        "$message",
+                        "$code"
+                    ],
+                    "description": "Risposta JSON di errore"
+                },
+                {
+                    "name": "sendEasyShipEmail",
+                    "line": 244,
+                    "parameters": [
+                        "$to",
+                        "$subject",
+                        "$htmlContent",
+                        "$fromName"
+                    ],
+                    "description": "Invia email HTML con stile Margynomic"
+                },
+                {
+                    "name": "logEasyShipOperation",
+                    "line": 294,
+                    "parameters": [
+                        "$message",
+                        "$context"
+                    ],
+                    "description": "Logging operazioni EasyShip"
+                }
+            ]
+        },
+        {
+            "file": "easyship/easyship_api.php",
+            "size": 50529,
+            "modified": "2025-10-07 20:51:59",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "sendCancellationEmail",
+                    "line": 751,
+                    "parameters": [
+                        "$userId",
+                        "$cancelledId",
+                        "$cancelledName",
+                        "$newId",
+                        "$newName"
+                    ],
+                    "description": "Invia email di annullamento spedizione"
+                },
+                {
+                    "name": "sendConfirmationEmail",
+                    "line": 785,
+                    "parameters": [
+                        "$userId",
+                        "$shipmentId",
+                        "$shipmentName",
+                        "$payload"
+                    ],
+                    "description": "Invia email di conferma spedizione"
+                },
+                {
+                    "name": "sendConfirmationEmailUpdate",
+                    "line": 917,
+                    "parameters": [
+                        "$userId",
+                        "$shipmentId",
+                        "$shipmentName",
+                        "$payload"
+                    ],
+                    "description": "Invia email di aggiornamento spedizione"
+                },
+                {
+                    "name": "generateAmazonExcel",
+                    "line": 1083,
+                    "parameters": [
+                        "$userId",
+                        "$shipmentId",
+                        "$shipmentName",
+                        "$payload"
+                    ],
+                    "description": "Genera file TXT Amazon FBA per spedizione (formato tabulazioni)"
+                },
+                {
+                    "name": "getSKUFromProductName",
+                    "line": 1206,
+                    "parameters": [
+                        "$userId",
+                        "$productName"
+                    ],
+                    "description": "Ottieni SKU dal nome prodotto"
+                }
+            ]
+        },
+        {
+            "file": "easyship/easyship.php",
+            "size": 70425,
+            "modified": "2025-11-11 22:32:45",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "updateFlowCards",
+                    "line": 1076,
+                    "parameters": [],
+                    "description": "EasyShip - Gestione Spedizioni Multi-Box File: modules/easyship/easyship.php Interfaccia utente per creare e gestire spedizioni multi-box con prodotti, dimensioni e gestione bolle PDF"
+                },
+                {
+                    "name": "formatProductListStyle2",
+                    "line": 1103,
+                    "parameters": [],
+                    "description": "EasyShip - Gestione Spedizioni Multi-Box File: modules/easyship/easyship.php Interfaccia utente per creare e gestire spedizioni multi-box con prodotti, dimensioni e gestione bolle PDF"
+                }
+            ]
+        }
+    ]
+}

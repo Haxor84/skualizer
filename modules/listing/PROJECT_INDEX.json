@@ -1,0 +1,128 @@
+{
+    "module": "listing",
+    "generated_at": "2025-12-11 18:18:30",
+    "base_path": "listing/",
+    "files": [
+        {
+            "file": "listing/admin_list.php",
+            "size": 44812,
+            "modified": "2025-10-04 18:09:45",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "listing/api/get_products.php",
+            "size": 2343,
+            "modified": "2025-09-16 22:05:38",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "listing/api/save_order.php",
+            "size": 4209,
+            "modified": "2025-10-04 18:09:41",
+            "classes": [],
+            "functions": []
+        },
+        {
+            "file": "listing/helpers.php",
+            "size": 15648,
+            "modified": "2025-10-04 19:33:42",
+            "classes": [],
+            "functions": [
+                {
+                    "name": "getProductOrderingClause",
+                    "line": 19,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Costruisce la clausola SQL di ordering standard per prodotti"
+                },
+                {
+                    "name": "normalizeProductPositions",
+                    "line": 34,
+                    "parameters": [
+                        "$productIds",
+                        "$start"
+                    ],
+                    "description": "Normalizza array di product_id in posizioni sequenziali (1, 2, 3...)"
+                },
+                {
+                    "name": "requireListingAdmin",
+                    "line": 50,
+                    "parameters": [],
+                    "description": "Wrapper per controlli di sicurezza admin Riusa le funzioni esistenti senza re-inventare"
+                },
+                {
+                    "name": "isListingAdmin",
+                    "line": 59,
+                    "parameters": [],
+                    "description": "Verifica se utente \u00e8 admin per modulo listing"
+                },
+                {
+                    "name": "getListingDbConnection",
+                    "line": 68,
+                    "parameters": [],
+                    "description": "Ottieni connessione database per modulo listing"
+                },
+                {
+                    "name": "saveProductOrder",
+                    "line": 79,
+                    "parameters": [
+                        "$userId",
+                        "$productIds"
+                    ],
+                    "description": "Salva ordine prodotti per utente in transazione"
+                },
+                {
+                    "name": "saveProductOrderWithPositions",
+                    "line": 164,
+                    "parameters": [
+                        "$userId",
+                        "$productPositions"
+                    ],
+                    "description": "Salva ordine prodotti con posizioni custom specificate"
+                },
+                {
+                    "name": "getProductsWithOrder",
+                    "line": 234,
+                    "parameters": [
+                        "$userId",
+                        "$filters"
+                    ],
+                    "description": "Ottieni prodotti con ordinamento per interfaccia admin"
+                },
+                {
+                    "name": "resetToAlphabeticalOrder",
+                    "line": 322,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Ripristina ordine alfabetico per utente"
+                },
+                {
+                    "name": "getListingUsers",
+                    "line": 365,
+                    "parameters": [],
+                    "description": "Ottieni lista utenti per dropdown admin"
+                },
+                {
+                    "name": "getNextAvailablePosition",
+                    "line": 402,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Ottieni prossima posizione disponibile per un utente"
+                },
+                {
+                    "name": "compactUserPositions",
+                    "line": 429,
+                    "parameters": [
+                        "$userId"
+                    ],
+                    "description": "Compatta posizioni per un utente (rimuove gap)"
+                }
+            ]
+        }
+    ]
+}

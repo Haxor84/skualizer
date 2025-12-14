@@ -1,0 +1,140 @@
+═══════════════════════════════════════════════════════════════
+  SISTEMA CACHE MOBILE - Skualizer
+═══════════════════════════════════════════════════════════════
+
+📦 IMPLEMENTATO: Sistema cache con TTL per ottimizzare caricamento
+
+┌─────────────────────────────────────────────────────────────┐
+│ SETUP INIZIALE (OBBLIGATORIO)                               │
+└─────────────────────────────────────────────────────────────┘
+
+1. CREA TABELLA DATABASE:
+
+   Esegui su phpMyAdmin o MySQL CLI:
+   
+   > Apri: modules/mobile/sql/create_mobile_cache.sql
+   > Copia ed esegui query CREATE TABLE
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ COME FUNZIONA                                                │
+└─────────────────────────────────────────────────────────────┘
+
+TTL (Time To Live): 30 minuti (1800 secondi)
+
+FLOW NORMALE:
+1. Utente apre Margynomic.php
+2. Sistema controlla cache per user_id
+3. SE cache valida (< 30 min) → Usa dati cachati (VELOCE 1-2s)
+4. SE cache assente/scaduta → Calcola con MarginsEngine (LENTO 10s)
+                             → Salva in cache per prossime visite
+
+INVALIDAMENTO AUTOMATICO:
+- L'utente modifica un prezzo → Cache invalidata immediatamente
+- Al prossimo refresh → Cache si rigenera con dati aggiornati
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ FILE MODIFICATI                                              │
+└─────────────────────────────────────────────────────────────┘
+
+✅ CREATI:
+   • modules/mobile/helpers/mobile_cache_helper.php
+     → Funzioni: getMobileCache, setMobileCache, invalidateMobileCache
+   
+   • modules/mobile/sql/create_mobile_cache.sql
+     → Tabella: mobile_cache (user_id, cache_type, cache_data, created_at)
+   
+   • modules/mobile/cron/cleanup_mobile_cache.php
+     → Script pulizia cache scaduta (opzionale, cron giornaliero)
+
+✅ MODIFICATI:
+   • modules/mobile/Margynomic.php
+     → Integrato sistema cache prima di MarginsEngine
+   
+   • modules/margynomic/margini/update_product_pricing.php
+     → Aggiunto invalidateMobileCache() dopo salvataggio prezzo
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ AGGIUNGERE CACHE AD ALTRE PAGINE                            │
+└─────────────────────────────────────────────────────────────┘
+
+Per Previsync.php, OrderInsights.php, etc:
+
+// Include helper
+require_once __DIR__ . '/helpers/mobile_cache_helper.php';
+
+// Prova cache
+$cacheData = getMobileCache($userId, 'inventory', 1800);
+
+if ($cacheData !== null) {
+    // Usa cache
+    $data = $cacheData;
+} else {
+    // Calcola dati freschi
+    $data = getInventoryData($userId);
+    
+    // Salva in cache
+    setMobileCache($userId, 'inventory', $data);
+}
+
+CACHE_TYPE disponibili:
+- 'margins'    (Margynomic)
+- 'inventory'  (Previsync)
+- 'orders'     (OrderInsights)
+- 'trid'       (TridScanner)
+- 'shipments'  (EasyShip)
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ MONITORAGGIO E DEBUG                                         │
+└─────────────────────────────────────────────────────────────┘
+
+Query utili per monitorare cache:
+
+-- Vedi tutte le cache attive
+SELECT user_id, cache_type, 
+       TIMESTAMPDIFF(SECOND, created_at, NOW()) as age_seconds,
+       LENGTH(cache_data) as size_bytes
+FROM mobile_cache 
+ORDER BY created_at DESC;
+
+-- Invalida cache manualmente per user_id=8
+DELETE FROM mobile_cache WHERE user_id = 8;
+
+-- Invalida tutta la cache
+TRUNCATE TABLE mobile_cache;
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ PERFORMANCE ATTESE                                           │
+└─────────────────────────────────────────────────────────────┘
+
+PRIMA (senza cache):
+   Margynomic.php: 10-15 secondi SEMPRE
+
+DOPO (con cache):
+   Prima visita: 10-15 secondi (genera cache)
+   Visite successive (< 30 min): 1-2 secondi ⚡
+   Dopo modifica prezzo: 10-15 secondi (rigenera cache)
+   Visite successive: 1-2 secondi ⚡
+
+IMPATTO: Riduzione 85% tempo caricamento (9 visite su 10)
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ CRON OPZIONALE (pulizia automatica)                         │
+└─────────────────────────────────────────────────────────────┘
+
+Aggiungi a crontab (opzionale, sistema auto-pulente):
+
+0 3 * * * php /path/to/modules/mobile/cron/cleanup_mobile_cache.php
+
+Elimina cache oltre 1 ora alle 03:00 ogni giorno.
+
+
+═══════════════════════════════════════════════════════════════
+  Sistema pronto! Esegui SQL e testa Margynomic.php mobile
+═══════════════════════════════════════════════════════════════
+

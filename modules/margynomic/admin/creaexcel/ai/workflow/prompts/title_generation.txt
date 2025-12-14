@@ -1,0 +1,54 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 ISTRUZIONI DA PRODUCT RESEARCH (GEMINI 3 PRO)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+ESSENZA PRODOTTO:
+{PRODUCT_ESSENCE}
+
+DEVE INCLUDERE (keywords critiche):
+{MUST_INCLUDE}
+
+STRUTTURA SUGGERITA:
+{SUGGESTED_STRUCTURE}
+
+FEATURES PRIORITÀ:
+{FEATURES_PRIORITY}
+
+EVITA ASSOLUTAMENTE:
+{AVOID}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+CONTEXT SPECIFICO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Brand: {BRAND}
+Peso/Formato: {WEIGHT}
+Keywords SEO: {KEYWORDS}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+POLICY AMAZON (HARD LIMITS)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚠️ Lunghezza: 150-200 caratteri (MAX 200, NO eccezioni)
+⚠️ Inizia SEMPRE con: "{BRAND} - "
+⚠️ NO emoji, NO simboli speciali (solo - | / consentiti)
+⚠️ NO claim salute espliciti
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TASK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Genera titolo Amazon seguendo ESATTAMENTE:
+1. La struttura suggerita sopra
+2. Includendo tutte le keywords DEVE INCLUDERE
+3. Usando features priorità nell'ordine dato
+4. EVITANDO le parole nella lista "Evita"
+
+VERIFICA FINALE:
+☐ Titolo inizia con "{BRAND} - "
+☐ Contiene tutte le keywords must_include
+☐ Non contiene parole della lista avoid
+☐ Lunghezza 150-200 caratteri
+☐ Coerente con essenza prodotto
+
+OUTPUT: Solo titolo, NO spiegazioni, NO markdown.

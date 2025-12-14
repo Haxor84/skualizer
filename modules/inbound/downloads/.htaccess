@@ -1,0 +1,13 @@
+# Allow direct download of TSV files
+<FilesMatch "\.tsv$">
+    Header set Content-Type "text/tab-separated-values"
+    Header set Content-Disposition "attachment"
+</FilesMatch>
+
+# Prevent directory listing
+Options -Indexes
+
+# Allow access
+Order allow,deny
+Allow from all
+
